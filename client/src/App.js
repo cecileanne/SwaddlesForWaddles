@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/gallery" component={Gallery} />
         <Route exact path="/donate" component={Donate} />
         <Route path="/login" component={Login} />
+        {/* might want a switch */}
         <Route exact path="/login/register" component={Register} />
       </div>
     </Router>
