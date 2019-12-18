@@ -1,0 +1,28 @@
+{
+  "name": "swaddlesforwaddles",
+  "version": "1.0.0",
+  "description": "Meme Creation with a cause. Create memes of penguins in sweaters with the option to donate to keep penguins safe.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cecileanne/SwaddlesForWaddles.git"
+  },
+  "keywords": [
+    "penguin",
+    "meme",
+    "creator",
+    "fun",
+    "activism",
+    "donation"
+  ],
+  "author": "Cecile-Anne Sison Sabrina Rolz Rosalis Freebairn Brittney Galloway",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cecileanne/SwaddlesForWaddles/issues"
+  },
+  "homepage": "https://github.com/cecileanne/SwaddlesForWaddles#readme"
+}
