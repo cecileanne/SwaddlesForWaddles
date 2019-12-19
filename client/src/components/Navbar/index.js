@@ -10,7 +10,7 @@ function Navbar() {
         <li className="nav-item">
           <a
             href="#home"
-            onClick={() => props.handlePageChange("Home")}
+            // onClick={() => props.handlePageChange("Home")}
             className="nav-link"
           >
             Home (or LOGO image?)
@@ -19,7 +19,7 @@ function Navbar() {
         <li className="nav-item">
           <a
             href="#login"
-            onClick={() => props.handlePageChange("Login")}
+            // onClick={() => props.handlePageChange("Login")}
             className="nav-link"
           >
             Sign In
@@ -28,7 +28,7 @@ function Navbar() {
         <li className="nav-item">
           <a
             href="#swaddle"
-            onClick={() => props.handlePageChange("Swaddle")}
+            // onClick={() => props.handlePageChange("Swaddle")}
             className="nav-link"
           >
             Swaddle (Create a Meme)
@@ -38,7 +38,7 @@ function Navbar() {
           {/* set so this doesn't show unless logged in? */}
           <a
             href="#gallery"
-            onClick={() => props.handlePageChange("Gallery")}
+            // onClick={() => props.handlePageChange("Gallery")}
             className="nav-link"
           >
             My Meme Gallery
@@ -47,7 +47,7 @@ function Navbar() {
         <li className="nav-item">
           <a
             href="#donate"
-            onClick={() => props.handlePageChange("Donate")}
+            // onClick={() => props.handlePageChange("Donate")}
             className="nav-link"
           >
             Donate
@@ -56,7 +56,7 @@ function Navbar() {
         <li className="nav-item">
           <a
             href="#about"
-            onClick={() => props.handlePageChange("About")}
+            // onClick={() => props.handlePageChange("About")}
             className="nav-link"
           >
             About
