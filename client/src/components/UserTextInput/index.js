@@ -1,8 +1,15 @@
-// import React from "react";
-// import "./style.css";
+import React from "react";
+import "./style.css";
 
-// function swaddlePenguin(props) {
-//   return <div />;
-// }
+function UserTextInput(props) {
+  return (
+    <div className="input-group">
+      <div className="input-group-prepend">
+        <span className="Add to Image">Add to Image</span>
+      </div>
+      <textarea className="form-control" aria-label="Add to Image"></textarea>
+    </div>
+  );
+}
 
-// export default swaddlePenguin;
+export default UserTextInput;
