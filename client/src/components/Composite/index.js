@@ -1,18 +1,19 @@
-import React from "react";
-import "./style.css";
+// import React from "react";
+// import "./style.css";
 
 const Jimp = require("jimp");
 
 // Initiate the images:
-let imgPenguin = "./public/assets/images/penguins/penguinTest1.jpg"; // background image examples should all be the same size
-let sweaterRaw = "./public/assets/images/sweaters/redSweaterTest.png"; // png layer
-// THIS CAN GO IN AN API POST
-let imgExported = "./public/assets/images/exportedImages/swaddle.jpg"; //
+// TO DO - SET A MAX HEIGHT ON THE imgPenguin
+let imgPenguin = "../public/assets/images/penguins/penguinTest1.jpg"; // background image examples should all be the same size
+let sweaterRaw = "../public/assets/images/sweaters/redSweaterTest.png"; // png layer
+// TO DO - THIS CAN BE MADE INTO AN API POST
+let imgExported = "../exportedImages/swaddle.jpg"; //
 
-// MOVE THIS TO THE TEXT INPUT COMPONENT
+// TO DO - MOVE THIS TO THE TEXT INPUT COMPONENT
 let textData = {
   // we will save our sweaters to have minimal transparant pad pad
-  text: "BOOM", //the text to be rendered on the image - will be input
+  text: "SOMETHING FUNNY", //the text to be rendered on the image - will be input
   maxWidth: 1004, // SET THIS AS penguin image width - 10px margin left - 10px margin right
   maxHeight: 100, // SET THIS AS penguin image width - 10px margin top - 10px margin bottom
   placementX: -150, // x axis
@@ -78,9 +79,9 @@ Jimp.read(imgPenguin)
       })
   );
 
-// wrap above in this?
-function swaddlePenguin(props) {
-  return <div />;
-}
+// // wrap above in this?
+// function swaddlePenguin(props) {
+//   return <div />;
+// }
 
-export default swaddlePenguin;
+// export default swaddlePenguin;
