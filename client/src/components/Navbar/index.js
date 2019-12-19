@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav className="navbar navbar-expand-lg ">
       <ul className="nav nav-tabs">
         <li className="nav-item">
-
           <Link to="/">Home (or LOGO image?)</Link>
         </li>
         <li className="nav-item">
@@ -24,7 +23,6 @@ function Navbar() {
         </li>
         <li className="nav-item">
           <Link to="/About"> About</Link>
-
         </li>
       </ul>
     </nav>
