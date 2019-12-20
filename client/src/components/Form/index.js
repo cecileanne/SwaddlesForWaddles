@@ -1,8 +1,23 @@
-// import React from "react";
-// import "./style.css";
+import React from "react";
 
-// function swaddlePenguin(props) {
-//   return <div />;
-// }
+// This file exports the Input, TextArea, and FormBtn components
 
-// export default swaddlePenguin;
+export function Input(props) {
+  return (
+    <div className="form-group">
+      <input className="form-control" {...props} />
+    </div>
+  );
+}
+
+export function FormSubmit(props) {
+  return (
+    <button
+      {...props}
+      style={{ float: "right", marginBottom: 10 }}
+      className="btn btn-success"
+    >
+      {props.children}
+    </button>
+  );
+}
