@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg ">
-      <ul className="nav nav-tabs">
+    <nav className="navbar ">
+      <ul className="nav flex-column">
         <li className="nav-item">
           <Link to="/">Home (or LOGO image?)</Link>
         </li>
