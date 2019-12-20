@@ -9,6 +9,7 @@ function UserTextInput(props) {
       </div>
       <textarea className="form-control" aria-label="Add to Image"></textarea>
     </div>
+    // creates on click the object {text: "SOMETHING FUNNY", maxWidth: 1000, maxHeight: 100, placementX: -150, placementY: 550}
   );
 }
 
