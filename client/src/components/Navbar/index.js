@@ -12,7 +12,10 @@ function Navbar() {
           <Link to="/Login"> Login</Link>
         </li>
         <li className="nav-item">
-          <Link to="/Swaddle"> Swaddle (Create a Meme)</Link>
+          <Link to="/About"> About</Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/Swaddle"> Swaddle a Penguin</Link>
         </li>
         <li className="nav-item">
           {/* if not logged in it askes you to login or register*/}
@@ -20,9 +23,6 @@ function Navbar() {
         </li>
         <li className="nav-item">
           <Link to="/Donate"> Donate</Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/About"> About</Link>
         </li>
       </ul>
     </nav>
