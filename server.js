@@ -1,3 +1,4 @@
+
 // Requiring necessary npm packages
 var express = require("express");
 var session = require("express-session");
@@ -11,6 +12,7 @@ let mysql = require("mysql");
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
 
+
 // Creating express app and configuring middleware needed for authentication
 var app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -21,6 +23,7 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
+
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
@@ -45,6 +48,7 @@ app.use(logger("combined"));
 // Requiring our routes
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
