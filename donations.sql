@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS donations;
+CREATE DATABASE donations;
