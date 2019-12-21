@@ -1,6 +1,7 @@
 import React from "react";
 import { Container } from "../../components/Grid";
 import InfiniteCarousel from "react-leaf-carousel";
+// import DataImageTypes from "dataImageTypes.json";
 import "./style.css";
 
 const Carousel = () => {

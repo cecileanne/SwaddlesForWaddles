@@ -9,7 +9,7 @@ function Navbar() {
           <Link to="/">Home (or LOGO image?)</Link>
         </li>
         <li className="nav-item">
-          <Link to="{props.route}"> Login</Link>
+          <Link to="/Link"> Login</Link>
         </li>
         <li className="nav-item">
           <Link to="/About"> About</Link>
