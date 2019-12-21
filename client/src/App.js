@@ -23,7 +23,7 @@ function App() {
         <Route exact path="/donate" component={Donate} />
         <Route path="/login" component={Login} />
         {/* might want a switch */}
-        <Route exact path="/login/register" component={Register} />
+        <Route exact path="/register" component={Register} />
       </div>
     </Router>
   );

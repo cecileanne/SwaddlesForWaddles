@@ -1,4 +1,5 @@
 import React from "react";
+import { AddTextBtn } from "../ButtonSubmit";
 import "./style.css";
 
 function UserTextInput(props) {
@@ -8,6 +9,7 @@ function UserTextInput(props) {
         <span className="Add to Image">Add to Image</span>
       </div>
       <textarea className="form-control" aria-label="Add to Image"></textarea>
+      <AddTextBtn />
     </div>
   );
 }
