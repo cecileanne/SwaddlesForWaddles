@@ -1,6 +1,8 @@
 import React from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import UserTextInput from "../../components/UserTextInput";
+import { ShowPenguin, ShowSweater } from "../../components/ButtonIcon";
+import { ResetBtn, SaveBtn } from "../../components/ButtonSubmit";
 import Carousel from "../../components/Carousel";
 
 // import "./style.css";
@@ -18,8 +20,12 @@ function Swaddle() {
         <Row>
           <Col size="md-6">
             <Row>
-              <Col size="md-2">button</Col>
-              <Col size="md-2">button</Col>
+              <Col size="md-2">
+                <ShowPenguin />
+              </Col>
+              <Col size="md-2">
+                <ShowSweater />
+              </Col>
               <Row>
                 <Col size="md-12">
                   <UserTextInput />
@@ -46,12 +52,10 @@ function Swaddle() {
         </Row>
         <Row>
           <Col size="md-4 offset-md-2">
-            {/* this will be a button component */}
-            <button>Save</button>
+            <SaveBtn />
           </Col>
           <Col size="md-4 ">
-            {/* this will be a button component */}
-            <button>Reset</button>
+            <ResetBtn />
           </Col>
         </Row>
       </Container>
@@ -60,10 +64,3 @@ function Swaddle() {
 }
 
 export default Swaddle;
-
-// // wrap above in this?
-// function swaddlePenguin(props) {
-//   return <div />;
-// }
-
-// export default swaddlePenguin;

@@ -1,12 +1,28 @@
 import React from "react";
 import "./style.css";
 
-// The ...props means, spread all of the passed props onto this element
-// That way we don't have to define them all individually
-export function ButtonIcon(props) {
+export function ShowPenguin() {
   return (
-    <button {...props} type="submit">
-      ✗
+    <button>
+      <img
+        src={
+          process.env.PUBLIC_URL +
+          "/assets/images/icons/penguin-svgrepo-com.svg"
+        }
+      />
+    </button>
+  );
+}
+
+export function ShowSweater() {
+  return (
+    <button>
+      <img
+        src={
+          process.env.PUBLIC_URL +
+          "/assets/images/icons/pullover-sweater-svgrepo-com.svg"
+        }
+      />
     </button>
   );
 }
