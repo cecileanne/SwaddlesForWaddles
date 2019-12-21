@@ -1,0 +1,80 @@
+[
+  {
+    "imgURL": "process.env.PUBLIC_URL + '/assets/images/penguins/penguin001.jpg'",
+    "sweaterX": 180,
+    "sweaterY": 410,
+    "sweaterMaxPercentSize": "TBD",
+    "sweaterRotation": "TBD",
+    "textFont": "Jimp.FONT_SANS_64_WHITE",
+    "textPlacementX": 65,
+    "textPlacementY": 50,
+    "maxWidth": 880,
+    "maxHeight": 100,
+    "clicked": false
+  },
+  {
+    "imgURL": "process.env.PUBLIC_URL + '/assets/images/penguins/penguin002.jpg'",
+    "sweaterX": 325,
+    "sweaterY": 355,
+    "sweaterMaxPercentSize": "TBD",
+    "sweaterRotation": "TBD",
+    "textFont": "Jimp.FONT_SANS_64_BLACK",
+    "textPlacementX": 0,
+    "textPlacementY": 1100,
+    "maxWidth": 880,
+    "maxHeight": 100,
+    "clicked": false
+  },
+  {
+    "imgURL": "process.env.PUBLIC_URL + '/assets/images/penguins/penguin003.jpg'",
+    "sweaterX": 180,
+    "sweaterY": 460,
+    "sweaterMaxPercentSize": "TBD 90",
+    "sweaterRotation": "TBD",
+    "textFont": "Jimp.FONT_SANS_64_BLACK",
+    "textPlacementX": 0,
+    "textPlacementY": 180,
+    "maxWidth": 880,
+    "maxHeight": 100,
+    "clicked": false
+  },
+  {
+    "imgURL": "process.env.PUBLIC_URL + '/assets/images/penguins/penguin004.jpg'",
+    "sweaterX": 180,
+    "sweaterY": 440,
+    "sweaterMaxPercentSize": "TBD 110",
+    "sweaterRotation": "TBD",
+    "textFont": "Jimp.FONT_SANS_64_BLACK",
+    "textPlacementX": 0,
+    "textPlacementY": 100,
+    "maxWidth": 880,
+    "maxHeight": 100,
+    "clicked": false
+  },
+  {
+    "imgURL": "process.env.PUBLIC_URL + '/assets/images/penguins/penguin005.jpg'",
+    "sweaterX": 220,
+    "sweaterY": 200,
+    "sweaterMaxPercentSize": "TBD 90",
+    "sweaterRotation": "TBD -10",
+    "textFont": "Jimp.FONT_SANS_64_BLACK",
+    "textPlacementX": 0,
+    "textPlacementY": 1100,
+    "maxWidth": 880,
+    "maxHeight": 100,
+    "clicked": false
+  },
+  {
+    "imgURL": "process.env.PUBLIC_URL + '/assets/images/penguins/penguin006.jpg'",
+    "sweaterX": 220,
+    "sweaterY": 260,
+    "sweaterMaxPercentSize": "TBD",
+    "sweaterRotation": "TBD",
+    "textFont": "Jimp.FONT_SANS_64_WHITE",
+    "textPlacementX": 330,
+    "textPlacementY": 420,
+    "maxWidth": 300,
+    "maxHeight": 300,
+    "clicked": false
+  }
+]
