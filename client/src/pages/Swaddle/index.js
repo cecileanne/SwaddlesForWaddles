@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
+import React from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import UserTextInput from "../../components/UserTextInput";
+import { ShowPenguin, ShowSweater } from "../../components/ButtonIcon";
+import { ResetBtn, SaveBtn } from "../../components/ButtonSubmit";
 import Carousel from "../../components/Carousel";
 import API from "../../utils/API";
 import { stat } from "fs";
-
-// import "./style.css";
+import "./style.css";
 
 function Swaddle() {
   const [state, setState] = useState({
@@ -28,7 +28,7 @@ function Swaddle() {
       // TO DO set state with the data or pass down the processed image as a prop
     });
   }, []); // on change
-
+  
   return (
     <>
       <Container fluid>
@@ -41,8 +41,12 @@ function Swaddle() {
         <Row>
           <Col size="md-6">
             <Row>
-              <Col size="md-2">button</Col>
-              <Col size="md-2">button</Col>
+              <Col size="md-2">
+                <ShowPenguin />
+              </Col>
+              <Col size="md-2">
+                <ShowSweater />
+              </Col>
               <Row>
                 <Col size="md-12">
                   <UserTextInput />
@@ -51,30 +55,27 @@ function Swaddle() {
             </Row>
           </Col>
           <Col size="md-6">
-            {/* Not sure if figure is best image area */}
-            <figure className="figure">
-              <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/assets/images/sweaters/blueSweaterTest.png"
-                }
-                className="figure-img img-fluid rounded"
-                alt="..."
-              />
-              <figcaption className="figure-caption">
-                meme area (delete this figcaption)
-              </figcaption>
-            </figure>
+            <section>
+              <div className="card">
+                <img
+                  className="card-img-top"
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/assets/images/penguins/penguinTest1.jpg"
+                  }
+                  alt="Card image cap"
+                />
+              </div>
+            </section>
           </Col>
         </Row>
+
         <Row>
           <Col size="md-4 offset-md-2">
-            {/* this will be a button component */}
-            <button>Save</button>
+            <SaveBtn />
           </Col>
           <Col size="md-4 ">
-            {/* this will be a button component */}
-            <button>Reset</button>
+            <ResetBtn />
           </Col>
         </Row>
       </Container>

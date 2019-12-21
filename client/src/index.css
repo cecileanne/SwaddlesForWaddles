@@ -8,6 +8,6 @@ body,
 #root,
 #root > div {
   height: 100%;
-  margin: 0;
+  margin: 1em;
   padding: 0;
 }
