@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "process.env.password_local",
+    "database": "process.env.db_local",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "process.env.username_jaws",
+    "password": "process.env.password_jaws",
+    "database": "process.env.db_jaws",
+    "host": "process.env.host_jaws",
+    "dialect": "mysql"
+  }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Passport Authentication</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
+    />
+    <link href="stylesheets/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header"></div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h2>Reset Form</h2>
+          <p id="no-match" style="color:red"></p>
+          <form class="reset">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Old Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="old-password"
+                placeholder=""
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">New Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="new-password"
+                placeholder=""
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Retype New Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="retype-password"
+                placeholder=""
+              />
+            </div>
+            <button id="reset-button" type="submit" class="btn btn-default">
+              Reset Password
+            </button>
+          </form>
+          <br />
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $("#reset-button").on("click", function(event) {
+        event.preventDefault();
+        if (
+          true
+          //   $("#new-password")
+          //     .val()
+          //     .trim() ===
+          //   $("#retype-password")
+          //     .val()
+          //     .trim()
+        ) {
+          data = { oldPassword: "test1", newPassword: "testNew" };
+          $.ajax({ url: "api/updatepassword/1", method: "PUT", data }).then(
+            function(result) {
+              console.log(result);
+            }
+          );
+        } else {
+          $("#no-match").text("Passwords need to match");
+        }
+      });
+    </script>
+  </body>
+</html>
