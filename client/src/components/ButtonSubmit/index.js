@@ -40,3 +40,11 @@ export function SwaddleBtn() {
 export function DownloadBtn() {
   return <button>Download</button>;
 }
+
+export function DeleteBtn(props) {
+  return (
+    <span className="delete-btn" {...props} role="button" tabIndex="0">
+      ✗
+    </span>
+  );
+}
