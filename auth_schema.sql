@@ -1,9 +1,10 @@
-usersCREATE DATABASE userAuth
+DROP DATABASE IF EXISTS userAuth;
+
+CREATE DATABASE userAuth;
 
 USE userAuth; 
 
-
-SELECT * FROM users;
+SELECT * FROM user;
 
 
 
