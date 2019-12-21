@@ -9,7 +9,7 @@ function Navbar() {
           <Link to="/">Home (or LOGO image?)</Link>
         </li>
         <li className="nav-item">
-          <Link to="/Login"> Login</Link>
+          <Link to="{props.route}"> Login</Link>
         </li>
         <li className="nav-item">
           <Link to="/About"> About</Link>
@@ -19,7 +19,7 @@ function Navbar() {
         </li>
         <li className="nav-item">
           {/* if not logged in it askes you to login or register*/}
-          <Link to="/Gallery"> Gallery</Link>
+          <Link to="/Gallery"> My Gallery</Link>
         </li>
         <li className="nav-item">
           <Link to="/Donate"> Donate</Link>

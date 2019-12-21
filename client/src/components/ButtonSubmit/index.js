@@ -15,7 +15,11 @@ export function SaveBtn() {
 export function SubmitBtn() {
   return <button>Submit</button>;
 }
-
+// export function RouteBtn(props) {
+//   <a className="btn btn-primary" href={props.Linkto} role="button">
+//     {props.routes}
+//   </a>;
+// }
 export function DonateBtn() {
   return (
     <a className="btn btn-primary" href="/donate" role="button">
