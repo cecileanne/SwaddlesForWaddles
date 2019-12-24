@@ -38,7 +38,7 @@ connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "cecile1sGROOT",
+  password: "W0w4ng13!",
   database: "userAuth"
 });
 // }
