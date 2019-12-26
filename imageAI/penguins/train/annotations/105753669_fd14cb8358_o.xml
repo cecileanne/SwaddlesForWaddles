@@ -1,0 +1,26 @@
+<annotation>
+	<folder>penguins_dataset</folder>
+	<filename>105753669_fd14cb8358_o.jpg</filename>
+	<path>C:\Users\srolz1\Desktop\Coding Bootcamp\Project3\SwaddlesForWaddles\imageAI\penguins_dataset\105753669_fd14cb8358_o.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>3008</width>
+		<height>2000</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>penguin</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1385</xmin>
+			<ymin>226</ymin>
+			<xmax>2490</xmax>
+			<ymax>1322</ymax>
+		</bndbox>
+	</object>
+</annotation>
