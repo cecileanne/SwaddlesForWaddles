@@ -1,8 +1,7 @@
 import React from "react";
-import { Container } from "../../components/Grid";
 import InfiniteCarousel from "react-leaf-carousel";
-import "./style.css";
 import imageTypes from "./images.json";
+import "./style.css";
 
 function Carousel(props) {
   const [state, setState] = React.useState({
