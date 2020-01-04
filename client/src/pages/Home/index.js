@@ -1,6 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import { DonateBtn, AboutBtn, SwaddleBtn } from "../../components/ButtonSubmit";
 import Jumbotron from "../../components/Jumbotron";
 import Navbar from "../../components/Navbar";
 import "./style.css";
@@ -22,19 +22,32 @@ function Home() {
           </Row>
           <Row>
             <Col size="md-12">
-              <p>
-                This is an actual about page with the oil spill, pengiun sweater
-                story. We hope people like the cause and want to a) make a
-                cute/funny and b) make a donation to an org that fights/cleans
-                up oil spills (org not yet choosen).This is an actual about page
-                with the oil spill, pengiun sweater story. We hope people like
-                the cause people like the cause and want to a) make a cute/funny
-                and b) make a
-              </p>
+              <article>
+                <p>
+                  A group of penguins is called a waddle, and a sweater for a
+                  penguin is like a swaddle. Here, on Swaddles for Waddles, you
+                  can create your own images and memes of penguins in sweaters!
+                </p>
+                <p>Create fun memes and be as fun and silly as you want.</p>
+              </article>
             </Col>
           </Row>
           <Row>
-            <AboutBtn /> <SwaddleBtn /> <DonateBtn />
+            <Link to="/About">
+              <a className="btn btn-primary" role="button">
+                About
+              </a>
+            </Link>
+            <Link to="/Swaddle">
+              <a className="btn btn-primary" role="button">
+                Swaddle a Pengiun!
+              </a>
+            </Link>
+            <Link to="/Donate">
+              <a className="btn btn-primary" role="button">
+                Donate
+              </a>
+            </Link>
           </Row>
         </Col>
       </Row>
