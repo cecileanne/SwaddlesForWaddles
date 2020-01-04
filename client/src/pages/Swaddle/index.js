@@ -3,12 +3,44 @@ import { Col, Row, Container } from "../../components/Grid";
 import UserTextInput from "../../components/UserTextInput";
 import { ShowPenguin, ShowSweater } from "../../components/ButtonIcon";
 import { ResetBtn, SaveBtn } from "../../components/ButtonSubmit";
-import Carousel from "../../components/Carousel";
+import imageTypes from "../../components/Carousel/images.json";
+import ImageDisplay from "../../components/Carousel";
 
 import API from "../../utils/API";
 import { stat } from "fs";
 import "./style.css";
+
+// function ImageDisplay({ imgURL, dataName, type, clicked }) {
+//   return (
+//     <div className="col-md-4">
+//       <img
+//         src={imgURL}
+//         data-name={dataName}
+//         data-type={type}
+//         onClick={handleClick}
+//       />
+//       <p>{clicked.toString()}</p>
+//     </div>
+//   );
+// }
+
 class Swaddle extends Component {
+  state = {
+    imageTypes
+  };
+
+  handleClick = event => {
+    const dataType = event.target.dataType;
+    const clickedImage = this.state.imageTypes.find(
+      img => img.dataType == dataType
+    );
+
+    if (!clickedImage.clicked) {
+      clickedImage.clicked = true;
+    }
+    console.log(clickedImage);
+  };
+
   // function Swaddle() {
   // handleCarouselChange = carousel => {
   //   this.state.images.type === "penguin";
@@ -39,7 +71,15 @@ class Swaddle extends Component {
           <Row>
             <Col size="md-12">
               <p>Swaddles for Waddles</p>
-              <Carousel />
+              {this.state.imageTypes.map(image => (
+                <ImageDisplay
+                  imgURL={image.imgURL}
+                  dataName={image.dataName}
+                  dataType={image.type}
+                  clicked={image.clicked}
+                  handleClick={this.handleClick}
+                />
+              ))}
             </Col>
           </Row>
           <Row>
