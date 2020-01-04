@@ -1,10 +1,9 @@
 import React from "react";
-// import data from "dataImageTypes.json";
 import "./style.css";
 
 export function ShowPenguin() {
   return (
-    // <button onClick={props.handleCarouselChange}>
+    // <button onClick={props.handleCarouselToggle}>
     <button>
       <img
         src={
@@ -18,7 +17,7 @@ export function ShowPenguin() {
 
 export function ShowSweater() {
   return (
-    // <button onClick={props.handleCarouselChange}>
+    // <button onClick={props.handleCarouselToggle}>
     <button>
       <img
         src={
