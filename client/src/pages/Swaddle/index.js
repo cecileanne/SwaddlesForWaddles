@@ -36,10 +36,21 @@ class Swaddle extends Component {
       img => img.imgURL == imgURL
     );
 
-    if (!clickedImage.clicked) {
-      clickedImage.clicked = true;
-    }
-    console.log(clickedImage);
+    console.log(event.target);
+    // if (!clickedImage.clicked) {
+    //   clickedImage.clicked = true;
+    //   // if (
+    //   //   clickedImage.clicked === true &&
+    //   //   clickedImage.dataType === "penguin"
+    //   // ) {
+    //   //   //post img src ({imgURL}) into Composite component? or  as imgPenguin
+    //   //   API.swaddle().then(clickedImage => clickedImage.json());
+    //   // }
+    //   // if (clickedImage.dataType === "sweater") {
+    //   //   //post img src ({imgURL}) into Composite compent as sweaterRaw
+    //   // }
+    // }
+    // console.log(clickedImage);
   };
 
   // function Swaddle() {
