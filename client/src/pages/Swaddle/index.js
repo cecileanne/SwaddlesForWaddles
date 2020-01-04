@@ -3,6 +3,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import UserTextInput from "../../components/UserTextInput";
 import { ShowPenguin, ShowSweater } from "../../components/ButtonIcon";
 import { ResetBtn, SaveBtn } from "../../components/ButtonSubmit";
+import Navbar from "../../components/Navbar";
 import imageTypes from "../../components/Carousel/images.json";
 import ImageDisplay from "../../components/Carousel";
 
@@ -69,6 +70,9 @@ class Swaddle extends Component {
       <>
         <Container fluid>
           <Row>
+
+            <Col size="md-3">
+              <Navbar />
             <Col size="md-12">
               <p>Swaddles for Waddles</p>
               {this.state.imageTypes.map(image => (
@@ -81,45 +85,53 @@ class Swaddle extends Component {
                 />
               ))}
             </Col>
-          </Row>
-          <Row>
-            <Col size="md-6">
+            <Col size="md-9">
               <Row>
-                <Col size="md-2">
-                  <ShowPenguin />
+                <Col size="md-12">
+                  <p>Swaddles for Waddles</p>
+                  <Carousel />
                 </Col>
-                <Col size="md-2">
-                  <ShowSweater />
-                </Col>
-                <Row>
-                  <Col size="md-12">
-                    <UserTextInput />
-                  </Col>
-                </Row>
               </Row>
-            </Col>
-            <Col size="md-6">
-              <section>
-                <div className="card">
-                  <img
-                    className="card-img-top"
-                    src={
-                      process.env.PUBLIC_URL +
-                      "/assets/images/penguins/penguinTest1.jpg"
-                    }
-                    alt="Card image cap"
-                  />
-                </div>
-              </section>
-            </Col>
-          </Row>
+              <Row>
+                <Col size="md-6">
+                  <Row>
+                    <Col size="md-2">
+                      <ShowPenguin />
+                    </Col>
+                    <Col size="md-2">
+                      <ShowSweater />
+                    </Col>
+                    <Row>
+                      <Col size="md-12">
+                        <UserTextInput />
+                      </Col>
+                    </Row>
+                  </Row>
+                </Col>
+                <Col size="md-6">
+                  <section>
+                    <div className="card">
+                      <img
+                        className="card-img-top"
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/penguins/penguinTest1.jpg"
+                        }
+                        alt="Card image cap"
+                      />
+                    </div>
+                  </section>
+                </Col>
+              </Row>
 
-          <Row>
-            <Col size="md-4 offset-md-2">
-              <SaveBtn />
-            </Col>
-            <Col size="md-4 ">
-              <ResetBtn />
+              <Row>
+                <Col size="md-4 offset-md-2">
+                  <SaveBtn />
+                </Col>
+                <Col size="md-4 ">
+                  <ResetBtn />
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Container>
