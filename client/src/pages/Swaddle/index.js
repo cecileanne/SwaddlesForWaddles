@@ -30,9 +30,10 @@ class Swaddle extends Component {
   };
 
   handleClick = event => {
-    const dataType = event.target.dataType;
+    const imgURL = event.target.getAttribute("src");
+    // console.log("i am a url", imgURL);
     const clickedImage = this.state.imageTypes.find(
-      img => img.dataType == dataType
+      img => img.imgURL == imgURL
     );
 
     if (!clickedImage.clicked) {

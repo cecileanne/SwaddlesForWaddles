@@ -15,6 +15,7 @@ function ImageDisplay({ imgURL, dataName, dataType, clicked, handleClick }) {
   return (
     <div className="col-md-4">
       <img
+        id={imgURL}
         src={imgURL}
         dataName={dataName}
         dataType={dataType}
