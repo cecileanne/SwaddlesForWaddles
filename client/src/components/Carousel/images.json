@@ -1,44 +1,48 @@
-[
-  {
-    "dataName": "penguin001",
-    "imgURL": "/assets/images/penguins/penguin001.jpg",
-    "type": "penguin",
-    "clicked": false
-  },
-  {
-    "dataName": "penguin002",
-    "imgURL": "/assets/images/penguins/penguin002.jpg",
-    "type": "penguin",
-    "clicked": false
-  },
-  {
-    "dataName": "penguin006",
-    "imgURL": "/assets/images/penguins/penguin006.jpg",
-    "type": "penguin",
-    "clicked": false
-  },
-  {
-    "dataName": "sweater001",
-    "imgURL": "/assets/images/sweaters/sweater001.png",
-    "type": "sweater",
-    "clicked": false
-  },
-  {
-    "dataName": "sweater002",
-    "imgURL": "/assets/images/sweaters/sweater002.png",
-    "type": "sweater",
-    "clicked": false
-  },
-  {
-    "dataName": "sweater003",
-    "imgURL": "/assets/images/sweaters/sweater003.png",
-    "type": "sweater",
-    "clicked": false
-  },
-  {
-    "dataName": "sweater004",
-    "imgURL": "/assets/images/sweaters/sweater004.png",
-    "type": "sweater",
-    "clicked": false
-  }
-]
+{
+  "penguins": [
+    {
+      "dataName": "penguin001",
+      "imgURL": "/assets/images/penguins/penguin001.jpg",
+      "type": "penguin",
+      "clicked": false
+    },
+    {
+      "dataName": "penguin002",
+      "imgURL": "/assets/images/penguins/penguin002.jpg",
+      "type": "penguin",
+      "clicked": false
+    },
+    {
+      "dataName": "penguin006",
+      "imgURL": "/assets/images/penguins/penguin006.jpg",
+      "type": "penguin",
+      "clicked": false
+    }
+  ],
+  "sweaters": [
+    {
+      "dataName": "sweater001",
+      "imgURL": "/assets/images/sweaters/sweater001.png",
+      "type": "sweater",
+      "clicked": false
+    },
+    {
+      "dataName": "sweater002",
+      "imgURL": "/assets/images/sweaters/sweater002.png",
+      "type": "sweater",
+      "clicked": false
+    },
+    {
+      "dataName": "sweater003",
+      "imgURL": "/assets/images/sweaters/sweater003.png",
+      "type": "sweater",
+      "clicked": false
+    },
+    {
+      "dataName": "sweater004",
+      "imgURL": "/assets/images/sweaters/sweater004.png",
+      "type": "sweater",
+      "clicked": false
+    }
+  ]
+}

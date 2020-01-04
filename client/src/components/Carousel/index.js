@@ -11,16 +11,15 @@ function Carousel(props) {
   });
 }
 
-function ImageDisplay({ imgURL, dataName, dataType, clicked, handleClick }) {
+function ImageDisplay({ imgURL, dataName, dataType, handleClick }) {
+  const dataAttr = {
+    "data-name": dataName,
+    "data-type": dataType
+  };
+  console.log(dataAttr);
   return (
     <div className="col-md-4">
-      <img
-        src={imgURL}
-        dataName={dataName}
-        dataType={dataType}
-        onClick={handleClick}
-        // clicked={clicked}
-      />
+      <img src={imgURL} alt={dataName} {...dataAttr} onClick={handleClick} />
     </div>
   );
 }

@@ -5,10 +5,8 @@ const Jimp = require("jimp");
 
 // Initiate the images:
 // TO DO - SET A MAX HEIGHT ON THE imgPenguin
-let imgPenguin =
-  process.env.PUBLIC_URL + "/assets/images/penguins/penguinTest1.jpg"; // background image examples should all be the same size
-let sweaterRaw =
-  process.env.PUBLIC_URL + "/assets/images/sweaters/redSweaterTest.png"; // png layer
+let imgPenguin = process.env.PUBLIC_URL + { imgURL }; // background image examples should all be the same size
+let sweaterRaw = process.env.PUBLIC_URL + { imgURL }; // png layer
 // TO DO - THIS CAN BE MADE INTO AN API POST
 let imgExported = process.env.PUBLIC_URL + "/exportedImages/swaddle.jpg"; //
 

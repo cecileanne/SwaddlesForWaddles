@@ -6,7 +6,7 @@ import { ResetBtn, SaveBtn } from "../../components/ButtonSubmit";
 import Navbar from "../../components/Navbar";
 import imageTypes from "../../components/Carousel/images.json";
 import ImageDisplay from "../../components/Carousel";
-
+// import Composite from "../../components/Composite";
 import API from "../../utils/API";
 import { stat } from "fs";
 import "./style.css";
@@ -27,19 +27,31 @@ import "./style.css";
 
 class Swaddle extends Component {
   state = {
-    imageTypes
+    imageTypes,
+    config: { penguin: "", sweater: "", userText: "" }
   };
 
   handleClick = event => {
     const dataType = event.target.dataType;
-    const clickedImage = this.state.imageTypes.find(
-      img => img.dataType == dataType
-    );
 
-    if (!clickedImage.clicked) {
-      clickedImage.clicked = true;
-    }
-    console.log(clickedImage);
+    // const clickedImage = this.state.imageTypes[dataType].find(
+    // img => img.dataType === dataType
+    // );
+    console.log(event.target);
+    // if (!clickedImage.clicked) {
+    //   clickedImage.clicked = true;
+    //   // if (
+    //   //   clickedImage.clicked === true &&
+    //   //   clickedImage.dataType === "penguin"
+    //   // ) {
+    //   //   //post img src ({imgURL}) into Composite component? or  as imgPenguin
+    //   //   API.swaddle().then(clickedImage => clickedImage.json());
+    //   // }
+    //   // if (clickedImage.dataType === "sweater") {
+    //   //   //post img src ({imgURL}) into Composite compent as sweaterRaw
+    //   // }
+    // }
+    // console.log(clickedImage);
   };
 
   // function Swaddle() {
@@ -78,8 +90,19 @@ class Swaddle extends Component {
               <Row>
                 <Col size="md-12">
                   <p>Swaddles for Waddles</p>
-                  {this.state.imageTypes.map(image => (
+                  {this.state.imageTypes.penguins.map((image, index) => (
                     <ImageDisplay
+                      key={index}
+                      imgURL={image.imgURL}
+                      dateName={image.dataName}
+                      dataType={image.dataType}
+                      clicked={image.clicked}
+                      handleClick={this.handleClick}
+                    />
+                  ))}
+                  {this.state.imageTypes.sweaters.map((image, index) => (
+                    <ImageDisplay
+                      key={index}
                       imgURL={image.imgURL}
                       dateName={image.dataName}
                       dataType={image.dataType}
