@@ -70,26 +70,23 @@ class Swaddle extends Component {
       <>
         <Container fluid>
           <Row>
-
             <Col size="md-3">
               <Navbar />
-            <Col size="md-12">
-              <p>Swaddles for Waddles</p>
-              {this.state.imageTypes.map(image => (
-                <ImageDisplay
-                  imgURL={image.imgURL}
-                  dataName={image.dataName}
-                  dataType={image.type}
-                  clicked={image.clicked}
-                  handleClick={this.handleClick}
-                />
-              ))}
             </Col>
+
             <Col size="md-9">
               <Row>
                 <Col size="md-12">
                   <p>Swaddles for Waddles</p>
-                  <Carousel />
+                  {this.state.imageTypes.map(image => (
+                    <ImageDisplay
+                      imgURL={image.imgURL}
+                      dateName={image.dataName}
+                      dataType={image.dataType}
+                      clicked={image.clicked}
+                      handleClick={this.handleClick}
+                    />
+                  ))}
                 </Col>
               </Row>
               <Row>
