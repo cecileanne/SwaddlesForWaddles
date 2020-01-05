@@ -5,11 +5,11 @@ import "./style.css";
 import imageTypes from "./images.json";
 // import ImageSelector from "../../components/ImageSelector";
 
-function Carousel(props) {
-  const [state, setState] = React.useState({
-    imageTypes
-  });
-}
+// function Carousel(props) {
+//   const [state, setState] = React.useState({
+//     imageTypes
+//   });
+// }
 
 function ImageDisplay({ imgURL, dataName, dataType, clicked, handleClick }) {
   return (
@@ -17,6 +17,7 @@ function ImageDisplay({ imgURL, dataName, dataType, clicked, handleClick }) {
       <img
         id={imgURL}
         src={imgURL}
+        alt={dataName}
         dataName={dataName}
         dataType={dataType}
         onClick={handleClick}

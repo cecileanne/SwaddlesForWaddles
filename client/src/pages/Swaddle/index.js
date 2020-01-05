@@ -10,52 +10,54 @@ import API from "../../utils/API";
 import { stat } from "fs";
 import "./style.css";
 
-// function ImageDisplay({ imgURL, dataName, type, clicked }) {
-//   return (
-//     <div className="col-md-4">
-//       <img
-//         src={imgURL}
-//         data-name={dataName}
-//         data-type={type}
-//         onClick={handleClick}
-//       />
-//       <p>{clicked.toString()}</p>
-//     </div>
-//   );
-// }
-
 class Swaddle extends Component {
   state = {
     imageTypes
+    // userSelectedObject: { penguin: "", sweater: "", UserTextInput: "" }
   };
+
+  // handleClick = event => {
+  //   const imgURL = event.target.getAttribute("src");
+  //   // console.log("i am a url", imgURL);
+  //   // TO DO rewrite this so it drills down one of the arrays
+  //   const clickedImage = this.state.imageTypes.find(
+  //     img => img.imgURL == imgURL
+  //   );
+
+  //   if (!clickedImage.clicked) {
+  //     clickedImage.clicked = true;
+  //   }
+  //   // TO DO all other images in the array penguins or sweaters will be false
+  //   console.log(clickedImage);
+  // };
 
   handleClick = event => {
-    const imgURL = event.target.getAttribute("src");
-    // console.log("i am a url", imgURL);
-    const clickedImage = this.state.imageTypes.find(
-      img => img.imgURL == imgURL
-    );
+    const clickedImageURL = event.target.getAttribute("src");
+    const clickedImageType = event.target.getAttribute("dataType");
+    console.log(clickedImageURL, clickedImageType);
 
-    if (!clickedImage.clicked) {
-      clickedImage.clicked = true;
+    // const clickedImage = this.state.imageTypes.find(
+    //   img => img.clickedImageURL == clickedImageURL
+    // );
+
+    // if (!clickedImage.clicked) {
+    //   clickedImage.clicked = true;
+    //   console.log(clickedImage.clicked);
+    if (clickedImageType == "penguin") {
+      const clickedPenguinURL = clickedImageURL;
+      console.log("clickedpenguinURL is " + clickedPenguinURL);
+      // AND all others in the array of penguins is clicked:false
     }
-    console.log(clickedImage);
+    // if (clickedImageType == imageTypes.sweaters.type) {
+    if (clickedImageType == "sweater") {
+      const clickedSweaterURL = clickedImageURL;
+      console.log("clickedsweaterURL is " + clickedSweaterURL);
+      // AND all others in the array of sweaters is clicked:false
+    }
+    // }
+    // console.log(clickedImage);
   };
 
-  // function Swaddle() {
-  // handleCarouselChange = carousel => {
-  //   this.state.images.type === "penguin";
-  // };
-  // const [state, setState] = useState({
-  //   imgPenguin:
-  //     // this will be our default penguin image
-  //     process.env.PUBLIC_URL + "/assets/images/penguins/penguinTest1.jpg",
-  //   sweaterOverlay:
-  //     // for production, initial state is just an empty string
-  //     process.env.PUBLIC_URL + "/assets/images/sweaters/redSweaterTest.png",
-  //   textOverlay: "Your Text Goes Here"
-  //   // NEED TO ADD - xPosition, yPosition, width, rotation (if we figure that out)
-  // });
   // useEffect(() => {
   //   API.swaddle({
   //     penguin: state.imgPenguin,
@@ -65,6 +67,7 @@ class Swaddle extends Component {
   //     // TO DO set state with the data or pass down the processed image as a prop
   //   });
   // }, []); // on change
+
   render() {
     return (
       <>
@@ -72,8 +75,19 @@ class Swaddle extends Component {
           <Row>
             <Col size="md-12">
               <p>Swaddles for Waddles</p>
-              {this.state.imageTypes.map(image => (
+              {this.state.imageTypes.penguins.map(image => (
                 <ImageDisplay
+                  key={image.index}
+                  imgURL={image.imgURL}
+                  dataName={image.dataName}
+                  dataType={image.type}
+                  clicked={image.clicked}
+                  handleClick={this.handleClick}
+                />
+              ))}
+              {this.state.imageTypes.sweaters.map(image => (
+                <ImageDisplay
+                  key={image.index}
                   imgURL={image.imgURL}
                   dataName={image.dataName}
                   dataType={image.type}
