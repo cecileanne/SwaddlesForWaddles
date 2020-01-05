@@ -10,5 +10,13 @@ import axios from "axios";
 export default {
   swaddle: function(userSelectedObject) {
     return axios.post("/api", userSelectedObject); // this is a promise!
+  },
+
+  jimpImages: function(clickedPenguinURL, clickedSweaterURL) {
+    return axios.post("/api/jimpimages", clickedPenguinURL, clickedSweaterURL); // this is a promise!
+  },
+
+  textInput: function(userTextInput) {
+    return axios.post("/api/textInput", userTextInput); // this is a promise!
   }
 };

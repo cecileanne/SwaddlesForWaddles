@@ -1,4 +1,9 @@
 const router = require("express").Router();
+// REQUIRE or GET that userSelectedObject which will {imgPenguin, imgSweater, userTextInput}
+// import {
+//   clickedPenguinURL,
+//   clickedSweaterURL
+// } from "../client/src/pages/Swaddle";
 
 router.post("/api", (req, res) => {
   console.log(`front end sent `, req.body);
@@ -7,13 +12,8 @@ router.post("/api", (req, res) => {
   const Jimp = require("jimp");
 
   // Initiate the images:
-  // TO DO - the penguin images will be an array and so will the sweaters until machine learning is put in
-  // TO DO - set the default image
-  // TO DO - SET A MAX HEIGHT ON THE imgPenguin
-  let imgPenguin =
-    process.env.PUBLIC_URL + "/assets/images/penguins/penguinTest1.jpg"; // background image examples should all be the same size
-  let sweaterRaw =
-    process.env.PUBLIC_URL + "/assets/images/sweaters/redSweaterTest.png"; // png layer
+  let imgPenguin = process.env.PUBLIC_URL + clickedPenguinURL; // background image examples should all be the same size
+  let sweaterRaw = process.env.PUBLIC_URL + clickedSweaterURL; // png layer
   // TO DO - THIS CAN BE MADE INTO AN API POST, and should save with a primary key id
   // TO DO after Saturday MVP, maybe set up caching?
   let imgExported = process.env.PUBLIC_URL + "/exportedImages/swaddle.jpg"; //

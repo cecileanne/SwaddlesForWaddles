@@ -5,14 +5,18 @@ import { ShowPenguin, ShowSweater } from "../../components/ButtonIcon";
 import { ResetBtn, SaveBtn } from "../../components/ButtonSubmit";
 import imageTypes from "../../components/Carousel/images.json";
 import ImageDisplay from "../../components/Carousel";
-
 import API from "../../utils/API";
 import { stat } from "fs";
 import "./style.css";
 
+// const clickedPenguinURL = "";
+// const clickedSweaterURL = "";
+
 class Swaddle extends Component {
   state = {
-    imageTypes
+    imageTypes,
+    clickedPenguinURL: "",
+    clickedSweaterURL: ""
     // userSelectedObject: { penguin: "", sweater: "", UserTextInput: "" }
   };
 
@@ -36,28 +40,30 @@ class Swaddle extends Component {
     const clickedImageType = event.target.getAttribute("dataType");
     console.log(clickedImageURL, clickedImageType);
 
-    // const clickedImage = this.state.imageTypes.find(
-    //   img => img.clickedImageURL == clickedImageURL
-    // );
-
-    // if (!clickedImage.clicked) {
-    //   clickedImage.clicked = true;
-    //   console.log(clickedImage.clicked);
     if (clickedImageType == "penguin") {
       const clickedPenguinURL = clickedImageURL;
-      console.log("clickedpenguinURL is " + clickedPenguinURL);
+      console.log("clickedPenguinURL is " + clickedPenguinURL);
       // AND all others in the array of penguins is clicked:false
     }
     // if (clickedImageType == imageTypes.sweaters.type) {
     if (clickedImageType == "sweater") {
       const clickedSweaterURL = clickedImageURL;
-      console.log("clickedsweaterURL is " + clickedSweaterURL);
+      console.log("clickedSweaterURL is " + clickedSweaterURL);
       // AND all others in the array of sweaters is clicked:false
     }
-    // }
-    // console.log(clickedImage);
   };
 
+  // // TO DO POST clickedSweaterURL and clickedPenguinURL
+  // sendImagesToJimp = (clickedPenguinURL, clickedSweaterURL) => {
+  //   API.jimpImages({
+  //     clickedPenguinURL,
+  //     clickedSweaterURL
+  //   })
+  //     .then()
+  //     .catch(err => console.log(err));
+  // };
+
+  // WTF was this? see below
   // useEffect(() => {
   //   API.swaddle({
   //     penguin: state.imgPenguin,
