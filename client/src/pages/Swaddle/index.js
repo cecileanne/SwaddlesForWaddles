@@ -32,25 +32,26 @@ class Swaddle extends Component {
   };
 
   handleClick = event => {
-    const dataType = event.target.dataType;
+    const imgURL = event.target.getAttribute("src");
+    // console.log("i am a url", imgURL);
+    const clickedImage = this.state.imageTypes.find(
+      img => img.imgURL == imgURL
+    );
 
-    // const clickedImage = this.state.imageTypes[dataType].find(
-    // img => img.dataType === dataType
-    // );
     console.log(event.target);
-    // if (!clickedImage.clicked) {
-    //   clickedImage.clicked = true;
-    //   // if (
-    //   //   clickedImage.clicked === true &&
-    //   //   clickedImage.dataType === "penguin"
-    //   // ) {
-    //   //   //post img src ({imgURL}) into Composite component? or  as imgPenguin
-    //   //   API.swaddle().then(clickedImage => clickedImage.json());
-    //   // }
-    //   // if (clickedImage.dataType === "sweater") {
-    //   //   //post img src ({imgURL}) into Composite compent as sweaterRaw
-    //   // }
-    // }
+    if (!clickedImage.clicked) {
+      clickedImage.clicked = true;
+      //   // if (
+      //   //   clickedImage.clicked === true &&
+      //   //   clickedImage.dataType === "penguin"
+      //   // ) {
+      //   //   //post img src ({imgURL}) into Composite component? or  as imgPenguin
+      //   //   API.swaddle().then(clickedImage => clickedImage.json());
+      //   // }
+      //   // if (clickedImage.dataType === "sweater") {
+      //   //   //post img src ({imgURL}) into Composite compent as sweaterRaw
+      //   // }
+    }
     // console.log(clickedImage);
   };
 
@@ -159,5 +160,4 @@ class Swaddle extends Component {
     );
   }
 }
-
 export default Swaddle;

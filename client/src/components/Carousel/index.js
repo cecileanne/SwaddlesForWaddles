@@ -1,25 +1,21 @@
 import React from "react";
-import { Container } from "../../components/Grid";
+// import { Container } from "../../components/Grid";
 // import InfiniteCarousel from "react-leaf-carousel";
 import "./style.css";
-import imageTypes from "./images.json";
+// import imageTypes from "./images.json";
 // import ImageSelector from "../../components/ImageSelector";
 
-function Carousel(props) {
-  const [state, setState] = React.useState({
-    imageTypes
-  });
-}
+// function Carousel(props) {
+//   const [state, setState] = React.useState({
+//     imageTypes
+//   });
+// }
 
 function ImageDisplay({ imgURL, dataName, dataType, handleClick }) {
-  const dataAttr = {
-    "data-name": dataName,
-    "data-type": dataType
-  };
-  console.log(dataAttr);
+  // console.log(dataAttr);
   return (
     <div className="col-md-4">
-      <img src={imgURL} alt={dataName} {...dataAttr} onClick={handleClick} />
+      <img src={imgURL} alt={dataName} id={imgURL} onClick={handleClick} />
     </div>
   );
 }
