@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import Navbar from "../../components/Navbar";
-import "./style.css";
+// import "./style.scss";
 
 function Home() {
   return (
@@ -16,7 +16,7 @@ function Home() {
           <Row>
             <Col size="md-12">
               <Jumbotron>
-                <h1>Swaddles for Waddles</h1>
+                <h1 className="text-primary">Swaddles for Waddles</h1>
               </Jumbotron>
             </Col>
           </Row>

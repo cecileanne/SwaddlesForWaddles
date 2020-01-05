@@ -37,19 +37,19 @@ class Swaddle extends Component {
     );
 
     console.log(event.target);
-    // if (!clickedImage.clicked) {
-    //   clickedImage.clicked = true;
-    //   // if (
-    //   //   clickedImage.clicked === true &&
-    //   //   clickedImage.dataType === "penguin"
-    //   // ) {
-    //   //   //post img src ({imgURL}) into Composite component? or  as imgPenguin
-    //   //   API.swaddle().then(clickedImage => clickedImage.json());
-    //   // }
-    //   // if (clickedImage.dataType === "sweater") {
-    //   //   //post img src ({imgURL}) into Composite compent as sweaterRaw
-    //   // }
-    // }
+    if (!clickedImage.clicked) {
+      clickedImage.clicked = true;
+      //   // if (
+      //   //   clickedImage.clicked === true &&
+      //   //   clickedImage.dataType === "penguin"
+      //   // ) {
+      //   //   //post img src ({imgURL}) into Composite component? or  as imgPenguin
+      //   //   API.swaddle().then(clickedImage => clickedImage.json());
+      //   // }
+      //   // if (clickedImage.dataType === "sweater") {
+      //   //   //post img src ({imgURL}) into Composite compent as sweaterRaw
+      //   // }
+    }
     // console.log(clickedImage);
   };
 
@@ -139,5 +139,4 @@ class Swaddle extends Component {
     );
   }
 }
-
 export default Swaddle;
