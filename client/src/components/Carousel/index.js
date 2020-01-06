@@ -15,7 +15,7 @@ function ImageDisplay({ imgURL, dataName, dataType, handleClick }) {
   // console.log(dataAttr);
   return (
     <div className="col-md-4">
-      <img src={imgURL} alt={dataName} id={imgURL} onClick={handleClick} />
+      <img src={imgURL} alt={dataType} id={dataName} onClick={handleClick} />
     </div>
   );
 }

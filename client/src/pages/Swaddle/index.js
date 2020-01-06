@@ -27,31 +27,27 @@ import "./style.css";
 
 class Swaddle extends Component {
   state = {
-    imageTypes,
-    config: { penguin: "", sweater: "", userText: "" }
+    imageTypes
   };
 
   handleClick = event => {
     const imgURL = event.target.getAttribute("src");
-    // console.log("i am a url", imgURL);
-    const clickedImage = this.state.imageTypes.find(
-      img => img.imgURL == imgURL
-    );
+    console.log(imgURL);
+    const imgTYPE = event.target.getAttribute("alt");
+    console.log(imgTYPE);
+    // if (!clickedImage.clicked) {
 
-    console.log(event.target);
-    if (!clickedImage.clicked) {
-      clickedImage.clicked = true;
-      //   // if (
-      //   //   clickedImage.clicked === true &&
-      //   //   clickedImage.dataType === "penguin"
-      //   // ) {
-      //   //   //post img src ({imgURL}) into Composite component? or  as imgPenguin
-      //   //   API.swaddle().then(clickedImage => clickedImage.json());
-      //   // }
-      //   // if (clickedImage.dataType === "sweater") {
-      //   //   //post img src ({imgURL}) into Composite compent as sweaterRaw
-      //   // }
-    }
+    //   // if (
+    //   //   clickedImage.clicked === true &&
+    //   //   clickedImage.dataType === "penguin"
+    //   // ) {
+    //   //   //post img src ({imgURL}) into Composite component? or  as imgPenguin
+    //   //   API.swaddle().then(clickedImage => clickedImage.json());
+    //   // }
+    //   // if (clickedImage.dataType === "sweater") {
+    //   //   //post img src ({imgURL}) into Composite compent as sweaterRaw
+    //   // }
+    // }
     // console.log(clickedImage);
   };
 
@@ -96,7 +92,7 @@ class Swaddle extends Component {
                       key={index}
                       imgURL={image.imgURL}
                       dateName={image.dataName}
-                      dataType={image.dataType}
+                      dataType={image.type}
                       clicked={image.clicked}
                       handleClick={this.handleClick}
                     />
@@ -106,7 +102,7 @@ class Swaddle extends Component {
                       key={index}
                       imgURL={image.imgURL}
                       dateName={image.dataName}
-                      dataType={image.dataType}
+                      dataType={image.type}
                       clicked={image.clicked}
                       handleClick={this.handleClick}
                     />
