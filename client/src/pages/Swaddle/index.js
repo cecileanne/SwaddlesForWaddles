@@ -43,15 +43,51 @@ class Swaddle extends Component {
     if (clickedImageType == "penguin") {
       const clickedPenguinURL = clickedImageURL;
       console.log("clickedPenguinURL is " + clickedPenguinURL);
+      this.setState(
+        {
+          clickedPenguinURL: clickedPenguinURL
+        },
+        () => {
+          if (this.state.clickedPenguinURL && this.state.clickedSweaterURL) {
+            API.jimpImages({
+              imgPenguin: this.state.clickedPenguinURL,
+              imgSweater: this.state.clickedSweaterURL
+            });
+          }
+        }
+      );
       // AND all others in the array of penguins is clicked:false
     }
     // if (clickedImageType == imageTypes.sweaters.type) {
     if (clickedImageType == "sweater") {
       const clickedSweaterURL = clickedImageURL;
       console.log("clickedSweaterURL is " + clickedSweaterURL);
+      this.setState({
+        clickedSweaterURL: clickedSweaterURL
+      });
       // AND all others in the array of sweaters is clicked:false
     }
   };
+
+  // // EXAMPLE FROM wk20act11
+  // handleInputChange = event => {
+  //   const { name, value } = event.target;
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // };
+  // handleFormSubmit = event => {
+  //   event.preventDefault();
+  //   if (this.state.title && this.state.author) {
+  //     API.saveBook({
+  //       title: this.state.title,
+  //       author: this.state.author,
+  //       synopsis: this.state.synopsis
+  //     })
+  //       .then(res => this.loadBooks())
+  //       .catch(err => console.log(err));
+  //   }
+  // };
 
   // // TO DO POST clickedSweaterURL and clickedPenguinURL
   // sendImagesToJimp = (clickedPenguinURL, clickedSweaterURL) => {

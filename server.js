@@ -20,7 +20,8 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // Add routes, both API and view
-// app.use(routes);
+const routes = require("./routes/");
+app.use(routes);
 
 // We need to use sessions to keep track of our user's login status
 app.use(
@@ -44,9 +45,9 @@ connection = mysql.createConnection({
 // }
 
 // Requiring our routes
-// require("./routes/html-routes.js")(app);
-// require("./routes/api-routes.js")(app);
-require("./routes/donation-api-routes.js")(app);
+// require("./routes/jimp-routes.js")(app);
+// require("./routes/index.js")(app);
+// require("./routes/donation-api-routes.js")(app);
 
 connection.connect(function(err) {
   if (err) {

@@ -12,8 +12,8 @@ export default {
     return axios.post("/api", userSelectedObject); // this is a promise!
   },
 
-  jimpImages: function(clickedPenguinURL, clickedSweaterURL) {
-    return axios.post("/api/jimpimages", clickedPenguinURL, clickedSweaterURL); // this is a promise!
+  jimpImages: function(configObject) {
+    return axios.post("/api/jimpimages", configObject); // this is a promise!
   },
 
   textInput: function(userTextInput) {

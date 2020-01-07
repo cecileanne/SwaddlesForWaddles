@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "rif-env NODE_ENV=poduction && npm run start:prod || npm run start:dev",
-    "start:prod": "npm start",
+    "start:prod": "node server.js",
     "start:dev": "npm run client",
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
