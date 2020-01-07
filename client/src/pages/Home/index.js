@@ -15,12 +15,13 @@ function Home() {
         <Col size="md-9">
           <Row>
             <Col size="md-12">
+              <img src="../public/assets/images/icons/swaddles_for_waddles_logo.png" />
               <Jumbotron>
                 <h1>Swaddles for Waddles</h1>
               </Jumbotron>
             </Col>
           </Row>
-          <Row>
+          {/* <Row>
             <Col size="md-12">
               <article>
                 <p>
@@ -31,7 +32,7 @@ function Home() {
                 <p>Create fun memes and be as fun and silly as you want.</p>
               </article>
             </Col>
-          </Row>
+          </Row> */}
           <Row>
             <Link to="/About">
               <a className="btn btn-primary" role="button">
