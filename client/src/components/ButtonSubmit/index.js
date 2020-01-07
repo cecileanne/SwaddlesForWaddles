@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 export function AddTextBtn() {
   return <button>Add Text</button>;
@@ -15,10 +16,15 @@ export function SaveBtn() {
 export function SubmitBtn() {
   return <button>Submit</button>;
 }
-// export function RouteBtn(props) {
-//   <a className="btn btn-primary" href={props.Linkto} role="button">
-//     {props.routes}
-//   </a>;
+// export function RouteBtn() {
+//   if ((<Link to="/About" />)) {
+//     return <button>About</button>;
+//   } else if ((<Link to="/Swaddle" />)) {
+//     return <button>Swaddle</button>;
+//   }
+//   if ((<Link to="/Donate" />)) {
+//     return <button></button>;
+//   }
 // }
 export function DonateBtn() {
   return (
@@ -27,20 +33,7 @@ export function DonateBtn() {
     </a>
   );
 }
-export function AboutBtn() {
-  return (
-    <a className="btn btn-primary" href="/about" role="button">
-      About
-    </a>
-  );
-}
-export function SwaddleBtn() {
-  return (
-    <a className="btn btn-primary" href="/swaddle" role="button">
-      Swaddle a Penguin!
-    </a>
-  );
-}
+
 export function DownloadBtn() {
   return <button>Download</button>;
 }

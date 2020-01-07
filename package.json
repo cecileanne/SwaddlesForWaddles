@@ -4,7 +4,7 @@
   "description": "Meme Creation with a cause. Create memes of penguins in sweaters with the option to donate to keep penguins safe.",
   "main": "server.js",
   "scripts": {
-    "start": "rif-env NODE_ENV=poduction && npm run start:prod || npm run start:dev",
+    "start": "rif-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "npm start",
     "start:dev": "npm run client",
     "client": "cd client && npm run start",
@@ -30,20 +30,20 @@
   },
   "homepage": "https://github.com/cecileanne/SwaddlesForWaddles#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "fs": "0.0.1-security",
     "if-env": "^1.0.4",
     "jimp": "^0.9.3",
     "morgan": "^1.9.1",
-    "react-leaf-carousel": "^2.0.0",
-    "bcryptjs": "^2.4.3",
-    "dotenv": "^8.2.0",
-    "express-session": "^1.17.0",
-    "fs": "0.0.1-security",
     "mysql": "^2.17.1",
     "mysql2": "^1.6.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
+    "react-leaf-carousel": "^2.0.0",
     "sequelize": "^5.21.3"
   }
 }
