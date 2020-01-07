@@ -4,7 +4,7 @@
   "description": "Meme Creation with a cause. Create memes of penguins in sweaters with the option to donate to keep penguins safe.",
   "main": "server.js",
   "scripts": {
-    "start": "rif-env NODE_ENV=poduction && npm run start:prod || npm run start:dev",
+    "start": "rif-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "npm start",
     "start:dev": "npm run client",
     "client": "cd client && npm run start",
