@@ -1,5 +1,5 @@
 const router = require("express").Router();
-
+//get clicked img
 router.post("/api", (req, res) => {
   console.log(`front end sent `, req.body);
 
@@ -7,9 +7,6 @@ router.post("/api", (req, res) => {
   const Jimp = require("jimp");
 
   // Initiate the images:
-  // TO DO - the penguin images will be an array and so will the sweaters until machine learning is put in
-  // TO DO - set the default image
-  // TO DO - SET A MAX HEIGHT ON THE imgPenguin
   let imgPenguin =
     process.env.PUBLIC_URL + "/assets/images/penguins/penguinTest1.jpg"; // background image examples should all be the same size
   let sweaterRaw =
