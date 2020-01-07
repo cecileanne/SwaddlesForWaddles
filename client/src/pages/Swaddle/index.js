@@ -11,20 +11,6 @@ import API from "../../utils/API";
 import { stat } from "fs";
 import "./style.css";
 
-// function ImageDisplay({ imgURL, dataName, type, clicked }) {
-//   return (
-//     <div className="col-md-4">
-//       <img
-//         src={imgURL}
-//         data-name={dataName}
-//         data-type={type}
-//         onClick={handleClick}
-//       />
-//       <p>{clicked.toString()}</p>
-//     </div>
-//   );
-// }
-
 class Swaddle extends Component {
   state = {
     imageTypes
@@ -79,45 +65,48 @@ class Swaddle extends Component {
       <>
         <Container fluid>
           <Row>
-            <Col size="md-3">
+            <Col size="md-2">
               <Navbar />
             </Col>
+            <Col size="md-2">
+              <p>Penguins</p>
+              {this.state.imageTypes.penguins.map((image, index) => (
+                <ImageDisplay
+                  key={index}
+                  imgURL={image.imgURL}
+                  dateName={image.dataName}
+                  dataType={image.type}
+                  clicked={image.clicked}
+                  handleClick={this.handleClick}
+                />
+              ))}
+            </Col>
 
-            <Col size="md-9">
+            <Col size="md-6">
               <Row>
                 <Col size="md-12">
                   <p>Swaddles for Waddles</p>
-                  {this.state.imageTypes.penguins.map((image, index) => (
-                    <ImageDisplay
-                      key={index}
-                      imgURL={image.imgURL}
-                      dateName={image.dataName}
-                      dataType={image.type}
-                      clicked={image.clicked}
-                      handleClick={this.handleClick}
-                    />
-                  ))}
-                  {this.state.imageTypes.sweaters.map((image, index) => (
-                    <ImageDisplay
-                      key={index}
-                      imgURL={image.imgURL}
-                      dateName={image.dataName}
-                      dataType={image.type}
-                      clicked={image.clicked}
-                      handleClick={this.handleClick}
-                    />
-                  ))}
                 </Col>
               </Row>
               <Row>
                 <Col size="md-6">
                   <Row>
-                    <Col size="md-2">
-                      <ShowPenguin />
-                    </Col>
-                    <Col size="md-2">
-                      <ShowSweater />
-                    </Col>
+                    <Row>
+                      <Col size="md-12">
+                        <section>
+                          <div className="card d-flex justify-content-center">
+                            <img
+                              className="card-img-top "
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/penguins/penguinTest1.jpg"
+                              }
+                              alt="Card image cap"
+                            />
+                          </div>
+                        </section>
+                      </Col>
+                    </Row>
                     <Row>
                       <Col size="md-12">
                         <UserTextInput />
@@ -125,31 +114,29 @@ class Swaddle extends Component {
                     </Row>
                   </Row>
                 </Col>
-                <Col size="md-6">
-                  <section>
-                    <div className="card">
-                      <img
-                        className="card-img-top"
-                        src={
-                          process.env.PUBLIC_URL +
-                          "/assets/images/penguins/penguinTest1.jpg"
-                        }
-                        alt="Card image cap"
-                      />
-                    </div>
-                  </section>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col size="md-4 offset-md-2">
-                  <SaveBtn />
-                </Col>
-                <Col size="md-4 ">
-                  <ResetBtn />
-                </Col>
               </Row>
             </Col>
+            <Col size="md-2">
+              <p>Sweaters</p>
+              {this.state.imageTypes.sweaters.map((image, index) => (
+                <ImageDisplay
+                  key={index}
+                  imgURL={image.imgURL}
+                  dateName={image.dataName}
+                  dataType={image.type}
+                  clicked={image.clicked}
+                  handleClick={this.handleClick}
+                />
+              ))}
+            </Col>
+            <Row>
+              <Col size="md-4 offset-md-2">
+                <SaveBtn />
+              </Col>
+              <Col size="md-4 ">
+                <ResetBtn />
+              </Col>
+            </Row>
           </Row>
         </Container>
       </>
