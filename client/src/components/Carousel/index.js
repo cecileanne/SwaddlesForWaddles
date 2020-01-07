@@ -1,118 +1,40 @@
 import React from "react";
 import { Container } from "../../components/Grid";
-import InfiniteCarousel from "react-leaf-carousel";
+// import InfiniteCarousel from "react-leaf-carousel";
 import "./style.css";
+import imageTypes from "./images.json";
+// import ImageSelector from "../../components/ImageSelector";
 
-const Carousel = () => {
+function Carousel(props) {
+  const [state, setState] = React.useState({
+    imageTypes
+  });
+}
+
+function ImageDisplay({ imgURL, dataName, dataType, clicked, handleClick }) {
   return (
-    <Container>
-      <InfiniteCarousel
-        breakpoints={[
-          {
-            breakpoint: 500,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2
-            }
-          },
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3
-            }
-          }
-        ]}
-        dots={true}
-        showSides={true}
-        sidesOpacity={0.5}
-        sideSize={0.1}
-        slidesToScroll={4}
-        slidesToShow={4}
-        scrollOnDevice={true}
-      >
-        <div>
-          <img
-            className="carouselImg"
-            data-name=""
-            alt=""
-            src={
-              process.env.PUBLIC_URL +
-              "/assets/images/penguins/penguinTest1.jpg"
-            }
-          />
-        </div>
-        <div>
-          <img
-            className="carouselImg"
-            data-name=""
-            alt=""
-            src={
-              process.env.PUBLIC_URL +
-              "/assets/images/sweaters/blueSweaterTest.png"
-            }
-          />
-        </div>
-
-        <div>
-          <img
-            className="carouselImg"
-            data-name=""
-            alt=""
-            src={
-              process.env.PUBLIC_URL +
-              "/assets/images/penguins/penguinTest1.jpg"
-            }
-          />
-        </div>
-        <div>
-          <img
-            className="carouselImg"
-            data-name=""
-            alt=""
-            src={
-              process.env.PUBLIC_URL +
-              "/assets/images/sweaters/blueSweaterTest.png"
-            }
-          />
-        </div>
-
-        <div>
-          <img
-            className="carouselImg"
-            data-name=""
-            alt=""
-            src={
-              process.env.PUBLIC_URL +
-              "/assets/images/penguins/penguinTest1.jpg"
-            }
-          />
-        </div>
-        <div>
-          <img
-            className="carouselImg"
-            data-name=""
-            alt=""
-            src={
-              process.env.PUBLIC_URL +
-              "/assets/images/sweaters/blueSweaterTest.png"
-            }
-          />
-        </div>
-        <div>
-          <img
-            className="carouselImg"
-            data-name=""
-            alt=""
-            src={
-              process.env.PUBLIC_URL +
-              "/assets/images/sweaters/redSweaterTest.png"
-            }
-          />
-        </div>
-      </InfiniteCarousel>
-    </Container>
+    <div className="col-md-4">
+      <img
+        src={imgURL}
+        dataName={dataName}
+        dataType={dataType}
+        onClick={handleClick}
+        // clicked={clicked}
+      />
+    </div>
   );
-};
+}
+// {state.imageTypes.map(image => (
+//   return (
 
-export default Carousel;
+//         key={image.index}
+//         data-state={image.clicked}
+//         data-type={image.type}
+//         alt={image.dataName}
+//         src={process.env.PUBLIC_URL + image.imgURL}
+//         />
+//         );
+//         ))}
+//       }
+
+export default ImageDisplay;

@@ -3,6 +3,7 @@ import "./style.css";
 
 export function ShowPenguin() {
   return (
+    // <button onClick={props.handleCarouselToggle}>
     <button>
       <img
         src={
@@ -16,6 +17,7 @@ export function ShowPenguin() {
 
 export function ShowSweater() {
   return (
+    // <button onClick={props.handleCarouselToggle}>
     <button>
       <img
         src={
