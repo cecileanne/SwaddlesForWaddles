@@ -21,21 +21,6 @@ class Swaddle extends Component {
     // userSelectedObject: { penguin: "", sweater: "", UserTextInput: "" }
   };
 
-  // handleClick = event => {
-  //   const imgURL = event.target.getAttribute("src");
-  //   // console.log("i am a url", imgURL);
-  //   // TO DO rewrite this so it drills down one of the arrays
-  //   const clickedImage = this.state.imageTypes.find(
-  //     img => img.imgURL == imgURL
-  //   );
-
-  //   if (!clickedImage.clicked) {
-  //     clickedImage.clicked = true;
-  //   }
-  //   // TO DO all other images in the array penguins or sweaters will be false
-  //   console.log(clickedImage);
-  // };
-
   handleClick = event => {
     const clickedImageURL = event.target.getAttribute("src");
     const clickedImageType = event.target.getAttribute("dataType");
@@ -131,25 +116,17 @@ class Swaddle extends Component {
     return (
       <>
         <Container fluid>
-          <Navbar />
           <Row>
-            <Col size="md-12">
-              <p>Swaddles for Waddles</p>
-              {this.state.imageTypes.penguins.map(image => (
+            <Col size="md-2">
+              <Navbar />
+            </Col>
+            <Col size="md-1">
+              <p>Penguins</p>
+              {this.state.imageTypes.penguins.map((image, index) => (
                 <ImageDisplay
-                  key={image.index}
+                  key={index}
                   imgURL={image.imgURL}
-                  dataName={image.dataName}
-                  dataType={image.type}
-                  clicked={image.clicked}
-                  handleClick={this.handleClick}
-                />
-              ))}
-              {this.state.imageTypes.sweaters.map(image => (
-                <ImageDisplay
-                  key={image.index}
-                  imgURL={image.imgURL}
-                  dataName={image.dataName}
+                  dateName={image.dataName}
                   dataType={image.type}
                   clicked={image.clicked}
                   handleClick={this.handleClick}
@@ -157,9 +134,30 @@ class Swaddle extends Component {
               ))}
             </Col>
 
-            <Col size="md-9">
+            <Col size="md-6">
               <Row>
-                <Col size="md-6">
+                <Col size="md-12">
+                  <p>Swaddles for Waddles</p>
+                </Col>
+              </Row>
+              <Row>
+                <Col size="md-8">
+                  <Row>
+                    <Col size="md-12">
+                      <section>
+                        <div className="card ">
+                          <img
+                            className="card-img-top "
+                            src={
+                              process.env.PUBLIC_URL +
+                              "/assets/images/penguins/penguinTest1.jpg"
+                            }
+                            alt="Card image cap"
+                          />
+                        </div>
+                      </section>
+                    </Col>
+                  </Row>
                   <Row>
                     <Col size="md-12">
                       <form>
@@ -169,31 +167,29 @@ class Swaddle extends Component {
                     </Col>
                   </Row>
                 </Col>
-                <Col size="md-6">
-                  <section>
-                    <div className="card">
-                      <img
-                        className="card-img-top"
-                        src={
-                          process.env.PUBLIC_URL +
-                          "/assets/images/penguins/penguinTest1.jpg"
-                        }
-                        alt="Card image cap"
-                      />
-                    </div>
-                  </section>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col size="md-4 offset-md-2">
-                  <SaveBtn /> {/* sends image to Gallery  */}
-                </Col>
-                <Col size="md-4 ">
-                  <ResetBtn /> {/* resets to default penguin/clear space */}
-                </Col>
               </Row>
             </Col>
+            <Col size="md-1">
+              <p>Sweaters</p>
+              {this.state.imageTypes.sweaters.map((image, index) => (
+                <ImageDisplay
+                  key={index}
+                  imgURL={image.imgURL}
+                  dateName={image.dataName}
+                  dataType={image.type}
+                  clicked={image.clicked}
+                  handleClick={this.handleClick}
+                />
+              ))}
+            </Col>
+            <Row>
+              <Col size="md-4 ">
+                <SaveBtn /> {/* sends image to Gallery  */}
+              </Col>
+              <Col size="md-4 ">
+                <ResetBtn /> {/* resets to default penguin/clear space */}
+              </Col>
+            </Row>
           </Row>
         </Container>
       </>

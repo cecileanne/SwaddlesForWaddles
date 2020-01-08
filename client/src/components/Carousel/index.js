@@ -1,19 +1,11 @@
 import React from "react";
-import { Container } from "../../components/Grid";
-// import InfiniteCarousel from "react-leaf-carousel";
+
 import "./style.css";
 import imageTypes from "./images.json";
-// import ImageSelector from "../../components/ImageSelector";
-
-// function Carousel(props) {
-//   const [state, setState] = React.useState({
-//     imageTypes
-//   });
-// }
 
 function ImageDisplay({ imgURL, dataName, dataType, clicked, handleClick }) {
   return (
-    <div className="col-md-4">
+    <div className="col-md-12">
       <img
         id={imgURL}
         src={imgURL}
