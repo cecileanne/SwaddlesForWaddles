@@ -21,48 +21,54 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 const routes = require("./routes/");
+// middleware for jimp routes
+app.use((req, res, next) => {
+  console.log(req.url, req.body);
+  // next passes it down the chain to the next app.use
+  next();
+});
 app.use(routes);
 
-// We need to use sessions to keep track of our user's login status
-app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
-);
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(logger("combined"));
+// // We need to use sessions to keep track of our user's login status
+// app.use(
+//   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+// );
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(logger("combined"));
 
-// if (process.env.host_jaws) {
-//   connection = mysql.createConnection(process.env.host_jaws);
-//   console.log("connected on remote db");
-// } else {
-connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "W0w4ng13!",
-  database: "userAuth"
-});
-// }
-
+// // if (process.env.host_jaws) {
+// //   connection = mysql.createConnection(process.env.host_jaws);
+// //   console.log("connected on remote db");
+// // } else {
+// connection = mysql.createConnection({
+//   host: "localhost",
+//   port: 3306,
+//   user: "root",
+//   password: process.env.password_local,
+//   database: "userAuth"
+// });
+// // }
+app.post("/api/jimpimages", (req, res) => console.log("YAY", req.body));
 // Requiring our routes
 // require("./routes/jimp-routes.js")(app);
 // require("./routes/index.js")(app);
 // require("./routes/donation-api-routes.js")(app);
 
-connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
-  console.log("connected as id " + connection.threadId);
+// connection.connect(function(err) {
+//   if (err) {
+//     console.error("error connecting: " + err.stack);
+//     return;
+//   }
+app.listen(PORT, function() {
+  console.log(
+    "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+    PORT,
+    PORT
+  );
 });
+//   console.log("connected as id " + connection.threadId);
+// });
 
 // Syncing our database and logging a message to the user upon success
 // db.sequelize.sync({ force: true }).then(function() {

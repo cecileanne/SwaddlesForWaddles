@@ -49,11 +49,13 @@ class Swaddle extends Component {
           clickedPenguinURL: clickedPenguinURL
         },
         () => {
+          console.log("callback executed");
           if (this.state.clickedPenguinURL && this.state.clickedSweaterURL) {
+            console.log("we're tyring hard");
             API.jimpImages({
               imgPenguin: this.state.clickedPenguinURL,
               imgSweater: this.state.clickedSweaterURL
-            });
+            }).then(data => console.log("here it is", data));
           }
         }
       );
@@ -66,7 +68,7 @@ class Swaddle extends Component {
       this.setState({
         clickedSweaterURL: clickedSweaterURL
       });
-      // AND all others in the array of sweaters is clicked:false
+      // To Do: give setState success callback
     }
   };
 
@@ -141,20 +143,6 @@ class Swaddle extends Component {
             </Col>
 
             <Col size="md-9">
-              <Row>
-                <Col size="md-12">
-                  <p>Swaddles for Waddles</p>
-                  {this.state.imageTypes.map(image => (
-                    <ImageDisplay
-                      imgURL={image.imgURL}
-                      dateName={image.dataName}
-                      dataType={image.dataType}
-                      clicked={image.clicked}
-                      handleClick={this.handleClick}
-                    />
-                  ))}
-                </Col>
-              </Row>
               <Row>
                 <Col size="md-6">
                   <Row>
