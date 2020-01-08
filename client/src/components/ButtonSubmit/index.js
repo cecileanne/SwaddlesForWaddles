@@ -1,9 +1,12 @@
 import React from "react";
 import "./style.css";
-import { Link } from "react-router-dom";
 
-export function AddTextBtn() {
-  return <button>Add Text</button>;
+export function AddTextBtn(props) {
+  return (
+    <button type="submit" {...props}>
+      {props.children}
+    </button>
+  );
 }
 
 export function ResetBtn() {

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import UserTextInput from "../../components/UserTextInput";
-import { ShowPenguin, ShowSweater } from "../../components/ButtonIcon";
-import { ResetBtn, SaveBtn } from "../../components/ButtonSubmit";
+import { ResetBtn, SaveBtn, AddTextBtn } from "../../components/ButtonSubmit";
 import Navbar from "../../components/Navbar";
 import imageTypes from "../../components/Carousel/images.json";
 import ImageDisplay from "../../components/Carousel";
@@ -17,7 +16,8 @@ class Swaddle extends Component {
   state = {
     imageTypes,
     clickedPenguinURL: "",
-    clickedSweaterURL: ""
+    clickedSweaterURL: "",
+    userText: ""
     // userSelectedObject: { penguin: "", sweater: "", UserTextInput: "" }
   };
 
@@ -71,6 +71,20 @@ class Swaddle extends Component {
       // To Do: give setState success callback
     }
   };
+  handleInputChange = event => {
+    const value = event.target.value;
+    this.setState({
+      value: value
+    });
+  };
+  handleText = event => {
+    const inputValue = event.target.value;
+    event.preventDefault();
+
+    API.jimpImages({
+      userText: this.inputValue
+    }).then(data => console.log("It the Text", data));
+  };
 
   // // EXAMPLE FROM wk20act11
   // handleInputChange = event => {
@@ -117,6 +131,7 @@ class Swaddle extends Component {
     return (
       <>
         <Container fluid>
+          <Navbar />
           <Row>
             <Col size="md-12">
               <p>Swaddles for Waddles</p>
@@ -146,17 +161,12 @@ class Swaddle extends Component {
               <Row>
                 <Col size="md-6">
                   <Row>
-                    <Col size="md-2">
-                      <ShowPenguin />
-                    </Col>
-                    <Col size="md-2">
-                      <ShowSweater />
-                    </Col>
-                    <Row>
-                      <Col size="md-12">
+                    <Col size="md-12">
+                      <form>
                         <UserTextInput />
-                      </Col>
-                    </Row>
+                        <AddTextBtn onClick={this.handleText}>Add </AddTextBtn>
+                      </form>
+                    </Col>
                   </Row>
                 </Col>
                 <Col size="md-6">
@@ -177,10 +187,10 @@ class Swaddle extends Component {
 
               <Row>
                 <Col size="md-4 offset-md-2">
-                  <SaveBtn />
+                  <SaveBtn /> {/* sends image to Gallery  */}
                 </Col>
                 <Col size="md-4 ">
-                  <ResetBtn />
+                  <ResetBtn /> {/* resets to default penguin/clear space */}
                 </Col>
               </Row>
             </Col>

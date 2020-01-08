@@ -20,6 +20,19 @@ router
     jimp(req.body);
     res.json({ roundtrip: "true" });
   });
+router
+  .route("/textInput")
+  // .get((req, res) => {
+  //   const selectedPenguin = req.params.penguin;
+  //   const penguinRaw = process.env.PUBLIC_URL + selectedPenguin;
+  //   res.send(penguinRaw);
+  //   // res.json(penguinRaw);
+  // })
+  .post((req, res) => {
+    console.log(`the goal`, req.body);
+    jimp(req.body);
+    res.json({ roundtrip: "true" });
+  });
 
 // // Matches with "/api/jimp-routes/:sweater"
 // router.route("/sweater").get((req, res) => {
@@ -52,7 +65,7 @@ function jimp({ imgPenguin, imgSweater, userText }) {
   // TO DO - MOVE THIS TO THE TEXT INPUT COMPONENT (already noted)
   let textData = {
     // we will save our sweaters to have minimal transparant pad pad
-    text: "SOMETHING FUNNY", //the text to be rendered on the image - will be input
+    text: userText, //the text to be rendered on the image - will be input
     maxWidth: 300, // SET THIS AS penguin image width - 10px margin left - 10px margin right
     maxHeight: 300, // SET THIS AS penguin image width - 10px margin top - 10px margin bottom
     placementX: -150, // x axis
