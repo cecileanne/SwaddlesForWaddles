@@ -1,7 +1,9 @@
 const db = require("../models");
+const router = require("express").Router();
 
-module.exports = function(app) {
-  app.get("/api/donations", function(req, res) {
+router
+  .route("/api/donations")
+  .get((req, res) => {
     let query = {};
     if (req.query.user_id) {
       query.UserId = req.query.user_id;
@@ -12,13 +14,11 @@ module.exports = function(app) {
     }).then(function(dbDonation) {
       res.json(dbDonation);
     });
-  });
-
-  app.post("/api/donations", function(req, res) {
+  })
+  .post((req, res) => {
     db.Donation.create(req.body).then(function(dbDonation) {
       res.json(dbDonation);
     });
   });
-};
 
-//
+module.exports = router;
