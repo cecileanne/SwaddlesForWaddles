@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import Navbar from "../../components/Navbar";
-import "./style.css";
+// import "./style.scss";
 
 function Home() {
   return (
