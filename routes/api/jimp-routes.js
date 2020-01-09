@@ -20,19 +20,6 @@ router
     jimp(req.body);
     res.json({ roundtrip: "true" });
   });
-router
-  .route("/textInput")
-  // .get((req, res) => {
-  //   const selectedPenguin = req.params.penguin;
-  //   const penguinRaw = process.env.PUBLIC_URL + selectedPenguin;
-  //   res.send(penguinRaw);
-  //   // res.json(penguinRaw);
-  // })
-  .post((req, res) => {
-    console.log(`the goal`, req.body);
-    jimp(req.body);
-    res.json({ roundtrip: "true" });
-  });
 
 // // Matches with "/api/jimp-routes/:sweater"
 // router.route("/sweater").get((req, res) => {

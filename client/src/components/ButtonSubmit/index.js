@@ -19,16 +19,7 @@ export function SaveBtn() {
 export function SubmitBtn() {
   return <button>Submit</button>;
 }
-// export function RouteBtn() {
-//   if ((<Link to="/About" />)) {
-//     return <button>About</button>;
-//   } else if ((<Link to="/Swaddle" />)) {
-//     return <button>Swaddle</button>;
-//   }
-//   if ((<Link to="/Donate" />)) {
-//     return <button></button>;
-//   }
-// }
+
 export function DonateBtn() {
   return (
     <a className="btn btn-primary" href="/donate" role="button">
@@ -37,8 +28,17 @@ export function DonateBtn() {
   );
 }
 
-export function DownloadBtn() {
-  return <button>Download</button>;
+export function DownloadBtn({ imgURL, dataName }) {
+  return (
+    <a
+      class="btn btn-primary"
+      href="/assets/images/penguins/penguinTest1.jpg" //this is the prop {imgURL} from jimp/database
+      download="penguinTest1" //this is the prop {dataName}
+      role="button"
+    >
+      Download
+    </a>
+  );
 }
 
 export function DeleteBtn(props) {
