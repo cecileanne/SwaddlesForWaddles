@@ -74,14 +74,14 @@ class Swaddle extends Component {
       value: value
     });
   };
-  handleText = event => {
-    const inputValue = event.target.value;
-    event.preventDefault();
+  // handleText = event => {
+  //   const inputValue = event.target.value;
+  //   event.preventDefault();
 
-    API.jimpImages({
-      userText: this.inputValue
-    }).then(data => console.log("It the Text", data));
-  };
+  //   API.jimpImages({
+  //     userText: this.inputValue
+  //   }).then(data => console.log("It the Text", data));
+  // };
 
   // // EXAMPLE FROM wk20act11
   // handleInputChange = event => {
