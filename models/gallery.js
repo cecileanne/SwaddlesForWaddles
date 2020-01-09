@@ -2,7 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Gallery = sequelize.define("Gallery", {
     image: {
-      type: DataTypes.file, //not sure which dataType yet...
+      type: DataTypes.BLOB, //not sure which dataType yet...
       allowNull: false
     }
   });

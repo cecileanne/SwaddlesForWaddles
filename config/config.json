@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "process.env.password_local",
-    "database": "process.env.db_local",
-    "host": "localhost",
+    "password": "process.env.password_jaws",
+    "database": "process.env.db_jaws",
+    "host": "process.env.host_jaws",
     "dialect": "mysql"
   },
   "test": {
@@ -18,6 +18,7 @@
     "password": "process.env.password_jaws",
     "database": "process.env.db_jaws",
     "host": "process.env.host_jaws",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "use_env_variable": "mysql://qx9nuaz5102wlbzt:gbqcv1ag3zu4fvsb@tkck4yllxdrw0bhi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/h35yj8kso9exylkl"
   }
 }
