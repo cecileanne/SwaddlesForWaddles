@@ -1,31 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 function Navbar() {
-  return (
-    <nav className="navbar ">
+  const [isNavOpen, navIsOpen] = useState(false); // [value, fn]
+
+  return isNavOpen ? (
+    <nav className="navbar" onClick={() => navIsOpen(false)}>
       <ul className="nav flex-column">
+        {/* <li className="nav-item">
+          <Link to="/">Home</Link>
+        </li> */}
         <li className="nav-item">
-          <Link to="/">Home (or LOGO image?)</Link>
+          <Link to="/Login"> REGISTER / LOGIN</Link>
         </li>
         <li className="nav-item">
-          <Link to="/Login"> Login</Link>
+          <Link to="/About"> ABOUT THE ISSUE</Link>
         </li>
         <li className="nav-item">
-          <Link to="/About"> About</Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/Swaddle"> Swaddle a Penguin</Link>
+          <Link to="/Swaddle"> SWADDLE A PENGUIN</Link>
         </li>
         <li className="nav-item">
           {/* if not logged in it askes you to login or register*/}
-          <Link to="/Gallery"> My Gallery</Link>
+          <Link to="/Gallery"> GALLERY</Link>
         </li>
         <li className="nav-item">
-          <Link to="/Donate"> Donate</Link>
+          <Link to="/Donate"> DONATE</Link>
         </li>
       </ul>
     </nav>
+  ) : (
+    <span onClick={() => navIsOpen(true)}>&#9776;</span>
   );
 }
 
