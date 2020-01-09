@@ -9,9 +9,6 @@ import API from "../../utils/API";
 import { stat } from "fs";
 import "./style.css";
 
-// const clickedPenguinURL = "";
-// const clickedSweaterURL = "";
-
 class Swaddle extends Component {
   state = {
     imageTypes,
@@ -133,23 +130,16 @@ class Swaddle extends Component {
         <Container fluid>
           <Navbar />
           <Row>
-            <Col size="md-12">
-              <p>Swaddles for Waddles</p>
-              {this.state.imageTypes.penguins.map(image => (
+            <Col size="md-2">
+              <Navbar />
+            </Col>
+            <Col size="md-1">
+              <p>Penguins</p>
+              {this.state.imageTypes.penguins.map((image, index) => (
                 <ImageDisplay
-                  key={image.index}
+                  key={index}
                   imgURL={image.imgURL}
-                  dataName={image.dataName}
-                  dataType={image.type}
-                  clicked={image.clicked}
-                  handleClick={this.handleClick}
-                />
-              ))}
-              {this.state.imageTypes.sweaters.map(image => (
-                <ImageDisplay
-                  key={image.index}
-                  imgURL={image.imgURL}
-                  dataName={image.dataName}
+                  dateName={image.dataName}
                   dataType={image.type}
                   clicked={image.clicked}
                   handleClick={this.handleClick}
@@ -157,48 +147,63 @@ class Swaddle extends Component {
               ))}
             </Col>
 
-            <Col size="md-9">
+            <Col size="md-6">
               <Row>
-                <Col size="md-6">
+                <Col size="md-12">
+                  <p>Swaddles for Waddles</p>
+                </Col>
+              </Row>
+              <Row>
+                <Col size="md-8">
                   <Row>
                     <Col size="md-12">
-                      <form>
-                        <UserTextInput />
-                        <AddTextBtn onClick={this.handleText}>Add </AddTextBtn>
-                      </form>
+                      <section>
+                        <div className="card ">
+                          <img
+                            className="card-img-top "
+                            src={
+                              process.env.PUBLIC_URL +
+                              "/assets/images/penguins/penguinTest1.jpg"
+                            }
+                            alt="Card image cap"
+                          />
+                        </div>
+                      </section>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col size="md-12">
+                      <UserTextInput />
                     </Col>
                   </Row>
                 </Col>
-                <Col size="md-6">
-                  <section>
-                    <div className="card">
-                      <img
-                        className="card-img-top"
-                        src={
-                          process.env.PUBLIC_URL +
-                          "/assets/images/penguins/penguinTest1.jpg"
-                        }
-                        alt="Card image cap"
-                      />
-                    </div>
-                  </section>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col size="md-4 offset-md-2">
-                  <SaveBtn /> {/* sends image to Gallery  */}
-                </Col>
-                <Col size="md-4 ">
-                  <ResetBtn /> {/* resets to default penguin/clear space */}
-                </Col>
               </Row>
             </Col>
+            <Col size="md-1">
+              <p>Sweaters</p>
+              {this.state.imageTypes.sweaters.map((image, index) => (
+                <ImageDisplay
+                  key={index}
+                  imgURL={image.imgURL}
+                  dateName={image.dataName}
+                  dataType={image.type}
+                  clicked={image.clicked}
+                  handleClick={this.handleClick}
+                />
+              ))}
+            </Col>
+            <Row>
+              <Col size="md-4 ">
+                <SaveBtn />
+              </Col>
+              <Col size="md-4 ">
+                <ResetBtn />
+              </Col>
+            </Row>
           </Row>
         </Container>
       </>
     );
   }
 }
-
 export default Swaddle;
