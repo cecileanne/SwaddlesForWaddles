@@ -14,7 +14,12 @@ function Home() {
         <Col size="md-9">
           <Row>
             <Col size="md-12">
-              <img src="../public/assets/images/icons/swaddles_for_waddles_logo.png" />
+              <img
+                src={
+                  process.env.PUBLIC_URL +
+                  "/assets/images/icons/swaddles_for_waddles_logo.png"
+                }
+              />
               <Jumbotron>
                 <h1>Swaddles for Waddles</h1>
               </Jumbotron>
