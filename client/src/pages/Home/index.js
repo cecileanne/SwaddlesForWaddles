@@ -3,24 +3,30 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import Navbar from "../../components/Navbar";
+// import "./src/pages/Home/style.css";
 
 function Home() {
   return (
     <Container fluid>
       <Row>
-        <Col size="md-3">
-          <Navbar />
-        </Col>
         <Col size="md-9">
           <Row>
             <Col size="md-12">
               <img
+                className="mainlogo"
                 src={
                   process.env.PUBLIC_URL +
                   "/assets/images/icons/swaddles_for_waddles_logo.png"
                 }
               />
               <Jumbotron>
+                <img
+                  className="front-page-photo"
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/assets/images/icons/penguins_for_frontpage.jpg"
+                  }
+                />
                 <h1>Swaddles for Waddles</h1>
               </Jumbotron>
             </Col>
@@ -54,6 +60,9 @@ function Home() {
               </a>
             </Link>
           </Row>
+        </Col>
+        <Col size="md-3">
+          <Navbar />
         </Col>
       </Row>
     </Container>
