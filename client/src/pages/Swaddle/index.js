@@ -9,9 +9,6 @@ import API from "../../utils/API";
 import { stat } from "fs";
 import "./style.css";
 
-// const clickedPenguinURL = "";
-// const clickedSweaterURL = "";
-
 class Swaddle extends Component {
   state = {
     imageTypes,
@@ -62,14 +59,14 @@ class Swaddle extends Component {
       value: value
     });
   };
-  handleText = event => {
-    const inputValue = event.target.value;
-    event.preventDefault();
+  // handleText = event => {
+  //   const inputValue = event.target.value;
+  //   event.preventDefault();
 
-    API.jimpImages({
-      userText: this.inputValue
-    }).then(data => console.log("It the Text", data));
-  };
+  //   API.jimpImages({
+  //     userText: this.inputValue
+  //   }).then(data => console.log("It the Text", data));
+  // };
 
   // // EXAMPLE FROM wk20act11
   // handleInputChange = event => {
@@ -160,10 +157,7 @@ class Swaddle extends Component {
                   </Row>
                   <Row>
                     <Col size="md-12">
-                      <form>
-                        <UserTextInput />
-                        <AddTextBtn onClick={this.handleText}>Add </AddTextBtn>
-                      </form>
+                      <UserTextInput />
                     </Col>
                   </Row>
                 </Col>
@@ -196,5 +190,4 @@ class Swaddle extends Component {
     );
   }
 }
-
 export default Swaddle;

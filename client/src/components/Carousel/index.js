@@ -1,9 +1,9 @@
 import React from "react";
 
 import "./style.css";
-import imageTypes from "./images.json";
 
-function ImageDisplay({ imgURL, dataName, dataType, clicked, handleClick }) {
+function ImageDisplay({ imgURL, dataName, dataType, handleClick }) {
+  // console.log(dataAttr);
   return (
     <div className="col-md-12">
       <img
@@ -13,22 +13,9 @@ function ImageDisplay({ imgURL, dataName, dataType, clicked, handleClick }) {
         dataName={dataName}
         dataType={dataType}
         onClick={handleClick}
-        // clicked={clicked}
       />
     </div>
   );
 }
-// {state.imageTypes.map(image => (
-//   return (
-
-//         key={image.index}
-//         data-state={image.clicked}
-//         data-type={image.type}
-//         alt={image.dataName}
-//         src={process.env.PUBLIC_URL + image.imgURL}
-//         />
-//         );
-//         ))}
-//       }
 
 export default ImageDisplay;
