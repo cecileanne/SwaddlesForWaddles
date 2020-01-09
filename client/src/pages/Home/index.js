@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import Navbar from "../../components/Navbar";
-// import "./style.scss";
 
 function Home() {
   return (
@@ -15,12 +14,18 @@ function Home() {
         <Col size="md-9">
           <Row>
             <Col size="md-12">
+              <img
+                src={
+                  process.env.PUBLIC_URL +
+                  "/assets/images/icons/swaddles_for_waddles_logo.png"
+                }
+              />
               <Jumbotron>
                 <h1>Swaddles for Waddles</h1>
               </Jumbotron>
             </Col>
           </Row>
-          <Row>
+          {/* <Row>
             <Col size="md-12">
               <article>
                 <p>
@@ -31,7 +36,7 @@ function Home() {
                 <p>Create fun memes and be as fun and silly as you want.</p>
               </article>
             </Col>
-          </Row>
+          </Row> */}
           <Row>
             <Link to="/About">
               <a className="btn btn-primary" role="button">

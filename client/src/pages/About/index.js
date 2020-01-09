@@ -32,6 +32,12 @@ function About() {
             <Col size="md-8">
               <article>
                 <p>
+                  A group of penguins is called a waddle, and a sweater for a
+                  penguin is like a swaddle. Here, on Swaddles for Waddles, you
+                  can create your own images and memes of penguins in sweaters!
+                </p>
+                <p>Create fun memes and be as fun and silly as you want.</p>
+                <p>
                   In 2000, there was an oil spill near Melbourne, Australia that
                   effected local Little Blue Penguins. The Tasmanian
                   Conservation Trust and State Library requested
