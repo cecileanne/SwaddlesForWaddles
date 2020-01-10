@@ -28,10 +28,10 @@ router
   //   res.send(penguinRaw);
   //   // res.json(penguinRaw);
   // })
-  .post((req, res) => {
-    console.log(`the goal`, req.body);
+  .post(req, res => {
+    console.log(`the text is`, req.body);
     jimp(req.body);
-    res.json({ roundtrip: "true" });
+    res.json({ roundtrip: "true for text" });
   });
 
 // // Matches with "/api/jimp-routes/:sweater"
@@ -52,6 +52,10 @@ router
 // Process Jimp
 
 function jimp({ imgPenguin, imgSweater, userText }) {
+  const userText = "";
+  console.log(typeof __dirname);
+  console.log(typeof imgPenguin);
+  console.log(imgPenguin, imgSweater);
   // Initiate the images:
   // let penguinRaw = process.env.PUBLIC_URL + imgPenguin; // background image examples should all be the same size
   // let sweaterRaw = process.env.PUBLIC_URL + imgSweater; // png layer
@@ -68,7 +72,7 @@ function jimp({ imgPenguin, imgSweater, userText }) {
     text: userText, //the text to be rendered on the image - will be input
     maxWidth: 300, // SET THIS AS penguin image width - 10px margin left - 10px margin right
     maxHeight: 300, // SET THIS AS penguin image width - 10px margin top - 10px margin bottom
-    placementX: -150, // x axis
+    placementX: 0, // x axis
     placementY: 550 // y axis
   };
 

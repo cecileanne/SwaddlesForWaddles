@@ -14,33 +14,19 @@ class Swaddle extends Component {
     imageTypes,
     clickedPenguinURL: "",
     clickedSweaterURL: "",
-    userText: ""
+    userTextGrabbed: ""
     // userSelectedObject: { penguin: "", sweater: "", UserTextInput: "" }
   };
 
-  // handleClick = event => {
-  //   const imgURL = event.target.getAttribute("src");
-  //   // console.log("i am a url", imgURL);
-  //   // TO DO rewrite this so it drills down one of the arrays
-  //   const clickedImage = this.state.imageTypes.find(
-  //     img => img.imgURL == imgURL
-  //   );
-
-  //   if (!clickedImage.clicked) {
-  //     clickedImage.clicked = true;
-  //   }
-  //   // TO DO all other images in the array penguins or sweaters will be false
-  //   console.log(clickedImage);
-  // };
-
+  // Selecting a penguin and a sweater
   handleClick = event => {
     const clickedImageURL = event.target.getAttribute("src");
     const clickedImageType = event.target.getAttribute("dataType");
-    console.log(clickedImageURL, clickedImageType);
+    // console.log(clickedImageURL, clickedImageType);
 
     if (clickedImageType == "penguin") {
       const clickedPenguinURL = clickedImageURL;
-      console.log("clickedPenguinURL is " + clickedPenguinURL);
+      // console.log("clickedPenguinURL is " + clickedPenguinURL);
       this.setState(
         {
           clickedPenguinURL: clickedPenguinURL
@@ -48,82 +34,78 @@ class Swaddle extends Component {
         () => {
           console.log("callback executed");
           if (this.state.clickedPenguinURL && this.state.clickedSweaterURL) {
-            console.log("we're tyring hard");
+            // console.log("got both p&g");
             API.jimpImages({
               imgPenguin: this.state.clickedPenguinURL,
               imgSweater: this.state.clickedSweaterURL
-            }).then(data => console.log("here it is", data));
+              // }).then(data => console.log("here it is", data));
+            });
           }
         }
       );
-      // AND all others in the array of penguins is clicked:false
     }
     // if (clickedImageType == imageTypes.sweaters.type) {
     if (clickedImageType == "sweater") {
       const clickedSweaterURL = clickedImageURL;
-      console.log("clickedSweaterURL is " + clickedSweaterURL);
-      this.setState({
-        clickedSweaterURL: clickedSweaterURL
-      });
-      // To Do: give setState success callback
+      // console.log("clickedSweaterURL is " + clickedSweaterURL);
+      // setState with success callback
+      this.setState(
+        {
+          clickedSweaterURL: clickedSweaterURL
+        },
+        () => {
+          console.log("callback executed");
+          if (this.state.clickedPenguinURL && this.state.clickedSweaterURL) {
+            // console.log("got both p&g");
+            API.jimpImages({
+              imgPenguin: this.state.clickedPenguinURL,
+              imgSweater: this.state.clickedSweaterURL
+              // }).then(data => console.log("here it is", data));
+            });
+          }
+        }
+      );
     }
   };
+
   handleInputChange = event => {
     const value = event.target.value;
     this.setState({
       value: value
     });
   };
-  // handleText = event => {
-  //   const inputValue = event.target.value;
+
+  // Grabbing Text - able to grab keystrokes
+  handleText = event => {
+    const userTextGrabbed = event.target.value;
+    // const userText = "";
+    // do we set a default? - placeholder is in UserTextInput component
+    this.setState({ userTextGrabbed: userTextGrabbed });
+    console.log("user text is ", this.state.userTextGrabbed);
+  };
+
+  // handleTextAddClick = event => {
   //   event.preventDefault();
-
-  //   API.jimpImages({
-  //     userText: this.inputValue
-  //   }).then(data => console.log("It the Text", data));
+  //   // console.log("checking userText passing", this.state.userTextGrabbed);
+  //   () => {
+  //     // console.log("callback executed");
+  //     if (
+  //       this.state.clickedPenguinURL &&
+  //       this.state.clickedSweaterURL &&
+  //       this.state.userTextGrabbed
+  //     ) {
+  //       console.log("got all three elements");
+  //       API.jimpImages({
+  //         imgPenguin: this.state.clickedPenguinURL,
+  //         imgSweater: this.state.clickedSweaterURL,
+  //         userText: this.state.userTextGrabbed
+  //         // }).then(data => console.log("here it is", data));
+  //       }).then(data => console.log("It the Text", data));
+  //     }
+  //   };
   // };
 
-  // // EXAMPLE FROM wk20act11
-  // handleInputChange = event => {
-  //   const { name, value } = event.target;
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // };
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   if (this.state.title && this.state.author) {
-  //     API.saveBook({
-  //       title: this.state.title,
-  //       author: this.state.author,
-  //       synopsis: this.state.synopsis
-  //     })
-  //       .then(res => this.loadBooks())
-  //       .catch(err => console.log(err));
-  //   }
-  // };
-
-  // // TO DO POST clickedSweaterURL and clickedPenguinURL
-  // sendImagesToJimp = (clickedPenguinURL, clickedSweaterURL) => {
-  //   API.jimpImages({
-  //     clickedPenguinURL,
-  //     clickedSweaterURL
-  //   })
-  //     .then()
-  //     .catch(err => console.log(err));
-  // };
-
-  // WTF was this? see below
-  // useEffect(() => {
-  //   API.swaddle({
-  //     penguin: state.imgPenguin,
-  //     sweater: state.sweaterOverlay,
-  //     textOverlay: UserTextInput
-  //   }).then(data => {
-  //     // TO DO set state with the data or pass down the processed image as a prop
-  //   });
-  // }, []); // on change
-
+  // The page
   render() {
     return (
       <>
@@ -173,7 +155,15 @@ class Swaddle extends Component {
                   </Row>
                   <Row>
                     <Col size="md-12">
-                      <UserTextInput />
+                      <form>
+                        <UserTextInput
+                          userText={this.state.userText}
+                          handleChange={this.handleText}
+                        />
+                        <AddTextBtn onClick={this.handleTextAddClick}>
+                          Add
+                        </AddTextBtn>
+                      </form>
                     </Col>
                   </Row>
                 </Col>

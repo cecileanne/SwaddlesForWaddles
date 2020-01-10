@@ -16,6 +16,9 @@ function UserTextInput(props) {
         placeholder="Say something funny!"
         aria-label="Add to Image"
         value={props.userText}
+        onChange={props.handleChange}
+
+        // TO DO LIMIT TO 35 CHAR
       ></textarea>
       {/* <AddTextBtn onClick={this.handleText} /> */}
     </div>
