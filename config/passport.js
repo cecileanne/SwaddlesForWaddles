@@ -1,117 +1,49 @@
-//setup for passport authentication
-//module for json web token
-const jwtSecret = require("./jwtConfig");
-const bcrypt = require("bcryptjs");
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
 
-const BCRYPT_SALT_ROUNDS = 12;
+var db = require("../models");
 
-const passport = require("passport");
-
-//local strategy uses a username and password to verify user
-localStrategy = require("passport-local").Strategy;
-User = require("../models/User");
-//json web token requires a payload to verify user
-JWTstrategy = require("passport-jwt").Strategy;
-ExtractJWT = require("passport-jwt").ExtractJwt;
-
-//local strategies are used for registering and logging in user
-passport.use(
-  "register",
-  new localStrategy(
-    {
-      usernameField: "username",
-      passwordField: "password",
-      session: false
-    },
-    (username, password, done) => {
-      try {
-        User.findOne({
-          where: {
-            username: username
-          }
-        }).then(user => {
-          //check if requested username already exists in db
-          if (user != null) {
-            console.log("username already taken");
-            return done(null, false, { message: "username already taken" });
-          } else {
-            //if user doesn't exists, create new user entry and hash password
-            bcrypt.hash(password, BCRYPT_SALT_ROUNDS).then(hashedPassword => {
-              User.create({ username, password: hashedPassword }).then(user => {
-                console.log("user created");
-                return done(null, user);
-              });
-            });
-          }
-        });
-      } catch (err) {
-        done(err);
+// Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
+passport.use(new LocalStrategy(
+  // Our user will sign in using an email, rather than a "username"
+  {
+    usernameField: "email"
+  },
+  function(email, password, done) {
+    // When a user tries to sign in this code runs
+    db.User.findOne({
+      where: {
+        email: email
       }
-    }
-  )
-);
-
-passport.use(
-  "login",
-  new localStrategy(
-    {
-      usernameField: "username",
-      passwordField: "password",
-      session: false
-    },
-    (username, password, done) => {
-      console.log(username);
-      console.log(password);
-      try {
-        User.findOne({
-          where: {
-            username: username
-          }
-        }).then(user => {
-          if (user === null) {
-            return done(null, false, { message: "bad username" });
-          } else {
-            bcrypt.compare(password, user.password).then(response => {
-              if (response !== true) {
-                console.log("passwords do not match");
-                return done(null, false, { message: "passwords do not match" });
-              }
-              console.log("user found & authenticated");
-              // note the return needed with passport local - remove this return for passport JWT
-              return done(null, user);
-            });
-          }
+    }).then(function(dbUser) {
+      // If there's no user with the given email
+      if (!dbUser) {
+        return done(null, false, {
+          message: "Incorrect email."
         });
-      } catch (err) {
-        done(err);
       }
-    }
-  )
-);
+      // If there is a user with the given email, but the password the user gives us is incorrect
+      else if (!dbUser.validPassword(password)) {
+        return done(null, false, {
+          message: "Incorrect password."
+        });
+      }
+      // If none of the above, return the user
+      return done(null, dbUser);
+    });
+  }
+));
 
-const opts = {
-  jwtFromRequest: ExtractJWT.fromAuthHeaderWithScheme("JWT"),
-  secretOrKey: jwtSecret.secret
-};
+// In order to help keep authentication state across HTTP requests,
+// Sequelize needs to serialize and deserialize the user
+// Just consider this part boilerplate needed to make it all work
+passport.serializeUser(function(user, cb) {
+  cb(null, user);
+});
 
-//Json web token strategy is used to verify user via token
-passport.use(
-  "jwt",
-  new JWTstrategy(opts, (jwt_payload, done) => {
-    try {
-      User.findOne({
-        where: { username: jwt_payload.id }
-      }).then(user => {
-        if (user) {
-          console.log("user found in db in passport");
-          done(null, user);
-        } else {
-          console.log("user not found in db");
-          done(null, false);
-        }
-      });
-    } catch (err) {
-      done(err);
-    }
-  })
-);
+passport.deserializeUser(function(obj, cb) {
+  cb(null, obj);
+});
+
+// Exporting our configured passport
+module.exports = passport;

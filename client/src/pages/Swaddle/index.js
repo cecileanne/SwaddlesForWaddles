@@ -18,6 +18,21 @@ class Swaddle extends Component {
     // userSelectedObject: { penguin: "", sweater: "", UserTextInput: "" }
   };
 
+  // handleClick = event => {
+  //   const imgURL = event.target.getAttribute("src");
+  //   // console.log("i am a url", imgURL);
+  //   // TO DO rewrite this so it drills down one of the arrays
+  //   const clickedImage = this.state.imageTypes.find(
+  //     img => img.imgURL == imgURL
+  //   );
+
+  //   if (!clickedImage.clicked) {
+  //     clickedImage.clicked = true;
+  //   }
+  //   // TO DO all other images in the array penguins or sweaters will be false
+  //   console.log(clickedImage);
+  // };
+
   handleClick = event => {
     const clickedImageURL = event.target.getAttribute("src");
     const clickedImageType = event.target.getAttribute("dataType");
@@ -113,6 +128,7 @@ class Swaddle extends Component {
     return (
       <>
         <Container fluid>
+          <Navbar />
           <Row>
             <Col size="md-2">
               <Navbar />
@@ -178,10 +194,10 @@ class Swaddle extends Component {
             </Col>
             <Row>
               <Col size="md-4 ">
-                <SaveBtn /> {/* sends image to Gallery  */}
+                <SaveBtn />
               </Col>
               <Col size="md-4 ">
-                <ResetBtn /> {/* resets to default penguin/clear space */}
+                <ResetBtn />
               </Col>
             </Row>
           </Row>

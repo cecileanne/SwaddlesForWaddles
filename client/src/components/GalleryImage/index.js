@@ -6,16 +6,16 @@ function GalleryImage() {
   return (
     <section>
       <div className="card">
-        <DeleteBtn /> {/*needs props i think*/}
+        <DeleteBtn />
         <img
           className="card-img-top"
           src={
-            process.env.PUBLIC_URL + "/assets/images/penguins/penguinTest1.jpg" //from Gallery table
+            process.env.PUBLIC_URL + "/assets/images/penguins/penguinTest1.jpg"
           }
           alt="Card image cap"
         />
       </div>
-      <DownloadBtn /> {/* needs dataName and imgUrl of jimp image  */}
+      <DownloadBtn />
     </section>
   );
 }

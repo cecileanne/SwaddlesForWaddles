@@ -5,16 +5,11 @@ var path = require("path");
 var Sequelize = require("sequelize");
 var basename = path.basename(module.filename);
 var env = process.env.NODE_ENV || "production";
-console.log("env", env);
 var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
 
 if (config.use_env_variable) {
-  var sequelize = new Sequelize("user_data", "root", "W0w4ng13!", {
-    host: "localhost",
-    port: 3306,
-    dialect: "mysql"
-  });
+  var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
   var sequelize = new Sequelize(
     config.database,
