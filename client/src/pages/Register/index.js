@@ -103,6 +103,7 @@ class Register extends Component {
 
               <button
                 // disabled={!(this.state.author && this.state.title)}
+<<<<<<< HEAD
                 onClick={this.handleFormSubmit}
               >
                 Register
@@ -113,5 +114,21 @@ class Register extends Component {
       </Container>
     );
   };
+=======
+                // onClick={this.handleFormSubmit}
+                >
+                  Register
+                </SubmitBtn>
+              </form>
+            </Col>
+          </Row>
+        </Col>
+        <Col size="md-3">
+          <Navbar />
+        </Col>
+      </Row>
+    </Container>
+  );
+>>>>>>> 42bc9f2e33d08b66f72890463f63b83612614943
 }
 export default Register;

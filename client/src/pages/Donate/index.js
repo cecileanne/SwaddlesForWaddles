@@ -1,67 +1,96 @@
-import React from "react";
+import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
-import { Input } from "../../components/Form";
+import { Input, FormSubmit } from "../../components/Form";
 import Jumbotron from "../../components/Jumbotron";
-import { DonateBtn } from "../../components/ButtonSubmit";
 import { List, ListItem } from "../../components/List";
 import Navbar from "../../components/Navbar";
+import API from "../../utils/API";
 
 import "./style.css";
 
-function Donate() {
-  return (
-    <Container fluid>
-      <Row>
-        <Col size="md-3">
-          <Navbar />
-        </Col>
-        <Col size="md-9">
-          <Row>
-            <Col size="md-12">
-              <Jumbotron>
-                <h1>Help Save the Pengiuns</h1>
-              </Jumbotron>
-            </Col>
-            <Col size="md-6">
-              <h4>
-                The Wild Life Foundation is our favorite orgination for saving
-                animals. If you would like to help the penguins please donate
-                now.
-              </h4>
-              <form>
-                <Input
-                  // value={this.state.title}
-                  // onChange={this.handleInputChange}
-                  name="Donation"
-                  placeholder="$ 0.00"
-                />
+class Donate extends Component() {
+  state = {
+    donations: [],
+    amount: ""
+  };
+  componentDidMount() {
+    this.loadDonations();
+  }
 
-                <DonateBtn
-                // disabled={!(this.state.author && this.state.title)}
-                // onClick={this.handleFormSubmit}
-                >
-                  Donate
-                </DonateBtn>
-              </form>
-            </Col>
-            <Col size="md-6">
-              <h1>Donations</h1>
-              <List>
-                {/* {this.state.donations.map(donation => ( */}
-                {/* <ListItem key={donation._id}> */}
-                <ListItem>
-                  <strong>{/* {donation.date} by {donation.amount} */}</strong>
-                </ListItem>
-              </List>
-              <div>
-                <h2>Total: $50.00</h2>
-              </div>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-    </Container>
-  );
+  loadDonations = () => {
+    API.getDonations()
+      .then(res => this.setState({ donations: res.data, amount: "" }))
+      .catch(err => console.log(err));
+  };
+  handleInputChange = event => {
+    const { amount, value } = event.target;
+    this.setState({
+      [amount]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+
+    API.postDonation({
+      amount: this.state.amount
+    })
+      .then(res => this.loadDonations())
+      .catch(err => console.log(err));
+  };
+  render = () => {
+    return (
+      <Container fluid>
+        <Row>
+          <Col size="md-3">
+            <Navbar />
+          </Col>
+          <Col size="md-9">
+            <Row>
+              <Col size="md-12">
+                <Jumbotron>
+                  <h1>Help Save the Pengiuns</h1>
+                </Jumbotron>
+              </Col>
+              <Col size="md-6">
+                <h4>
+                  The Wild Life Foundation is our favorite orgination for saving
+                  animals. If you would like to help the penguins please donate
+                  now.
+                </h4>
+                <form>
+                  <Input
+                    name="Donation"
+                    placeholder="$ 0.00"
+                    value={this.state.amount}
+                    onChange={this.handleInputChange}
+                  />
+
+                  <FormSubmit
+                    disabled={!this.state.amount}
+                    onClick={this.handleFormSubmit}
+                  >
+                    Donate
+                  </FormSubmit>
+                </form>
+              </Col>
+              <Col size="md-6">
+                <h1>Donations</h1>
+                <List>
+                  {this.state.donations.map(donation => (
+                    <ListItem key={donation._id} value={donation.amount} />
+                  ))}
+                </List>
+                <div>
+                  <h2>Total: $50.00</h2>
+                </div>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    );
+  };
 }
 
 export default Donate;
