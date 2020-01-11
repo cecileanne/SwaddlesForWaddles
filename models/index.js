@@ -10,11 +10,20 @@ var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
 
 if (config.use_env_variable) {
-  var sequelize = new Sequelize("user_data", "root", "W0w4ng13!", {
-    host: "localhost",
-    port: 3306,
-    dialect: "mysql"
-  });
+  console.log(process.env.db_jaws);
+  console.log(process.env.username_jaws);
+  console.log(process.env.password_jaws);
+  console.log(process.env.host_jaws);
+  var sequelize = new Sequelize(
+    process.env.db_jaws,
+    process.env.username_jaws,
+    process.env.password_jaws,
+    {
+      host: process.env.host_jaws,
+      port: 3306,
+      dialect: "mysql"
+    }
+  );
 } else {
   var sequelize = new Sequelize(
     config.database,

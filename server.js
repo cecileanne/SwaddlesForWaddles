@@ -2,9 +2,9 @@
 var express = require("express");
 var session = require("express-session");
 // Requiring passport as we've configured it
-let logger = require("morgan");
-let dotenv = require("dotenv");
-let mysql = require("mysql");
+const logger = require("morgan");
+require("dotenv").config();
+const mysql = require("mysql");
 const Cors = require("cors");
 const passport = require("passport");
 require("./config/passport");
@@ -33,23 +33,9 @@ require("./routes/loginUser")(app);
 require("./routes/registerUser")(app);
 require("./routes/findUser")(app);
 app.use(logger("combined"));
-// if (process.env.host_jaws) {
-//   connection = mysql.createConnection(process.env.host_jaws);
-//   console.log("connected on remote db");
-// } else {
-//   connection = mysql.createConnection({
-//     host: "localhost",
-//     port: 3306,
-//     user: "root",
-//     password: "W0w4ng13!",
-//     database: "user_data"
-//   });
-// }
-// Requiring our routes
-// require("./routes/html-routes.js")(app);
-// require("./routes/api-routes.js")(app);
+
 connection = require("./config/connection");
-require("./routes/donation-api-routes.js")(app);
+
 // connection.connect(function(err) {
 //   if (err) {
 //     console.error("error connecting: " + err.stack);
