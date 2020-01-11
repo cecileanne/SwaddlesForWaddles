@@ -3,9 +3,6 @@ const Jimp = require("jimp");
 const router = require("express").Router();
 const path = require("path");
 
-// FROM EXAMPLE wk20 activity11
-// const booksController = require("../../controllers/booksController");
-
 // Matches with "/api/jimp-routes/:penguin"
 router
   .route("/jimpimages")
@@ -17,9 +14,22 @@ router
   // })
   .post((req, res) => {
     console.log(`the goal`, req.body);
-    jimp(req.body);
-    res.json({ roundtrip: "true" });
+    jimp(req.body, img => res.json({ base64: img }));
   });
+
+// router
+// .route("/textInput")
+// // .get((req, res) => {
+// //   const selectedPenguin = req.params.penguin;
+// //   const penguinRaw = process.env.PUBLIC_URL + selectedPenguin;
+// //   res.send(penguinRaw);
+// //   // res.json(penguinRaw);
+// // })
+// .post(res => {
+//   console.log(`the text is`, res.body);
+//   jimp(res.body);
+//   res.json({ roundtrip: "true for text" });
+// });
 
 // // Matches with "/api/jimp-routes/:sweater"
 // router.route("/sweater").get((req, res) => {
@@ -38,7 +48,19 @@ router
 
 // Process Jimp
 
-function jimp({ imgPenguin, imgSweater, userText }) {
+function jimp({ imgPenguin, imgSweater, userText }, cb) {
+  // const userText = "";
+  console.log(typeof __dirname);
+  console.log(typeof imgPenguin);
+  console.log(imgPenguin, imgSweater);
+
+  // // TO DO RUN AGAINST ARRAY
+  // getPositions(jimpPositions) => {
+  //   if (imgPenguin = jimpPositions.imgURL) {
+
+  //   }
+  // }
+
   // Initiate the images:
   // let penguinRaw = process.env.PUBLIC_URL + imgPenguin; // background image examples should all be the same size
   // let sweaterRaw = process.env.PUBLIC_URL + imgSweater; // png layer
@@ -106,10 +128,12 @@ function jimp({ imgPenguin, imgSweater, userText }) {
 
         //export image - don't write, encode as base64
         .then(textTemplate => textTemplate.quality(100).write(imgExported))
+        .then(imgExported => imgExported.getBase64Async(Jimp.MIME_JPEG))
 
         //log exported filename
-        .then(textTemplate => {
-          console.log("exported file: " + imgExported);
+        .then(base64Img => {
+          // console.log("base64Img", base64Img);
+          cb(base64Img);
         })
 
         //catch errors
