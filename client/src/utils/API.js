@@ -14,9 +14,10 @@ export default {
 
   jimpImages: function(configObject) {
     return axios.post("/api/jimpimages", configObject); // this is a promise!
-  },
-
-  textInput: function(userTextGrabbed) {
-    return axios.post("/api/textInput", userTextGrabbed); // this is a promise!
   }
+
+  // DO NOT NEED, handling with jimpImages now
+  // textInput: function(userTextGrabbed) {
+  //   return axios.post("/api/textInput", userTextGrabbed); // this is a promise!
+  // }
 };
