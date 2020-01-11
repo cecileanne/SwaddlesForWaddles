@@ -34,7 +34,7 @@ require("./routes/registerUser")(app);
 require("./routes/findUser")(app);
 app.use(logger("combined"));
 
-connection = require("./config/connection");
+//connection = require("./config/connection");
 
 // connection.connect(function(err) {
 //   if (err) {
@@ -51,7 +51,7 @@ connection = require("./config/connection");
 //   console.log("connected as id " + connection.threadId);
 // });
 //Syncing our database and logging a message to the user upon success
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log(
       "==> :earth_americas:  Listening on port %s. Visit http://localhost:%s/ in your browser.",
