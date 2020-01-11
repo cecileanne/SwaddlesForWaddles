@@ -21,7 +21,7 @@ class Swaddle extends Component {
   // Selecting penguin and sweater
   handleClick = event => {
     const clickedImageURL = event.target.getAttribute("src");
-    const clickedImageType = event.target.getAttribute("dataType");
+    const clickedImageType = event.target.getAttribute("datatype");
     console.log(clickedImageURL, clickedImageType);
 
     // if penguin
@@ -160,8 +160,8 @@ class Swaddle extends Component {
                 <ImageDisplay
                   key={index}
                   imgURL={image.imgURL}
-                  dateName={image.dataName}
-                  dataType={image.type}
+                  dateName={image.dataname}
+                  datatype={image.type}
                   clicked={image.clicked}
                   handleClick={this.handleClick}
                 />
@@ -194,8 +194,8 @@ class Swaddle extends Component {
                 <ImageDisplay
                   key={index}
                   imgURL={image.imgURL}
-                  dateName={image.dataName}
-                  dataType={image.type}
+                  dateName={image.dataname}
+                  datatype={image.type}
                   clicked={image.clicked}
                   handleClick={this.handleClick}
                 />
