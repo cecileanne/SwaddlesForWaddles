@@ -15,11 +15,12 @@ function UserTextInput(props) {
         className="form-control"
         placeholder="Say something funny!"
         aria-label="Add to Image"
-        value={props.userText}
+        maxLength="35"
+        value={props.userTextGrabbed}
+        onChange={props.handleChange}
       ></textarea>
       {/* <AddTextBtn onClick={this.handleText} /> */}
     </div>
-    // creates on click the object {text: "SOMETHING FUNNY", maxWidth: 1000, maxHeight: 100, placementX: -150, placementY: 550}
   );
 }
 
