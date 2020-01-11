@@ -3,28 +3,40 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import Navbar from "../../components/Navbar";
+import "./style.css";
 
 function Home() {
   return (
     <Container fluid>
       <Row>
-        <Col size="md-3">
-          <Navbar />
-        </Col>
         <Col size="md-9">
           <Row>
             <Col size="md-12">
-              <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/assets/images/icons/swaddles_for_waddles_logo.png"
-                }
-              />
-              <Jumbotron>
-                <h1>Swaddles for Waddles</h1>
-              </Jumbotron>
+              <div className="logo-wrapper">
+                <img
+                  className="mainlogo"
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/assets/images/icons/swaddles_for_waddles_logo.png"
+                  }
+                />
+              </div>
+              <div className="background">
+                <img
+                  className="front-page-photo"
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/assets/images/icons/penguins_for_frontpage.jpg"
+                  }
+                />
+                <div>
+                  <h1>SWADDLES FOR WADDLES</h1>
+                  <p>Memes for a Cause</p>
+                </div>
+              </div>
             </Col>
           </Row>
+
           {/* <Row>
             <Col size="md-12">
               <article>
@@ -37,7 +49,7 @@ function Home() {
               </article>
             </Col>
           </Row> */}
-          <Row>
+          {/* <Row>
             <Link to="/About">
               <a className="btn btn-primary" role="button">
                 About
@@ -53,7 +65,10 @@ function Home() {
                 Donate
               </a>
             </Link>
-          </Row>
+          </Row> */}
+        </Col>
+        <Col size="md-3">
+          <Navbar />
         </Col>
       </Row>
     </Container>

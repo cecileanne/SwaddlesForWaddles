@@ -2,16 +2,17 @@ import React from "react";
 
 import "./style.css";
 
-function ImageDisplay({ imgURL, dataName, dataType, handleClick }) {
+function ImageDisplay({ imgURL, dataname, datatype, handleClick }) {
   // console.log(dataAttr);
   return (
     <div className="col-md-12">
       <img
+        className="clickalbeIMG"
         id={imgURL}
         src={imgURL}
-        alt={dataName}
-        dataName={dataName}
-        dataType={dataType}
+        alt={dataname}
+        dataname={dataname}
+        datatype={datatype}
         onClick={handleClick}
       />
     </div>
