@@ -8,12 +8,6 @@ const jwt = require("jsonwebtoken");
 
 // middleware that is specific to this router
 
-// define the home page route
-router.get('/', function (req, res) {
-  res.send('Birds home page')
-})
-
-
 router.post("/registerUser", (req, res, next) => {
     console.log("we hit it, register.js");
     passport.authenticate("register", (err, user, info) => {
