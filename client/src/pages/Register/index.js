@@ -23,8 +23,9 @@ class Register extends Component {
         error: true
       });
     } else {
+      console.log(accessString);
       axios
-        .get("http://localhost:5555/findUser", {
+        .get("/findUser", {
           params: { username: localStorage.getItem("email") },
           headers: { Authorization: `JWT ${accessString}` }
         })
@@ -36,6 +37,7 @@ class Register extends Component {
             isLoading: true,
             error: false
           });
+          console.log(this.state);
         })
         .catch(err => console.log(err.data));
     }
@@ -49,9 +51,8 @@ class Register extends Component {
   };
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
-    axios.post("http://localhost:5555/registerUser", this.state).then(res => {
-      console.log(res);
+
+    axios.post("/registerUser", this.state).then(res => {
       localStorage.setItem("JWT", res.data.token);
       localStorage.setItem("email", res.data.username);
     });

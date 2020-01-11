@@ -20,7 +20,7 @@ class Login extends Component {
       });
     } else {
       axios
-        .get("http://localhost:5555/findUser", {
+        .get("/findUser", {
           params: { username: localStorage.getItem("email") },
           headers: { Authorization: `JWT ${accessString}` }
         })

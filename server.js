@@ -44,7 +44,7 @@ require("./routes/registerUser")(app);
 require("./routes/findUser")(app);
 app.use(logger("combined"));
 
-connection = require("./config/connection");
+//connection = require("./config/connection");
 
 // connection.connect(function(err) {
 //   if (err) {

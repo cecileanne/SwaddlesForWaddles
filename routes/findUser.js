@@ -4,7 +4,7 @@ const passport = require("passport");
 module.exports = app => {
   app.get("/findUser", (req, res, next) => {
     passport.authenticate("jwt", { session: false }, (err, user, info) => {
-      //console.log(user);
+      console.log("user fro finduser back end route", user);
       if (err) {
         console.log(err);
       }
@@ -12,7 +12,7 @@ module.exports = app => {
         console.log(info.message);
         res.send(info.message);
       } else {
-        console.log("user found in db from route");
+        console.log("user found in db from route", user);
         res.status(200).send({
           auth: true,
           firstName: user.firstName,

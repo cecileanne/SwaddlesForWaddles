@@ -1,7 +1,6 @@
 //const User = require("../models/User");
 var Sequelize = require("sequelize");
 
-let sequelize = require("../config/connection");
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     first_name: {
