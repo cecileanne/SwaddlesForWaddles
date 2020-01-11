@@ -113,9 +113,12 @@ class Swaddle extends Component {
     return (
       <>
         <Container fluid>
+          {/* header stuff can be a jumbotron or whatever is on brand */}
+          <Row>Header Stuf</Row>
           <Row>
             <Col size="md-2">
-              <p>Penguins</p>
+               <p>Penguins</p>
+                            
               {this.state.imageTypes.penguins.map((image, index) => (
                 <ImageDisplay
                   key={index}
@@ -127,41 +130,24 @@ class Swaddle extends Component {
                 />
               ))}
             </Col>
-
-            <Col size="md-6">
-              <Row>
-                <Col size="md-12">
-                  <p>Swaddles for Waddles</p>
-                </Col>
-              </Row>
-              <Row>
-                <Col size="md-8">
-                  <Row>
-                    <Col size="md-12">
-                      <section>
-                        <div className="card ">
-                          <img
-                            className="card-img-top "
-                            src={
-                              process.env.PUBLIC_URL +
-                              "/assets/images/penguins/penguinTest1.jpg"
-                            }
-                            alt="Card image cap"
-                          />
-                        </div>
-                      </section>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col size="md-12">
-                      <UserTextInput />
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
+            <Col size="md-7">
+              <section>
+                <div className="card ">
+                  <img
+                    className="card-img-top "
+                    src={
+                      process.env.PUBLIC_URL +
+                      "/assets/images/penguins/penguinTest1.jpg"
+                    }
+                    alt="Card image cap"
+                  />
+                </div>
+                 <UserTextInput />
+              </section>
             </Col>
             <Col size="md-2">
-              <p>Sweaters</p>
+               <p>Sweaters</p>
+                            
               {this.state.imageTypes.sweaters.map((image, index) => (
                 <ImageDisplay
                   key={index}
@@ -173,18 +159,23 @@ class Swaddle extends Component {
                 />
               ))}
             </Col>
-            <Col size="md-2">
+             
+            <Col size="md-1">
+                            
               <Navbar />
+                          
             </Col>
-            {/* <Row>
-              <Col size="md-4 ">
-                <SaveBtn /> {/* sends image to Gallery  */}
-              </Col>
-              <Col size="md-4 ">
-                <ResetBtn /> {/* resets to default penguin/clear space */}
-              </Col>
-            </Row> */}
           </Row>
+          <div className="row">
+                          
+            <div className="text-center">
+                              
+              <SaveBtn /> {/* sends image to Gallery  */}
+                           
+              <ResetBtn /> {/* resets to default penguin/clear space */}
+            </div>
+                                       
+          </div>
         </Container>
       </>
     );

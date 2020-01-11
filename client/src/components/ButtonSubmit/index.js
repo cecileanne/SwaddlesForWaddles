@@ -32,8 +32,8 @@ export function DownloadBtn({ imgURL, dataName }) {
   return (
     <a
       class="btn btn-primary"
-      href="/assets/images/penguins/penguinTest1.jpg" //this is the prop {imgURL} from jimp/database
-      download="penguinTest1" //this is the prop {dataName}
+      href={imgURL} //this is the prop {imgURL} from jimp/database
+      download={dataName} //this is the prop {dataName}
       role="button"
     >
       Download

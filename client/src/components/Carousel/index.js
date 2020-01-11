@@ -7,6 +7,7 @@ function ImageDisplay({ imgURL, dataName, dataType, handleClick }) {
   return (
     <div className="col-md-12">
       <img
+        className="clickalbeIMG"
         id={imgURL}
         src={imgURL}
         alt={dataName}
