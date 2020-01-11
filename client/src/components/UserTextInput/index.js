@@ -15,7 +15,8 @@ function UserTextInput(props) {
         className="form-control"
         placeholder="Say something funny!"
         aria-label="Add to Image"
-        value={props.userText}
+        value={props.userTextGrabbed}
+        onChange={props.handleChange}
       ></textarea>
       {/* <AddTextBtn onClick={this.handleText} /> */}
     </div>
