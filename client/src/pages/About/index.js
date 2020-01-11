@@ -9,9 +9,6 @@ function About() {
   return (
     <Container fluid>
       <Row>
-        <Col size="md-3">
-          <Navbar />
-        </Col>
         <Col size="md-9">
           <Row>
             <Col size="md-12">
@@ -20,6 +17,7 @@ function About() {
               </Jumbotron>
             </Col>
           </Row>
+
           <Row>
             <Col size="md-4">
               <img
@@ -29,6 +27,7 @@ function About() {
                 }
               />
             </Col>
+
             <Col size="md-8">
               <article>
                 <p>
@@ -72,12 +71,16 @@ function About() {
                   and their efforts!
                 </p>
               </article>
+
               <DonateBtn />
             </Col>
           </Row>
           <Row></Row>
         </Col>
       </Row>
+      <Col size="md-3">
+        <Navbar />
+      </Col>
     </Container>
   );
 }

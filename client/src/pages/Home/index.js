@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import Navbar from "../../components/Navbar";
-// import "./src/pages/Home/style.css";
+import "./style.css";
 
 function Home() {
   return (
@@ -12,14 +12,16 @@ function Home() {
         <Col size="md-9">
           <Row>
             <Col size="md-12">
-              <img
-                className="mainlogo"
-                src={
-                  process.env.PUBLIC_URL +
-                  "/assets/images/icons/swaddles_for_waddles_logo.png"
-                }
-              />
-              <Jumbotron>
+              <div>
+                <img
+                  className="mainlogo"
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/assets/images/icons/swaddles_for_waddles_logo.png"
+                  }
+                />
+              </div>
+              <div>
                 <img
                   className="front-page-photo"
                   src={
@@ -27,8 +29,8 @@ function Home() {
                     "/assets/images/icons/penguins_for_frontpage.jpg"
                   }
                 />
-                <h1>Swaddles for Waddles</h1>
-              </Jumbotron>
+                <h1>SWADDLES FOR WADDLES</h1>
+              </div>
             </Col>
           </Row>
           {/* <Row>
@@ -43,7 +45,7 @@ function Home() {
               </article>
             </Col>
           </Row> */}
-          <Row>
+          {/* <Row>
             <Link to="/About">
               <a className="btn btn-primary" role="button">
                 About
@@ -59,7 +61,7 @@ function Home() {
                 Donate
               </a>
             </Link>
-          </Row>
+          </Row> */}
         </Col>
         <Col size="md-3">
           <Navbar />

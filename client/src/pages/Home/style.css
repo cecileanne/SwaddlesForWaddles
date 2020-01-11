@@ -1,11 +1,18 @@
 h1 {
-  font-family: "candida";
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 5em;
 }
 
 .mainlogo {
-  height: 250px;
+  height: 150px;
+  width: 150px;
+  margin-top: 50px;
+  z-index: 1;
 }
 
 .front-page-photo {
-  width: 500px;
+  width: 800px;
+  margin-top: -224px;
+  margin-left: -67px;
+  z-index: 0;
 }

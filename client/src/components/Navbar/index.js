@@ -8,9 +8,9 @@ function Navbar() {
   return isNavOpen ? (
     <nav className="navbar" onClick={() => navIsOpen(false)}>
       <ul className="nav flex-column">
-        {/* <li className="nav-item">
-          <Link to="/">Home</Link>
-        </li> */}
+        <li className="nav-item">
+          <Link to="/">HOME</Link>
+        </li>
         <li className="nav-item">
           <Link to="/Login"> REGISTER / LOGIN</Link>
         </li>
