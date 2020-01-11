@@ -11,6 +11,7 @@ require("./config/passport");
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 3001;
 var db = require("./models");
+const authRoutes = require('./routes/auth-routes');
 // Creating express app and configuring middleware needed for authentication
 var app = express();
 app.use(Cors());
@@ -29,9 +30,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-require("./routes/loginUser")(app);
-require("./routes/registerUser")(app);
-require("./routes/findUser")(app);
+app.use('/auth', authRoutes);
 app.use(logger("combined"));
 
 //connection = require("./config/connection");
