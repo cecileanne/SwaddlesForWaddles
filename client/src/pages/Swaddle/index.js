@@ -117,8 +117,7 @@ class Swaddle extends Component {
           <Row>Header Stuf</Row>
           <Row>
             <Col size="md-2">
-               <p>Penguins</p>
-                            
+               <p>Penguins</p>            
               {this.state.imageTypes.penguins.map((image, index) => (
                 <ImageDisplay
                   key={index}
@@ -131,7 +130,7 @@ class Swaddle extends Component {
               ))}
             </Col>
             <Col size="md-7">
-              <section>
+              <section className="text-center">
                 <div className="card ">
                   <img
                     className="card-img-top "
@@ -146,8 +145,7 @@ class Swaddle extends Component {
               </section>
             </Col>
             <Col size="md-2">
-               <p>Sweaters</p>
-                            
+               <p>Sweaters</p>         
               {this.state.imageTypes.sweaters.map((image, index) => (
                 <ImageDisplay
                   key={index}
@@ -159,20 +157,21 @@ class Swaddle extends Component {
                 />
               ))}
             </Col>
-             
             <Col size="md-1">
-                            
+                         
               <Navbar />
-                          
+                         
             </Col>
           </Row>
           <div className="row">
                           
             <div className="text-center">
                               
-              <SaveBtn /> {/* sends image to Gallery  */}
+              <SaveBtn />
+               {/* sends image to Gallery  */}
                            
-              <ResetBtn /> {/* resets to default penguin/clear space */}
+              <ResetBtn />
+               {/* resets to default penguin/clear space */}
             </div>
                                        
           </div>

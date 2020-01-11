@@ -25,6 +25,7 @@ if (config.use_env_variable) {
     }
   );
 } else {
+  console.log("connected to LOCAL");
   var sequelize = new Sequelize(
     config.database,
     config.username,

@@ -1,8 +1,15 @@
-section {
+img {
   border: solid;
-  height: 400px;
-  width: 400px;
+  width: 40%;
 }
+
 .clickalbeIMG {
   width: 100px;
+  border: none;
+}
+
+.form-group {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
