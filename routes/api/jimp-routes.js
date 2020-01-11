@@ -14,8 +14,7 @@ router
   // })
   .post((req, res) => {
     console.log(`the goal`, req.body);
-    jimp(req.body);
-    res.json({ roundtrip: "true" });
+    jimp(req.body, img => res.json({ base64: img }));
   });
 
 // router
@@ -49,7 +48,7 @@ router
 
 // Process Jimp
 
-function jimp({ imgPenguin, imgSweater, userText }) {
+function jimp({ imgPenguin, imgSweater, userText }, cb) {
   // const userText = "";
   console.log(typeof __dirname);
   console.log(typeof imgPenguin);
@@ -129,10 +128,12 @@ function jimp({ imgPenguin, imgSweater, userText }) {
 
         //export image - don't write, encode as base64
         .then(textTemplate => textTemplate.quality(100).write(imgExported))
+        .then(imgExported => imgExported.getBase64Async(Jimp.MIME_JPEG))
 
         //log exported filename
-        .then(textTemplate => {
-          console.log("exported file: " + imgExported);
+        .then(base64Img => {
+          // console.log("base64Img", base64Img);
+          cb(base64Img);
         })
 
         //catch errors

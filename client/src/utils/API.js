@@ -8,9 +8,9 @@ import axios from "axios";
 // Add a then that will save as a jpg on click?
 
 export default {
-  swaddle: function(userSelectedObject) {
-    return axios.post("/api", userSelectedObject); // this is a promise!
-  },
+  // swaddle: function(userSelectedObject) {
+  //   return axios.post("/api", userSelectedObject); // this is a promise!
+  // },
 
   jimpImages: function(configObject) {
     return axios.post("/api/jimpimages", configObject); // this is a promise!

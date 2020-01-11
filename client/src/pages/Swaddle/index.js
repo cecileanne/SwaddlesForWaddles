@@ -134,7 +134,7 @@ class Swaddle extends Component {
       imgPenguin: this.state.clickedPenguinURL,
       imgSweater: this.state.clickedSweaterURL,
       userText: this.state.userTextGrabbed
-    }).then(data => console.log("we are sending this", data));
+    }).then(data => console.log("we are getting back", data));
   };
 
   // // TO DO POST clickedSweaterURL and clickedPenguinURL
