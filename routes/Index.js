@@ -1,7 +1,3 @@
-import "./donation-api-routes";
-import "./gallery-api-routes";
-import "./jimp-routes";
-
 const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api/jimp-routes");

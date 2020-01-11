@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "W0w4ng13!",
-    "database": "user_data",
-    "host": "localhost",
+    "username": "process.env.username_jaws",
+    "password": "process.env.password_jaws",
+    "database": "process.env.db_jaws",
+    "host": "process.env.host_jaws",
     "dialect": "mysql"
   },
   "test": {
