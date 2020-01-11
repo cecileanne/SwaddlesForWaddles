@@ -128,12 +128,8 @@ class Swaddle extends Component {
     return (
       <>
         <Container fluid>
-          <Navbar />
           <Row>
             <Col size="md-2">
-              <Navbar />
-            </Col>
-            <Col size="md-1">
               <p>Penguins</p>
               {this.state.imageTypes.penguins.map((image, index) => (
                 <ImageDisplay
@@ -179,7 +175,7 @@ class Swaddle extends Component {
                 </Col>
               </Row>
             </Col>
-            <Col size="md-1">
+            <Col size="md-2">
               <p>Sweaters</p>
               {this.state.imageTypes.sweaters.map((image, index) => (
                 <ImageDisplay
@@ -192,14 +188,17 @@ class Swaddle extends Component {
                 />
               ))}
             </Col>
-            <Row>
+            <Col size="md-2">
+              <Navbar />
+            </Col>
+            {/* <Row>
               <Col size="md-4 ">
                 <SaveBtn />
               </Col>
               <Col size="md-4 ">
                 <ResetBtn />
               </Col>
-            </Row>
+            </Row> */}
           </Row>
         </Container>
       </>

@@ -77,10 +77,10 @@ function About() {
           </Row>
           <Row></Row>
         </Col>
+        <Col size="md-3">
+          <Navbar />
+        </Col>
       </Row>
-      <Col size="md-3">
-        <Navbar />
-      </Col>
     </Container>
   );
 }

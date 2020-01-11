@@ -12,7 +12,7 @@ function Home() {
         <Col size="md-9">
           <Row>
             <Col size="md-12">
-              <div>
+              <div className="logo-wrapper">
                 <img
                   className="mainlogo"
                   src={
@@ -21,7 +21,7 @@ function Home() {
                   }
                 />
               </div>
-              <div>
+              <div className="background">
                 <img
                   className="front-page-photo"
                   src={
@@ -29,10 +29,14 @@ function Home() {
                     "/assets/images/icons/penguins_for_frontpage.jpg"
                   }
                 />
-                <h1>SWADDLES FOR WADDLES</h1>
+                <div>
+                  <h1>SWADDLES FOR WADDLES</h1>
+                  <p>Memes for a Cause</p>
+                </div>
               </div>
             </Col>
           </Row>
+
           {/* <Row>
             <Col size="md-12">
               <article>
