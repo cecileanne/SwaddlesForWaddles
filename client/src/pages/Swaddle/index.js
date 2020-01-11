@@ -18,11 +18,13 @@ class Swaddle extends Component {
     // userSelectedObject: { penguin: "", sweater: "", UserTextInput: "" }
   };
 
+  // Selecting penguin and sweater
   handleClick = event => {
     const clickedImageURL = event.target.getAttribute("src");
     const clickedImageType = event.target.getAttribute("dataType");
     console.log(clickedImageURL, clickedImageType);
 
+    // if penguin
     if (clickedImageType == "penguin") {
       const clickedPenguinURL = clickedImageURL;
       console.log("clickedPenguinURL is " + clickedPenguinURL);
@@ -31,26 +33,39 @@ class Swaddle extends Component {
           clickedPenguinURL: clickedPenguinURL
         },
         () => {
-          console.log("callback executed");
+          // console.log("callback executed");
           if (this.state.clickedPenguinURL && this.state.clickedSweaterURL) {
-            console.log("we're tyring hard");
+            // console.log("penguin selected");
+            // TO DO: render a border around the selected penguin in Carousel
             API.jimpImages({
               imgPenguin: this.state.clickedPenguinURL,
               imgSweater: this.state.clickedSweaterURL
-            }).then(data => console.log("here it is", data));
+            }).then(data => console.log("we are sending this", data));
           }
         }
       );
-      // AND all others in the array of penguins is clicked:false
     }
-    // if (clickedImageType == imageTypes.sweaters.type) {
+    // if sweater
     if (clickedImageType == "sweater") {
       const clickedSweaterURL = clickedImageURL;
       console.log("clickedSweaterURL is " + clickedSweaterURL);
-      this.setState({
-        clickedSweaterURL: clickedSweaterURL
-      });
-      // To Do: give setState success callback
+      // TO DO: render a border around the selected penguin in Carousel
+      this.setState(
+        {
+          clickedSweaterURL: clickedSweaterURL
+        },
+        () => {
+          console.log("callback executed");
+          if (this.state.clickedPenguinURL && this.state.clickedSweaterURL) {
+            console.log("sweater selected");
+            // TO DO: render a border around the selected penguin in Carousel
+            API.jimpImages({
+              imgPenguin: this.state.clickedPenguinURL,
+              imgSweater: this.state.clickedSweaterURL
+            }).then(data => console.log("we are sending this", data));
+          }
+        }
+      );
     }
   };
   handleInputChange = event => {

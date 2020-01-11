@@ -3,9 +3,6 @@ const Jimp = require("jimp");
 const router = require("express").Router();
 const path = require("path");
 
-// FROM EXAMPLE wk20 activity11
-// const booksController = require("../../controllers/booksController");
-
 // Matches with "/api/jimp-routes/:penguin"
 router
   .route("/jimpimages")
@@ -20,6 +17,20 @@ router
     jimp(req.body);
     res.json({ roundtrip: "true" });
   });
+
+// router
+// .route("/textInput")
+// // .get((req, res) => {
+// //   const selectedPenguin = req.params.penguin;
+// //   const penguinRaw = process.env.PUBLIC_URL + selectedPenguin;
+// //   res.send(penguinRaw);
+// //   // res.json(penguinRaw);
+// // })
+// .post(res => {
+//   console.log(`the text is`, res.body);
+//   jimp(res.body);
+//   res.json({ roundtrip: "true for text" });
+// });
 
 // // Matches with "/api/jimp-routes/:sweater"
 // router.route("/sweater").get((req, res) => {
@@ -39,6 +50,18 @@ router
 // Process Jimp
 
 function jimp({ imgPenguin, imgSweater, userText }) {
+  // const userText = "";
+  console.log(typeof __dirname);
+  console.log(typeof imgPenguin);
+  console.log(imgPenguin, imgSweater);
+
+  // // TO DO RUN AGAINST ARRAY
+  // getPositions(jimpPositions) => {
+  //   if (imgPenguin = jimpPositions.imgURL) {
+
+  //   }
+  // }
+
   // Initiate the images:
   // let penguinRaw = process.env.PUBLIC_URL + imgPenguin; // background image examples should all be the same size
   // let sweaterRaw = process.env.PUBLIC_URL + imgSweater; // png layer
