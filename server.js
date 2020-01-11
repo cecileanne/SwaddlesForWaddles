@@ -8,30 +8,33 @@ const mysql = require("mysql");
 const Cors = require("cors");
 const passport = require("passport");
 require("./config/passport");
+
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 3001;
 var db = require("./models");
+const authRoutes = require('./routes/auth-routes');
 // Creating express app and configuring middleware needed for authentication
 var app = express();
 app.use(Cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(logger("dev"));
+// app.use(logger("dev"));
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
 // Add routes, both API and view
-// app.use(routes);
+const routes = require("./routes/");
+// middleware for jimp routes
+
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
 );
 app.use(passport.initialize());
 app.use(passport.session());
-require("./routes/loginUser")(app);
-require("./routes/registerUser")(app);
-require("./routes/findUser")(app);
+app.use(routes);
 app.use(logger("combined"));
 
 //connection = require("./config/connection");

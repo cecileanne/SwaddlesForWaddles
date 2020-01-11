@@ -25,7 +25,7 @@ class Register extends Component {
     } else {
       console.log(accessString);
       axios
-        .get("/findUser", {
+        .get("/auth/findUser", {
           params: { username: localStorage.getItem("email") },
           headers: { Authorization: `JWT ${accessString}` }
         })
@@ -52,7 +52,7 @@ class Register extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
-    axios.post("/registerUser", this.state).then(res => {
+    axios.post("/auth/registerUser", this.state).then(res => {
       localStorage.setItem("JWT", res.data.token);
       localStorage.setItem("email", res.data.username);
     });

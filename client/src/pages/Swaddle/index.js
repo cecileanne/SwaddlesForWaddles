@@ -14,15 +14,17 @@ class Swaddle extends Component {
     imageTypes,
     clickedPenguinURL: "",
     clickedSweaterURL: "",
-    userText: ""
+    userTextGrabbed: ""
     // userSelectedObject: { penguin: "", sweater: "", UserTextInput: "" }
   };
 
+  // Selecting penguin and sweater
   handleClick = event => {
     const clickedImageURL = event.target.getAttribute("src");
     const clickedImageType = event.target.getAttribute("dataType");
     console.log(clickedImageURL, clickedImageType);
 
+    // if penguin
     if (clickedImageType == "penguin") {
       const clickedPenguinURL = clickedImageURL;
       console.log("clickedPenguinURL is " + clickedPenguinURL);
@@ -30,63 +32,110 @@ class Swaddle extends Component {
         {
           clickedPenguinURL: clickedPenguinURL
         },
+        // TO DO: render a border around the selected penguin in Carousel
         () => {
-          console.log("callback executed");
+          // console.log("callback executed");
           if (this.state.clickedPenguinURL && this.state.clickedSweaterURL) {
-            console.log("we're tyring hard");
+            // console.log("penguin selected");
             API.jimpImages({
               imgPenguin: this.state.clickedPenguinURL,
               imgSweater: this.state.clickedSweaterURL
-            }).then(data => console.log("here it is", data));
+            }).then(data => console.log("we are sending this", data));
           }
         }
       );
-      // AND all others in the array of penguins is clicked:false
     }
-    // if (clickedImageType == imageTypes.sweaters.type) {
+    // if sweater
     if (clickedImageType == "sweater") {
       const clickedSweaterURL = clickedImageURL;
       console.log("clickedSweaterURL is " + clickedSweaterURL);
-      this.setState({
-        clickedSweaterURL: clickedSweaterURL
-      });
-      // To Do: give setState success callback
+      this.setState(
+        {
+          clickedSweaterURL: clickedSweaterURL
+        },
+        // TO DO: render a border around the selected sweater in Carousel
+        () => {
+          console.log("callback executed");
+          if (this.state.clickedPenguinURL && this.state.clickedSweaterURL) {
+            console.log("sweater selected");
+            API.jimpImages({
+              imgPenguin: this.state.clickedPenguinURL,
+              imgSweater: this.state.clickedSweaterURL
+            }).then(data => console.log("we are sending this", data));
+          }
+        }
+      );
     }
   };
+
   handleInputChange = event => {
     const value = event.target.value;
     this.setState({
       value: value
     });
   };
+
+  // Grabbing Text - able to grab keystrokes
+  handleText = event => {
+    const userTextGrabbed = event.target.value;
+    console.log("user text is ", userTextGrabbed);
+    // const userText = "";
+    // do we set a default? - placeholder is in UserTextInput component
+    this.setState({ userTextGrabbed: userTextGrabbed });
+  };
+
+  handleTextAddClick = event => {
+    event.preventDefault();
+    console.log(
+      "checking userText passing",
+      this.state.userTextGrabbed,
+      " penguin is ",
+      this.state.clickedPenguinURL,
+      " sweater is ",
+      this.state.clickedSweaterURL
+    );
+    if (
+      this.state.clickedPenguinURL &&
+      this.state.clickedSweaterURL &&
+      this.state.userTextGrabbed
+    ) {
+      console.log("we got it all");
+      // TO DO: render a border around the selected penguin in Carousel
+      API.jimpImages({
+        imgPenguin: this.state.clickedPenguinURL,
+        imgSweater: this.state.clickedSweaterURL,
+        userText: this.state.userTextGrabbed
+      }).then(data => console.log("we are sending this", data));
+    }
+  };
   // handleText = event => {
   //   const inputValue = event.target.value;
   //   event.preventDefault();
 
-  //   API.jimpImages({
-  //     userText: this.inputValue
-  //   }).then(data => console.log("It the Text", data));
-  // };
+  // Grabbing Text - able to grab keystrokes
+  handleText = event => {
+    const userTextGrabbed = event.target.value;
+    console.log("user text is ", userTextGrabbed);
+    // do we set a default? - placeholder is in UserTextInput component
+    this.setState({ userTextGrabbed: userTextGrabbed });
+  };
 
-  // // EXAMPLE FROM wk20act11
-  // handleInputChange = event => {
-  //   const { name, value } = event.target;
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // };
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   if (this.state.title && this.state.author) {
-  //     API.saveBook({
-  //       title: this.state.title,
-  //       author: this.state.author,
-  //       synopsis: this.state.synopsis
-  //     })
-  //       .then(res => this.loadBooks())
-  //       .catch(err => console.log(err));
-  //   }
-  // };
+  handleTextAddClick = event => {
+    event.preventDefault();
+    console.log(
+      "checking userText passing",
+      this.state.userTextGrabbed,
+      " penguin is ",
+      this.state.clickedPenguinURL,
+      " sweater is ",
+      this.state.clickedSweaterURL
+    );
+    API.jimpImages({
+      imgPenguin: this.state.clickedPenguinURL,
+      imgSweater: this.state.clickedSweaterURL,
+      userText: this.state.userTextGrabbed
+    }).then(data => console.log("we are getting back", data));
+  };
 
   // // TO DO POST clickedSweaterURL and clickedPenguinURL
   // sendImagesToJimp = (clickedPenguinURL, clickedSweaterURL) => {
@@ -97,17 +146,6 @@ class Swaddle extends Component {
   //     .then()
   //     .catch(err => console.log(err));
   // };
-
-  // WTF was this? see below
-  // useEffect(() => {
-  //   API.swaddle({
-  //     penguin: state.imgPenguin,
-  //     sweater: state.sweaterOverlay,
-  //     textOverlay: UserTextInput
-  //   }).then(data => {
-  //     // TO DO set state with the data or pass down the processed image as a prop
-  //   });
-  // }, []); // on change
 
   render() {
     return (
@@ -141,7 +179,13 @@ class Swaddle extends Component {
                     alt="Card image cap"
                   />
                 </div>
-                 <UserTextInput />
+                <form>
+                  <UserTextInput
+                    userTextGrabbed={this.state.userTextGrabbed}
+                    handleChange={this.handleText}
+                  />
+                  <AddTextBtn onClick={this.handleTextAddClick}>Add</AddTextBtn>
+                </form>
               </section>
             </Col>
             <Col size="md-2">
@@ -167,11 +211,9 @@ class Swaddle extends Component {
                           
             <div className="text-center">
                               
-              <SaveBtn />
-               {/* sends image to Gallery  */}
+              <SaveBtn /> {/* sends image to Gallery  */}
                            
-              <ResetBtn />
-               {/* resets to default penguin/clear space */}
+              <ResetBtn /> {/* resets to default penguin/clear space */}
             </div>
                                        
           </div>

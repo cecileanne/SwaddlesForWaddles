@@ -20,7 +20,7 @@ class Login extends Component {
       });
     } else {
       axios
-        .get("/findUser", {
+        .get("/auth/findUser", {
           params: { username: localStorage.getItem("email") },
           headers: { Authorization: `JWT ${accessString}` }
         })
@@ -46,7 +46,7 @@ class Login extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.state);
-    axios.post("http://localhost:5555/loginUser", this.state).then(res => {
+    axios.post("/auth/loginUser", this.state).then(res => {
       console.log(res);
       localStorage.setItem("JWT", res.data.token);
       localStorage.setItem("email", res.data.username);
