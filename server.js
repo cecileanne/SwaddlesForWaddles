@@ -27,12 +27,6 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 const routes = require("./routes/");
 // middleware for jimp routes
-app.use((req, res, next) => {
-  console.log(req.url, req.body);
-  // next passes it down the chain to the next app.use
-  next();
-});
-app.use(routes);
 
 // We need to use sessions to keep track of our user's login status
 app.use(
@@ -40,7 +34,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use('/auth', authRoutes);
+app.use(routes);
 app.use(logger("combined"));
 
 //connection = require("./config/connection");
