@@ -181,6 +181,9 @@ class Swaddle extends Component {
                     <Col size="md-12">
                       <section>
                         <div className="card ">
+                          if State.res then use that, else use penguin and
+                          define default up top process base64 using javascript:
+                          atob()
                           <img
                             className="card-img-top "
                             src={
