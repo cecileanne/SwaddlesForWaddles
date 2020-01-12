@@ -6,53 +6,26 @@ const path = require("path");
 // Matches with "/api/jimp-routes/:penguin"
 router
   .route("/jimpimages")
-  // .get((req, res) => {
-  //   const selectedPenguin = req.params.penguin;
-  //   const penguinRaw = process.env.PUBLIC_URL + selectedPenguin;
-  //   res.send(penguinRaw);
-  //   // res.json(penguinRaw);
-  // })
+  // .post((req, res) => {
+  //   console.log(`the goal`, req.body);
+  //   jimp(req.body, img => res.json({ base64: img }));
+  // .post((req, res) => {
+  //   console.log(req.body);
+  //   jimp(req.body);
+  //   res.json({ base64Img: img });
+  // });
   .post((req, res) => {
-    console.log(`the goal`, req.body);
-    jimp(req.body, img => res.json({ base64: img }));
+    console.log("the goal", req.body);
+    jimp(req.body);
+    res.json({ roundtrip: "true" });
   });
 
-// router
-// .route("/textInput")
-// // .get((req, res) => {
-// //   const selectedPenguin = req.params.penguin;
-// //   const penguinRaw = process.env.PUBLIC_URL + selectedPenguin;
-// //   res.send(penguinRaw);
-// //   // res.json(penguinRaw);
-// // })
-// .post(res => {
-//   console.log(`the text is`, res.body);
-//   jimp(res.body);
-//   res.json({ roundtrip: "true for text" });
-// });
-
-// // Matches with "/api/jimp-routes/:sweater"
-// router.route("/sweater").get((req, res) => {
-//   const selectedSweater = req.params.sweater;
-//   const imgSweater = process.env.PUBLIC_URL + selectedSweater;
-//   res.send(imgSweater);
-//   // res.json(imgSweater);
-// });
-
-// // Matches with "/api/jimp-routes/:userText"
-// router.route("/userText").get((req, res) => {
-//   const userText = req.params.userText;
-//   res.send(userText);
-//   // res.json(userText);
-// });
-
 // Process Jimp
-
-function jimp({ imgPenguin, imgSweater, userText }, cb) {
-  // const userText = "";
-  console.log(typeof __dirname);
-  console.log(typeof imgPenguin);
-  console.log(imgPenguin, imgSweater);
+function jimp({ imgPenguin, imgSweater, userText }) {
+  // function jimp({ imgPenguin, imgSweater, userText }, cb) {
+  // console.log(typeof __dirname);
+  // console.log(typeof imgPenguin);
+  // console.log(imgPenguin, imgSweater);
 
   // // TO DO RUN AGAINST ARRAY
   // getPositions(jimpPositions) => {
@@ -62,16 +35,11 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
   // }
 
   // Initiate the images:
-  // let penguinRaw = process.env.PUBLIC_URL + imgPenguin; // background image examples should all be the same size
-  // let sweaterRaw = process.env.PUBLIC_URL + imgSweater; // png layer
   let penguinRaw = path.join(__dirname, "../../client/public", imgPenguin); // background image examples should all be the same size
   let sweaterRaw = path.join(__dirname, "../../client/public", imgSweater); // png layer
-  // TO DO - THIS CAN BE MADE INTO AN API POST, and should save with a primary key id
-  // TO DO after Saturday MVP, maybe set up caching? Don't need if we save as base64?
-  // let imgExported = process.env.PUBLIC_URL + "/exportedImages/swaddle.jpg"; //
   let imgExported = path.join(__dirname, "/swaddle.jpg"); //
 
-  // TO DO - MOVE THIS TO THE TEXT INPUT COMPONENT (already noted)
+  // Initiate text
   let textData = {
     // we will save our sweaters to have minimal transparant pad pad
     text: userText, //the text to be rendered on the image - will be input
@@ -128,13 +96,13 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
 
         //export image - don't write, encode as base64
         .then(textTemplate => textTemplate.quality(100).write(imgExported))
-        .then(imgExported => imgExported.getBase64Async(Jimp.MIME_JPEG))
+        // .then(imgExported => imgExported.getBase64Async(Jimp.MIME_JPEG))
 
-        //log exported filename
-        .then(base64Img => {
-          // console.log("base64Img", base64Img);
-          cb(base64Img);
-        })
+        // //log exported filename
+        // .then(base64Img => {
+        //   // console.log("base64Img", base64Img);
+        //   cb(base64Img);
+        // })
 
         //catch errors
         .catch(err => {

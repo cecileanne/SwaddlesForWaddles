@@ -79,8 +79,6 @@ class Swaddle extends Component {
   handleText = event => {
     const userTextGrabbed = event.target.value;
     console.log("user text is ", userTextGrabbed);
-    // const userText = "";
-    // do we set a default? - placeholder is in UserTextInput component
     this.setState({ userTextGrabbed: userTextGrabbed });
   };
 
@@ -100,7 +98,6 @@ class Swaddle extends Component {
       this.state.userTextGrabbed
     ) {
       console.log("we got it all");
-      // TO DO: render a border around the selected penguin in Carousel
       API.jimpImages({
         imgPenguin: this.state.clickedPenguinURL,
         imgSweater: this.state.clickedSweaterURL,
@@ -108,44 +105,6 @@ class Swaddle extends Component {
       }).then(data => console.log("we are sending this", data));
     }
   };
-  // handleText = event => {
-  //   const inputValue = event.target.value;
-  //   event.preventDefault();
-
-  // Grabbing Text - able to grab keystrokes
-  handleText = event => {
-    const userTextGrabbed = event.target.value;
-    console.log("user text is ", userTextGrabbed);
-    // do we set a default? - placeholder is in UserTextInput component
-    this.setState({ userTextGrabbed: userTextGrabbed });
-  };
-
-  handleTextAddClick = event => {
-    event.preventDefault();
-    console.log(
-      "checking userText passing",
-      this.state.userTextGrabbed,
-      " penguin is ",
-      this.state.clickedPenguinURL,
-      " sweater is ",
-      this.state.clickedSweaterURL
-    );
-    API.jimpImages({
-      imgPenguin: this.state.clickedPenguinURL,
-      imgSweater: this.state.clickedSweaterURL,
-      userText: this.state.userTextGrabbed
-    }).then(data => console.log("we are getting back", data));
-  };
-
-  // // TO DO POST clickedSweaterURL and clickedPenguinURL
-  // sendImagesToJimp = (clickedPenguinURL, clickedSweaterURL) => {
-  //   API.jimpImages({
-  //     clickedPenguinURL,
-  //     clickedSweaterURL
-  //   })
-  //     .then()
-  //     .catch(err => console.log(err));
-  // };
 
   render() {
     return (
