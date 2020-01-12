@@ -1,12 +1,8 @@
 import React from "react";
-// import { AddTextBtn } from "../ButtonSubmit";
-import API from "../../utils/API";
 
 import "./style.css";
 
 function UserTextInput(props) {
-  // const state = {};
-  // const handleText = event => {};
   return (
     <div className="form-group">
       <label for="textInput">Add Text</label>
@@ -19,7 +15,6 @@ function UserTextInput(props) {
         value={props.userTextGrabbed}
         onChange={props.handleChange}
       ></textarea>
-      {/* <AddTextBtn onClick={this.handleText} /> */}
     </div>
   );
 }

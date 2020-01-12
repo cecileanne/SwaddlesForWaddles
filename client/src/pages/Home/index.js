@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import Jumbotron from "../../components/Jumbotron";
 import Navbar from "../../components/Navbar";
 import "./style.css";
 
@@ -15,6 +13,7 @@ function Home() {
               <div className="logo-wrapper">
                 <img
                   className="mainlogo"
+                  alt="logo"
                   src={
                     process.env.PUBLIC_URL +
                     "/assets/images/icons/swaddles_for_waddles_logo.png"

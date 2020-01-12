@@ -10,10 +10,6 @@ var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
 
 if (config.use_env_variable) {
-  console.log(process.env.db_jaws);
-  console.log(process.env.username_jaws);
-  console.log(process.env.password_jaws);
-  console.log(process.env.host_jaws);
   var sequelize = new Sequelize(
     process.env.db_jaws,
     process.env.username_jaws,
