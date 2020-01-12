@@ -9,9 +9,6 @@ function Login() {
   return (
     <Container fluid>
       <Row>
-        <Col size="md-3">
-          <Navbar />
-        </Col>
         <Col size="md-9">
           <Row>
             <Col size="md-12">
@@ -44,6 +41,9 @@ function Login() {
               </form>
             </Col>
           </Row>
+        </Col>
+        <Col size="md-3">
+          <Navbar />
         </Col>
       </Row>
     </Container>
