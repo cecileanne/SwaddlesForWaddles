@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import UserTextInput from "../../components/UserTextInput";
-import { ResetBtn, SaveBtn, AddTextBtn } from "../../components/ButtonSubmit";
+import {
+  ResetBtn,
+  DownloadBtn,
+  AddTextBtn
+} from "../../components/ButtonSubmit";
 import Navbar from "../../components/Navbar";
 import imageTypes from "../../components/Carousel/images.json";
 import ImageDisplay from "../../components/Carousel";
 import API from "../../utils/API";
-import { stat } from "fs";
+// import { stat } from "fs";
 import "./style.css";
 
 class Swaddle extends Component {
@@ -15,6 +19,7 @@ class Swaddle extends Component {
     clickedPenguinURL: "",
     clickedSweaterURL: "",
     userTextGrabbed: ""
+
     // userSelectedObject: { penguin: "", sweater: "", UserTextInput: "" }
   };
 
@@ -114,7 +119,10 @@ class Swaddle extends Component {
       <>
         <Container fluid>
           {/* header stuff can be a jumbotron or whatever is on brand */}
-          <Row>Header Stuf</Row>
+          <Row>
+            {/* Header Stuf <p>{this.user.firstName}</p> */}
+            Header Stuf
+          </Row>
           <Row>
             <Col size="md-2">
                <p>Penguins</p>            
@@ -148,8 +156,15 @@ class Swaddle extends Component {
                     handleChange={this.handleText}
                   />
                   <AddTextBtn onClick={this.handleTextAddClick}>Add</AddTextBtn>
+                  <ResetBtn />
+                   {/* resets to default penguin/clear space */}
                 </form>
+                <div className="text-center">
+                                                
+                </div>
+                <DownloadBtn />
               </section>
+               {/* downloads image  */}
             </Col>
             <Col size="md-2">
                <p>Sweaters</p>         
@@ -170,18 +185,6 @@ class Swaddle extends Component {
                          
             </Col>
           </Row>
-          <div className="row">
-                          
-            <div className="text-center">
-                              
-              <SaveBtn />
-               {/* sends image to Gallery  */}
-                           
-              <ResetBtn />
-               {/* resets to default penguin/clear space */}
-            </div>
-                                       
-          </div>
         </Container>
       </>
     );

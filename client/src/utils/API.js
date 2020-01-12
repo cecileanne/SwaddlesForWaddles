@@ -16,19 +16,19 @@ export default {
   },
   //get all donations of a user
   getDonations: function() {
-    return axios.get("/api/donations"); // this is a promise!
+    return axios.get("/donate/donations"); // this is a promise!
   },
   //post one donation
   postDonation: function(donationData) {
-    return axios.post("/api/donations", donationData); // this is a promise!
-  },
-  getGalleryImages: function() {
-    return axios.get("/api/gallery"); // this is a promise!
-  },
-  //post one Gallery image
-  postGalleryImage: function(galleryData) {
-    return axios.post("/api/gallery", galleryData); // this is a promise!
+    return axios.post("/donate/donations", donationData); // this is a promise!
   }
+  // getGalleryImages: function() {
+  //   return axios.get("/api/gallery"); // this is a promise!
+  // },
+  // //post one Gallery image
+  // postGalleryImage: function(galleryData) {
+  //   return axios.post("/api/gallery", galleryData); // this is a promise!
+  // }
 
   //   textInput: function(userTextGrabbed) {
   //     return axios.post("/api/textInput", userTextGrabbed); // this is a promise!

@@ -13,12 +13,12 @@ export function ResetBtn() {
   return <button type="reset">Reset</button>;
 }
 
-export function SaveBtn() {
-  return <button>Save</button>;
-}
-export function SubmitBtn() {
-  return <button>Submit</button>;
-}
+// export function SaveBtn() {
+//   return <button>Save</button>;
+// }
+// export function SubmitBtn() {
+//   return <button>Submit</button>;
+// }
 
 export function DonateBtn() {
   return (
@@ -32,19 +32,25 @@ export function DownloadBtn({ imgURL, dataName }) {
   return (
     <a
       class="btn btn-primary"
-      href={imgURL} //this is the prop {imgURL} from jimp/database
-      download={dataName} //this is the prop {dataName}
+      href={"/assets/images/penguins/penguinTest1.jpg"} //this is the prop {imgURL} from jimp/database
+      download="PenguinTest1" //this is the prop {dataName}
       role="button"
     >
+      {/* <a
+      class="btn btn-primary"
+      href=atob({prop.base64})//this is the prop {imgURL} from jimp/database
+      download={dataName} //this is the prop {dataName}
+      role="button"
+    > */}
       Download
     </a>
   );
 }
 
-export function DeleteBtn(props) {
-  return (
-    <span className="delete-btn" {...props} role="button" tabIndex="0">
-      ✗
-    </span>
-  );
-}
+// export function DeleteBtn(props) {
+//   return (
+//     <span className="delete-btn" {...props} role="button" tabIndex="0">
+//       ✗
+//     </span>
+//   );
+// }

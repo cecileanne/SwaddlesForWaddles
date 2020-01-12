@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input } from "../../components/Form";
 import Jumbotron from "../../components/Jumbotron";
+import Navbar from "../../components/Navbar";
 import "./style.css";
 import axios from "axios";
 
@@ -57,6 +58,7 @@ class Login extends Component {
     return (
       <Container fluid>
         <Row>
+          <Navbar />
           <Col size="md-12">
             <Jumbotron>
               <h1>Login</h1>
