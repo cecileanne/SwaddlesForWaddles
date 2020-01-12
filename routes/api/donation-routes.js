@@ -1,8 +1,8 @@
-const db = require("../models");
+const db = require("../../models");
 const router = require("express").Router();
 
 router
-  .route("/api/donations")
+  .route("/donations")
   .get((req, res) => {
     let query = {};
     if (req.query.user_id) {

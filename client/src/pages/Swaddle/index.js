@@ -6,7 +6,7 @@ import Navbar from "../../components/Navbar";
 import imageTypes from "../../components/Carousel/images.json";
 import ImageDisplay from "../../components/Carousel";
 import API from "../../utils/API";
-import { stat } from "fs";
+// import { stat } from "fs";
 import "./style.css";
 
 class Swaddle extends Component {
@@ -15,6 +15,7 @@ class Swaddle extends Component {
     clickedPenguinURL: "",
     clickedSweaterURL: "",
     userTextGrabbed: ""
+
     // userSelectedObject: { penguin: "", sweater: "", UserTextInput: "" }
   };
 
@@ -114,7 +115,10 @@ class Swaddle extends Component {
       <>
         <Container fluid>
           {/* header stuff can be a jumbotron or whatever is on brand */}
-          <Row>Header Stuf</Row>
+          <Row>
+            {/* Header Stuf <p>{this.user.firstName}</p> */}
+            Header Stuf
+          </Row>
           <Row>
             <Col size="md-2">
                <p>Penguins</p>            
@@ -174,11 +178,9 @@ class Swaddle extends Component {
                           
             <div className="text-center">
                               
-              <SaveBtn />
-               {/* sends image to Gallery  */}
+              <SaveBtn /> {/* sends image to Gallery  */}
                            
-              <ResetBtn />
-               {/* resets to default penguin/clear space */}
+              <ResetBtn /> {/* resets to default penguin/clear space */}
             </div>
                                        
           </div>
