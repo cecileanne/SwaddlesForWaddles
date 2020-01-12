@@ -48,3 +48,5 @@ If you would like to donate (not real money, this is a proof of concept, no cred
 <li>Ability to custom select the color of sweaters (and the options we provide will be patterns instead)</li>
 <li>Design your own sweater pattern </li>
 <li>Ability to swaddle more than one penguin in a single photo (if there are multiple in the same image)</li>
+
+## Live Project
