@@ -156,8 +156,15 @@ class Swaddle extends Component {
                     handleChange={this.handleText}
                   />
                   <AddTextBtn onClick={this.handleTextAddClick}>Add</AddTextBtn>
+                  <ResetBtn />
+                   {/* resets to default penguin/clear space */}
                 </form>
+                <div className="text-center">
+                                                
+                </div>
+                <DownloadBtn />
               </section>
+               {/* downloads image  */}
             </Col>
             <Col size="md-2">
                <p>Sweaters</p>         
@@ -178,18 +185,6 @@ class Swaddle extends Component {
                          
             </Col>
           </Row>
-          <div className="row">
-                          
-            <div className="text-center">
-                              
-              <DownloadBtn />
-               {/* downloads image  */}
-                           
-              <ResetBtn />
-               {/* resets to default penguin/clear space */}
-            </div>
-                                       
-          </div>
         </Container>
       </>
     );
