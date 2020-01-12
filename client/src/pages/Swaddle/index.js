@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import UserTextInput from "../../components/UserTextInput";
-import { ResetBtn, SaveBtn, AddTextBtn } from "../../components/ButtonSubmit";
+import {
+  ResetBtn,
+  DownloadBtn,
+  AddTextBtn
+} from "../../components/ButtonSubmit";
 import Navbar from "../../components/Navbar";
 import imageTypes from "../../components/Carousel/images.json";
 import ImageDisplay from "../../components/Carousel";
@@ -178,9 +182,11 @@ class Swaddle extends Component {
                           
             <div className="text-center">
                               
-              <SaveBtn /> {/* sends image to Gallery  */}
+              <DownloadBtn />
+               {/* downloads image  */}
                            
-              <ResetBtn /> {/* resets to default penguin/clear space */}
+              <ResetBtn />
+               {/* resets to default penguin/clear space */}
             </div>
                                        
           </div>

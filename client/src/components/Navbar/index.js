@@ -20,10 +20,10 @@ function Navbar() {
         <li className="nav-item">
           <Link to="/Swaddle"> SWADDLE A PENGUIN</Link>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           {/* if not logged in it askes you to login or register*/}
-          <Link to="/Gallery"> GALLERY</Link>
-        </li>
+        {/* <Link to="/Gallery"> GALLERY</Link> */}
+        {/* </li> */}
         <li className="nav-item">
           <Link to="/Donate"> DONATE</Link>
         </li>

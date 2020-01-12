@@ -13,12 +13,12 @@ export function ResetBtn() {
   return <button type="reset">Reset</button>;
 }
 
-export function SaveBtn() {
-  return <button>Save</button>;
-}
-export function SubmitBtn() {
-  return <button>Submit</button>;
-}
+// export function SaveBtn() {
+//   return <button>Save</button>;
+// }
+// export function SubmitBtn() {
+//   return <button>Submit</button>;
+// }
 
 export function DonateBtn() {
   return (
@@ -41,10 +41,10 @@ export function DownloadBtn({ imgURL, dataName }) {
   );
 }
 
-export function DeleteBtn(props) {
-  return (
-    <span className="delete-btn" {...props} role="button" tabIndex="0">
-      ✗
-    </span>
-  );
-}
+// export function DeleteBtn(props) {
+//   return (
+//     <span className="delete-btn" {...props} role="button" tabIndex="0">
+//       ✗
+//     </span>
+//   );
+// }
