@@ -15,8 +15,8 @@ export default {
     return axios.post("/api/textInput", userTextInput); // this is a promise!
   },
   //get all donations of a user
-  getDonations: function() {
-    return axios.get("/donate/donations"); // this is a promise!
+  getDonations: function(userId) {
+    return axios.get("/donate/donations?user_id=" + userId); // this is a promise!
   },
   //post one donation
   postDonation: function(donationData) {
