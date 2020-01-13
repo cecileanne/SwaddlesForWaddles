@@ -30,7 +30,7 @@ function Home() {
                 />
                 <div>
                   <h1>SWADDLES FOR WADDLES</h1>
-                  <p>Memes for a Cause</p>
+                  <p>A Meme Generator For A Cause</p>
                 </div>
               </div>
             </Col>
