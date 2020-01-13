@@ -16,7 +16,7 @@ import "./style.css";
 class Swaddle extends Component {
   state = {
     imageTypes,
-    clickedPenguinURL: "",
+    clickedPenguinURL: "/assets/images/penguins/penguin001.jpg",
     clickedSweaterURL: "",
     userTextGrabbed: ""
 
@@ -125,7 +125,6 @@ class Swaddle extends Component {
           </Row>
           <Row>
             <Col size="md-2">
-               <p>Penguins</p>            
               {this.state.imageTypes.penguins.map((image, index) => (
                 <ImageDisplay
                   key={index}
@@ -143,10 +142,14 @@ class Swaddle extends Component {
                   <img
                     id="preview"
                     className="card-img-top "
-                    src={
-                      process.env.PUBLIC_URL +
-                      "/assets/images/penguins/penguinTest1.jpg"
-                    }
+                    // if(jimpImages){
+
+                    //   src={this.state.JimpImages}
+                    // }else{
+
+                    src={this.state.clickedPenguinURL}
+                    // }
+
                     alt="Meme Preview"
                   />
                 </div>
@@ -167,7 +170,6 @@ class Swaddle extends Component {
                {/* downloads image  */}
             </Col>
             <Col size="md-2">
-               <p>Sweaters</p>         
               {this.state.imageTypes.sweaters.map((image, index) => (
                 <ImageDisplay
                   key={index}
