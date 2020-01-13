@@ -53,14 +53,19 @@ class Donate extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1>Help Save the Pengiuns</h1>
+              <h1>Help Save the Penguins</h1>
             </Jumbotron>
           </Col>
           <Col size="md-6">
             <h4>
-              The Wild Life Foundation is our favorite orgination for saving
-              animals. If you would like to help the penguins please donate now.
+              The World Wildlife Fund is our favorite organization for saving
+              animals. If you would like to help the penguins please pledge to
+              donate.
             </h4>
+            <p>
+              Please note - no financial information will be requested at this
+              time.
+            </p>
             <form>
               <Input
                 value={this.state.title}
