@@ -36,12 +36,11 @@ class Swaddle extends Component {
     // if penguin
     if (clickedImageType == "penguin") {
       const clickedPenguinURL = clickedImageURL;
-      console.log("clickedPenguinURL is " + clickedPenguinURL);
+      // console.log("clickedPenguinURL is " + clickedPenguinURL);
       this.setState(
         {
           clickedPenguinURL: clickedPenguinURL
         },
-        // TO DO: render a border around the selected penguin in Carousel
         () => {
           // console.log("callback executed");
           if (this.state.clickedPenguinURL && this.state.clickedSweaterURL) {
@@ -57,16 +56,15 @@ class Swaddle extends Component {
     // if sweater
     if (clickedImageType == "sweater") {
       const clickedSweaterURL = clickedImageURL;
-      console.log("clickedSweaterURL is " + clickedSweaterURL);
+      // console.log("clickedSweaterURL is " + clickedSweaterURL);
       this.setState(
         {
           clickedSweaterURL: clickedSweaterURL
         },
-        // TO DO: render a border around the selected sweater in Carousel
         () => {
           console.log("callback executed");
           if (this.state.clickedPenguinURL && this.state.clickedSweaterURL) {
-            console.log("sweater selected");
+            // console.log("sweater selected");
             API.jimpImages({
               imgPenguin: this.state.clickedPenguinURL,
               imgSweater: this.state.clickedSweaterURL
@@ -88,8 +86,6 @@ class Swaddle extends Component {
   handleText = event => {
     const userTextGrabbed = event.target.value;
     console.log("user text is ", userTextGrabbed);
-    // const userText = "";
-    // do we set a default? - placeholder is in UserTextInput component
     this.setState({ userTextGrabbed: userTextGrabbed });
   };
   handleReset = () => {
@@ -104,21 +100,20 @@ class Swaddle extends Component {
 
   handleTextAddClick = event => {
     event.preventDefault();
-    console.log(
-      "checking userText passing",
-      this.state.userTextGrabbed,
-      " penguin is ",
-      this.state.clickedPenguinURL,
-      " sweater is ",
-      this.state.clickedSweaterURL
-    );
+    // console.log(
+    //   "checking userText passing",
+    //   this.state.userTextGrabbed,
+    //   " penguin is ",
+    //   this.state.clickedPenguinURL,
+    //   " sweater is ",
+    //   this.state.clickedSweaterURL
+    // );
     if (
       this.state.clickedPenguinURL &&
       this.state.clickedSweaterURL &&
       this.state.userTextGrabbed
     ) {
       console.log("we got it all");
-      // TO DO: render a border around the selected penguin in Carousel
       API.jimpImages({
         imgPenguin: this.state.clickedPenguinURL,
         imgSweater: this.state.clickedSweaterURL,

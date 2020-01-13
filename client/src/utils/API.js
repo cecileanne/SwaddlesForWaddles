@@ -11,9 +11,10 @@ export default {
     return axios.post("/api/jimpimages", configObject); // this is a promise!
   },
 
-  textInput: function(userTextInput) {
-    return axios.post("/api/textInput", userTextInput); // this is a promise!
-  },
+  // textInput: function(userTextInput) {
+  //   return axios.post("/api/textInput", userTextInput); // this is a promise!
+  // },
+
   //get all donations of a user
   getDonations: function(userId) {
     return axios.get("/donate/donations?user_id=" + userId); // this is a promise!
