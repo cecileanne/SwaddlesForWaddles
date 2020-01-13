@@ -31,44 +31,42 @@ function About() {
             <Col size="md-8">
               <article>
                 <p>
-                  A group of penguins is called a waddle, and a sweater for a
-                  penguin is like a swaddle. Here, on Swaddles for Waddles, you
-                  can create your own images and memes of penguins in sweaters!
-                </p>
-                <p>Create fun memes and be as fun and silly as you want.</p>
-                <p>
-                  In 2000, there was an oil spill near Melbourne, Australia that
-                  effected local Little Blue Penguins. The Tasmanian
-                  Conservation Trust and State Library requested
-                  sweaters/jumpers for penguins to keep them from cleaning
-                  themselves and thus ingesting the oil on their bodies. The
-                  call to action was answered in larger numbers than the
-                  orginizations could handle.
+                  Swaddle for Waddles, a meme generator, allows you to create
+                  memes by putting a sweater on top of a selected penguin
+                  (swaddling it), and adding text of your very own! There is no
+                  limit to the number of memes you can create, and you'll have
+                  your own waddle (a group of penguins) in no time.
                 </p>
                 <p>
-                  In 2014 there was another call for sweaters to have in stock
-                  incase of another oil spill. Once again, the public sent too
-                  many sweaters and many fun stories such as Australia's oldest
-                  man knitting sweaters for the penguins.
+                  It's not only fun and entertaining - by creating and sharing
+                  your meme, you can raise awareness of environmental issues
+                  caused by oil spills. Taking inspiration from events near
+                  Australia both in 2000 and 2014, swaddling a penguin in a
+                  sweater (or "jumper" as they say Down Under) was happening not
+                  just virtually. In one of the first internet calls to action,
+                  conservation groups requested sweaters for effected penguins
+                  to keep them from ingesting oil while they groomed themselves.
+                  A knitting pattern was provided, and the groups expected just
+                  enough for the penguins in their care. The international
+                  response was overwhelming and they received exponentially more
+                  than they needed. While sweaters are no longer needed today,
+                  the idea of creating accessories for animals in peril struck a
+                  chord and stories about not only the spills but the
+                  sweater-knitters made news world-wide. Australia's oldest man
+                  was even knitting!
                 </p>
                 <p>
-                  We are offering you different way to engage with the cause.
+                  Taking it even further, we offer a proof of concept for a more
+                  pro-active solution to help real animals. By hypothetically
+                  partnering with an organization, in this case the World
+                  Wildlife Fund, users could (again, hypothetically) donate
+                  money for clean up efforts and care for displaced penguins.
                 </p>
                 <p>
-                  A group of penguins is called a waddle, and a sweater for a
-                  penguin is like a swaddle. Here, on Swaddles for Waddles, you
-                  can create your own images and memes of penguins in sweaters!
-                </p>
-                <p>
-                  Create fun memes and that will (indirectly) bring global
-                  attention to the needs of penguins around the world. While we
-                  love activism, don't feel pressure to make a social statement
-                  with your meme! Be as fun and silly as you want.
-                </p>
-                <p>
-                  If you would like to be more proactive in your support for
-                  penguins please donate! We love the World Wild Life Foundation
-                  and their efforts!
+                  Our serious backstory aside, we hope you have fun creating
+                  your meme! There is something inherently smile-inducing about
+                  seeing an animal in clothing. Be as silly and creative as you
+                  want!
                 </p>
               </article>
 

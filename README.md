@@ -4,7 +4,7 @@ A meme generator for a cause.
 
 ## What is it?
 
-**_Swaddles for Waddles_** is a meme generator that was inspired the response of environmentalists to oil spills near Australia in 2001 and 2014. In one of the first internet calls to action, sweaters were requested to "swaddle" effected penguins to keep them safe from the oil.</br>
+**_Swaddles for Waddles_** is a meme generator that was inspired the response of environmentalists to oil spills near Australia in 2001 and 2014. In one of the first internet calls to action, sweaters were requested to "swaddle" effected penguins to keep them safe from ingesting oil while they groomed themselves.</br>
 While that issue has long been solved, **_Swaddles for Waddles_** allows the conversation for oil spills, penguins, and fun community efforts to continue. Additionally, there is a (mock) page for donation pledges to help penguins via the World Wild Life Foundation.
 
 ## Real World Application
