@@ -51,6 +51,7 @@ class Login extends Component {
       console.log(res);
       localStorage.setItem("JWT", res.data.token);
       localStorage.setItem("email", res.data.username);
+      localStorage.setItem("userId", res.data.userId);
     });
     this.props.history.push("/Swaddle");
   };
