@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import UserTextInput from "../../components/UserTextInput";
-import {
-  ResetBtn,
-  DownloadBtn,
-  AddTextBtn
-} from "../../components/ButtonSubmit";
+import { DownloadBtn, AddTextBtn } from "../../components/ButtonSubmit";
 import Navbar from "../../components/Navbar";
 import imageTypes from "../../components/Carousel/images.json";
 import ImageDisplay from "../../components/Carousel";
@@ -18,11 +14,19 @@ class Swaddle extends Component {
     imageTypes,
     clickedPenguinURL: "/assets/images/penguins/penguin001.jpg",
     clickedSweaterURL: "",
-    userTextGrabbed: ""
-
+    userTextGrabbed: "",
+    userName: ""
     // userSelectedObject: { penguin: "", sweater: "", UserTextInput: "" }
   };
-
+  componentDidMount() {
+    const userName = localStorage.getItem("email");
+    if (!userName) {
+      //redirect to login
+      this.props.history.push("/login");
+    } else {
+      this.setState({ userName });
+    }
+  }
   // Selecting penguin and sweater
   handleClick = event => {
     const clickedImageURL = event.target.getAttribute("src");
@@ -132,7 +136,7 @@ class Swaddle extends Component {
             <Row>
               {/* Header Stuf <p>{this.user.firstName}</p> */}
               <Col size="md-3">
-                <h2> Hi [Username],</h2>
+                <h2> Hi {this.state.userName},</h2>
               </Col>
               <Col size="md-9">
                 <h1>Swaddle A Penguin</h1>
