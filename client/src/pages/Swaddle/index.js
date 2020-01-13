@@ -159,8 +159,7 @@ class Swaddle extends Component {
                     handleChange={this.handleText}
                   />
                   <AddTextBtn onClick={this.handleTextAddClick}>Add</AddTextBtn>
-                  <ResetBtn />
-                   {/* resets to default penguin/clear space */}
+                  <ResetBtn /> {/* resets to default penguin/clear space */}
                 </form>
                 <div className="text-center">
                                                 
