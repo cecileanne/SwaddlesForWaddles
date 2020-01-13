@@ -9,10 +9,6 @@ export function AddTextBtn(props) {
   );
 }
 
-export function ResetBtn() {
-  return <button type="reset">Reset</button>;
-}
-
 // export function SaveBtn() {
 //   return <button>Save</button>;
 // }
@@ -22,7 +18,7 @@ export function ResetBtn() {
 
 export function DonateBtn() {
   return (
-    <a className="btn btn-primary" href="/donate" role="button">
+    <a href="/donate" role="button">
       Donate Now!
     </a>
   );
@@ -30,20 +26,21 @@ export function DonateBtn() {
 
 export function DownloadBtn({ imgURL, dataName }) {
   return (
-    <a
-      class="btn btn-primary"
-      href={"/assets/images/penguins/penguinTest1.jpg"} //this is the prop {imgURL} from jimp/database
-      download="PenguinTest1" //this is the prop {dataName}
-      role="button"
-    >
-      {/* <a
+    <button>
+      <a
+        href={"/assets/images/penguins/penguinTest1.jpg"} //this is the prop {imgURL} from jimp/database
+        download="PenguinTest1" //this is the prop {dataName}
+        role="button"
+      >
+        {/* <a
       class="btn btn-primary"
       href=atob({prop.base64})//this is the prop {imgURL} from jimp/database
       download={dataName} //this is the prop {dataName}
       role="button"
     > */}
-      Download
-    </a>
+        Download
+      </a>
+    </button>
   );
 }
 
