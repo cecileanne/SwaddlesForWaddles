@@ -47,7 +47,7 @@ router.post("/registerUser", (req, res, next) => {
 
             res.json({
               username: data.username,
-              userId: user._id,
+              userId: user.dataValues.id,
               auth: true,
               token: token,
               message: "user created"

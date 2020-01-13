@@ -57,9 +57,11 @@ class Register extends Component {
     axios.post("/auth/registerUser", this.state).then(res => {
       localStorage.setItem("JWT", res.data.token);
       localStorage.setItem("email", res.data.username);
+      localStorage.setItem("userId", res.data.userId);
+      console.log(res.data);
+      this.props.history.push("/Swaddle");
     });
     //return <Redirect to="/Swaddle" />;
-    this.props.history.push("/Swaddle");
   };
   render = () => {
     return (

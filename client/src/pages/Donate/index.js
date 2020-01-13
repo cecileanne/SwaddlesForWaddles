@@ -19,14 +19,19 @@ class Donate extends Component {
   }
 
   loadDonations = () => {
-    API.getDonations()
-      .then(res =>
-        this.setState({
-          donation: res.data,
-          amount: ""
-        })
-      )
-      .catch(err => console.log(err));
+    const userId = localStorage.getItem("userId");
+    if (userId) {
+      API.getDonations(userId)
+        .then(res =>
+          this.setState({
+            donation: res.data,
+            amount: ""
+          })
+        )
+        .catch(err => console.log(err));
+    } else {
+      this.props.history.push("/login");
+    }
   };
 
   handleInputChange = event => {
