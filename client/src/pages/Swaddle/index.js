@@ -11,7 +11,7 @@ import imageTypes from "../../components/Carousel/images.json";
 import ImageDisplay from "../../components/Carousel";
 import API from "../../utils/API";
 // import { stat } from "fs";
-import "./style.css";
+import "./swaddle.css";
 
 class Swaddle extends Component {
   state = {
@@ -88,6 +88,15 @@ class Swaddle extends Component {
     // do we set a default? - placeholder is in UserTextInput component
     this.setState({ userTextGrabbed: userTextGrabbed });
   };
+  handleReset = () => {
+    {
+      this.setState({
+        clickedPenguinURL: "/assets/images/penguins/penguin001.jpg",
+        clickedSweaterURL: "",
+        userTextGrabbed: ""
+      });
+    }
+  };
 
   handleTextAddClick = event => {
     event.preventDefault();
@@ -116,78 +125,88 @@ class Swaddle extends Component {
 
   render() {
     return (
-      <>
-        <Container fluid>
-          {/* header stuff can be a jumbotron or whatever is on brand */}
-          <Row>
-            {/* Header Stuf <p>{this.user.firstName}</p> */}
-            Header Stuf
-          </Row>
-          <Row>
-            <Col size="md-2">
-              {this.state.imageTypes.penguins.map((image, index) => (
-                <ImageDisplay
-                  key={index}
-                  imgURL={image.imgURL}
-                  dateName={image.dataname}
-                  datatype={image.type}
-                  clicked={image.clicked}
-                  handleClick={this.handleClick}
-                />
-              ))}
-            </Col>
-            <Col size="md-7">
-              <section className="text-center">
-                <div className="card ">
-                  <img
-                    id="preview"
-                    className="card-img-top "
-                    // if(jimpImages){
-
-                    //   src={this.state.JimpImages}
-                    // }else{
-
-                    src={this.state.clickedPenguinURL}
-                    // }
-
-                    alt="Meme Preview"
+      <div className="swaddle">
+        <Container>
+          <div>
+            {/* header stuff can be a jumbotron or whatever is on brand */}
+            <Row>
+              {/* Header Stuf <p>{this.user.firstName}</p> */}
+              <Col size="md-3">
+                <h2> Hi [Username],</h2>
+              </Col>
+              <Col size="md-9">
+                <h1>Swaddle A Penguin</h1>
+              </Col>
+            </Row>
+            <Row>
+              <Col size="md-2">
+                {this.state.imageTypes.penguins.map((image, index) => (
+                  <ImageDisplay
+                    key={index}
+                    imgURL={image.imgURL}
+                    dateName={image.dataname}
+                    datatype={image.type}
+                    clicked={image.clicked}
+                    handleClick={this.handleClick}
                   />
-                </div>
-                <form>
-                  <UserTextInput
-                    userTextGrabbed={this.state.userTextGrabbed}
-                    handleChange={this.handleText}
+                ))}
+              </Col>
+              <Col size="md-7">
+                <section className="text-center">
+                  <div className="card ">
+                    <img
+                      id="preview"
+                      className="card-img-top "
+                      // {if(jimpImages){
+
+                      //   src={this.state.JimpImages}
+                      // }else{
+
+                      src={this.state.clickedPenguinURL}
+                      // }}
+
+                      alt="Meme Preview"
+                    />
+                  </div>
+                  <form>
+                    <UserTextInput
+                      userTextGrabbed={this.state.userTextGrabbed}
+                      handleChange={this.handleText}
+                    />
+                    <AddTextBtn onClick={this.handleTextAddClick}>
+                      Add
+                    </AddTextBtn>
+                    <AddTextBtn onClick={this.handleReset}>Rest </AddTextBtn> 
+                    {/* resets to default penguin/clear space */}
+                  </form>
+                  <div className="text-center">
+                                                  
+                  </div>
+                  <DownloadBtn />
+                </section>
+                 {/* downloads image  */}
+              </Col>
+              <Col size="md-2">
+                {this.state.imageTypes.sweaters.map((image, index) => (
+                  <ImageDisplay
+                    key={index}
+                    imgURL={image.imgURL}
+                    dateName={image.dataname}
+                    datatype={image.type}
+                    clicked={image.clicked}
+                    handleClick={this.handleClick}
                   />
-                  <AddTextBtn onClick={this.handleTextAddClick}>Add</AddTextBtn>
-                  <ResetBtn /> {/* resets to default penguin/clear space */}
-                </form>
-                <div className="text-center">
-                                                
-                </div>
-                <DownloadBtn />
-              </section>
-               {/* downloads image  */}
-            </Col>
-            <Col size="md-2">
-              {this.state.imageTypes.sweaters.map((image, index) => (
-                <ImageDisplay
-                  key={index}
-                  imgURL={image.imgURL}
-                  dateName={image.dataname}
-                  datatype={image.type}
-                  clicked={image.clicked}
-                  handleClick={this.handleClick}
-                />
-              ))}
-            </Col>
-            <Col size="md-1">
-                         
-              <Navbar />
-                         
-            </Col>
-          </Row>
+                ))}
+              </Col>
+              <Col size="md-1">
+                           
+                <Navbar />
+                           
+              </Col>
+            </Row>
+          </div>
         </Container>
-      </>
+      </div>
     );
   }
 }
