@@ -6,45 +6,11 @@ const path = require("path");
 // Matches with "/api/jimp-routes/:penguin"
 router
   .route("/jimpimages")
-  // .get((req, res) => {
-  //   const selectedPenguin = req.params.penguin;
-  //   const penguinRaw = process.env.PUBLIC_URL + selectedPenguin;
-  //   res.send(penguinRaw);
-  //   // res.json(penguinRaw);
-  // })
+
   .post((req, res) => {
     console.log(`the goal`, req.body);
     jimp(req.body, img => res.json({ base64: img }));
   });
-
-// router
-// .route("/textInput")
-// // .get((req, res) => {
-// //   const selectedPenguin = req.params.penguin;
-// //   const penguinRaw = process.env.PUBLIC_URL + selectedPenguin;
-// //   res.send(penguinRaw);
-// //   // res.json(penguinRaw);
-// // })
-// .post(res => {
-//   console.log(`the text is`, res.body);
-//   jimp(res.body);
-//   res.json({ roundtrip: "true for text" });
-// });
-
-// // Matches with "/api/jimp-routes/:sweater"
-// router.route("/sweater").get((req, res) => {
-//   const selectedSweater = req.params.sweater;
-//   const imgSweater = process.env.PUBLIC_URL + selectedSweater;
-//   res.send(imgSweater);
-//   // res.json(imgSweater);
-// });
-
-// // Matches with "/api/jimp-routes/:userText"
-// router.route("/userText").get((req, res) => {
-//   const userText = req.params.userText;
-//   res.send(userText);
-//   // res.json(userText);
-// });
 
 // Process Jimp
 
@@ -54,12 +20,10 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
   console.log(typeof imgPenguin);
   console.log(imgPenguin, imgSweater);
 
-  // // TO DO RUN AGAINST ARRAY
-  // getPositions(jimpPositions) => {
-  //   if (imgPenguin = jimpPositions.imgURL) {
-
-  //   }
-  // }
+  let sweaterX = "";
+  let sweaterY = "";
+  let textX = "";
+  let textY = "";
 
   // Initiate the images:
   // let penguinRaw = process.env.PUBLIC_URL + imgPenguin; // background image examples should all be the same size
@@ -70,18 +34,36 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
   // TO DO after Saturday MVP, maybe set up caching? Don't need if we save as base64?
   // let imgExported = process.env.PUBLIC_URL + "/exportedImages/swaddle.jpg"; //
   let imgExported = path.join(__dirname, "/swaddle.jpg"); //
-
+  if ((penguinRaw = "/assets/images/penguins/penguin001.jpg")) {
+    sweaterX = "180";
+    sweaterY = "410";
+    textX = "300";
+    textY = "560";
+  }
+  if ((penguinRaw = "/assets/images/penguins/penguin002.jpg")) {
+    sweaterX = "325";
+    sweaterY = "355";
+    textX = "440";
+    textY = "500";
+  }
+  if ((penguinRaw = "/assets/images/penguins/penguin006.jpg")) {
+    sweaterX = "220";
+    sweaterY = "260";
+    textX = "330";
+    textY = "420";
+  }
   // TO DO - MOVE THIS TO THE TEXT INPUT COMPONENT (already noted)
   let textData = {
     // we will save our sweaters to have minimal transparant pad pad
     text: userText, //the text to be rendered on the image - will be input
     maxWidth: 300, // SET THIS AS penguin image width - 10px margin left - 10px margin right
     maxHeight: 300, // SET THIS AS penguin image width - 10px margin top - 10px margin bottom
-    placementX: -150, // x axis
-    placementY: 550 // y axis
+    placementX: textX, // x axis
+    placementY: textY // y axis
   };
 
   // read template
+
   Jimp.read(penguinRaw)
 
     //combine sweater into image
@@ -90,7 +72,7 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
         .then(sweaterTemplate => {
           sweaterTemplate.opacity(1);
           // numbers in next line are the position x, y for the sweater overlaw
-          return mashUp.composite(sweaterTemplate, 100, 400, [
+          return mashUp.composite(sweaterTemplate, sweaterX, sweaterY, [
             Jimp.BLEND_DESTINATION_OVER,
             0.2,
             0.2
