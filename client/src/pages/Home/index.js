@@ -9,29 +9,30 @@ import { Container } from "../../components/Grid";
 function Home() {
   return (
     <div className="background">
-      <Container>
-        <Navbar className="navbar" />
-        <div className="logo-wrapper">
-          <img
-            className="mainlogo"
-            src={
-              process.env.PUBLIC_URL +
-              "/assets/images/icons/swaddles_for_waddles_logo.png"
-            }
-          />
-        </div>
+      <Navbar className="navbar" />
+      <div className="adoption">
+        <h2 className="adopt">ADOPT</h2>
+        <h2>A PENGUIN</h2>
+      </div>
+      <div className="logo-wrapper">
         <img
-          className="front-page-photo"
+          className="mainlogo"
           src={
             process.env.PUBLIC_URL +
-            "/assets/images/icons/penguins_for_frontpage.jpg"
+            "/assets/images/icons/swaddles_for_waddles_logo.png"
           }
         />
-        <div>
-          <h1 className="brand-text"> SWADDLES FOR WADDLES</h1>
-          <p className="brand-subtext">Memes for a Cause</p>
-        </div>
-      </Container>
+      </div>
+      <img
+        className="front-page-photo"
+        src={
+          process.env.PUBLIC_URL +
+          "/assets/images/icons/penguins_for_frontpage.jpg"
+        }
+      />
+
+      <h1 className="brand-text">SWADDLES FOR WADDLES</h1>
+      <p className="brand-subtext">Memes for a Cause</p>
     </div>
   );
 }
