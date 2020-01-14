@@ -22,7 +22,10 @@ class Login extends Component {
     } else {
       axios
         .get("/auth/findUser", {
-          params: { username: localStorage.getItem("email") },
+          params: {
+            username: localStorage.getItem("email"),
+            userId: localStorage.getItem("userId")
+          },
           headers: { Authorization: `JWT ${accessString}` }
         })
         .then(res => {
@@ -39,16 +42,13 @@ class Login extends Component {
   }
 
   handleInputChange = event => {
-    //console.log(event);
     const { value, name } = event.target;
-    //console.log(value, name);
     this.setState({ [name]: value }, () => this.state);
   };
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.state);
     axios.post("/auth/loginUser", this.state).then(res => {
-      console.log(res);
       localStorage.setItem("JWT", res.data.token);
       localStorage.setItem("email", res.data.username);
       localStorage.setItem("userId", res.data.userId);

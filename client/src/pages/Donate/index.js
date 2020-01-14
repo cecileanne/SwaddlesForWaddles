@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input } from "../../components/Form";
-import Jumbotron from "../../components/Jumbotron";
 import Navbar from "../../components/Navbar";
 import { List, ListItem } from "../../components/List";
 import API from "../../utils/API";
@@ -11,7 +10,7 @@ import "./style.css";
 class Donate extends Component {
   state = {
     userName: "",
-    donation: [],
+    donations: [],
     amount: ""
   };
 
@@ -30,12 +29,13 @@ class Donate extends Component {
     const userId = localStorage.getItem("userId");
     if (userId) {
       API.getDonations(userId)
-        .then(res =>
+        .then(res => {
           this.setState({
             donation: res.data,
             amount: ""
-          })
-        )
+          });
+          console.log(res);
+        })
         .catch(err => console.log(err));
     } else {
       this.props.history.push("/login");
@@ -46,7 +46,7 @@ class Donate extends Component {
     const value = event.target.value;
     this.setState(
       {
-        value: value
+        amount: value
       },
       () => console.log(this.state)
     );
@@ -54,8 +54,10 @@ class Donate extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    const userId = localStorage.getItem("userId");
     API.postDonation({
-      amount: this.state.amount
+      amount: this.state.amount,
+      UserId: userId
     })
       .then(res => this.loadDonations())
       .catch(err => console.log(err));
@@ -85,7 +87,7 @@ class Donate extends Component {
               </p>
               <form>
                 <Input
-                  value={this.state.title}
+                  value={this.state.value}
                   changeHandler={this.handleInputChange}
                   name="Donation"
                   placeholder="$ 0.00"
@@ -101,17 +103,19 @@ class Donate extends Component {
               </form>
             </Col>
             <Col size="md-6">
-              <h1>Donations</h1>
-              <List>
-                {/* {this.state.donations.map(donation => ( */}
-                {/* <ListItem key={donation._id}> */}
-                <ListItem>
-                  <strong>{/* {donation.date} by {donation.amount} */}</strong>
-                </ListItem>
-              </List>
-              <div>
-                <h2>Total: $50.00</h2>
-              </div>
+              <h2>{this.state.userName}'s Donations:</h2>
+              {this.state.donations.length ? (
+                <List>
+                  {this.state.donations.map(donate => (
+                    <ListItem>{donate.amount}</ListItem>
+                  ))}
+                </List>
+              ) : (
+                <h3>You haven't donated yet.</h3>
+              )}
+              {/* <div>
+                <h2>Total: {}/h2>
+              </div> */}
             </Col>
             <Navbar />
           </Row>

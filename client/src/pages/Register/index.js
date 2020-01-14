@@ -15,7 +15,6 @@ class Register extends Component {
     password: "",
     confirmPassword: ""
   };
-  //console.log(this.state.cards);
 
   componentDidMount() {
     let accessString = localStorage.getItem("JWT");
@@ -46,9 +45,7 @@ class Register extends Component {
   }
 
   handleInputChange = event => {
-    //console.log(event);
     const { value, name } = event.target;
-    //console.log(value, name);
     this.setState({ [name]: value }, () => console.log(this.state));
   };
   handleFormSubmit = event => {
@@ -61,7 +58,6 @@ class Register extends Component {
       console.log(res.data);
       this.props.history.push("/Swaddle");
     });
-    //return <Redirect to="/Swaddle" />;
   };
   render = () => {
     return (
