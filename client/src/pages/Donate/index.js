@@ -29,11 +29,14 @@ class Donate extends Component {
     if (userId) {
       API.getDonations(userId)
         .then(res => {
-          this.setState({
-            donation: res.data,
-            amount: ""
-          });
-          console.log(res);
+          this.setState(
+            {
+              donation: res.data,
+              amount: ""
+            },
+            () => console.log("STATE MOUNTS", this.state)
+          );
+          console.log("THIS IS RES FROM GET DONATIONS", res);
         })
         .catch(err => console.log(err));
     } else {
@@ -58,7 +61,9 @@ class Donate extends Component {
       amount: this.state.amount,
       UserId: userId
     })
-      .then(res => this.loadDonations())
+      .then(res => {
+        this.loadDonations();
+      })
       .catch(err => console.log(err));
   };
 
@@ -116,8 +121,12 @@ class Donate extends Component {
                 </div>
               </form>
             </Col>
-            <Col size="md-4">
-              <List />
+            <Col size="md-6">
+              {this.state.donations.map(donation => (
+                <li className="list-group-item">
+                  {donation.transactionDate} | {donation.amount}
+                </li>
+              ))}
               <div>
                 <h2>Total Donations to date: $50.00 (MAKE THIS INTO STATE?)</h2>
               </div>

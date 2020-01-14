@@ -3,10 +3,11 @@ import React from "react";
 
 //MAKE THIS LIST A TABLE!!!!!!!!!!!!!!!!!!!!!!!
 // export function List({ children }) {
-export function List() {
+export function List(props) {
+  console.log("INSIDE",props)
   return (
     <div className="list-overflow-container">
-      <ListItem />
+      {props.datas.map(donation=><li className="list-group-item">{donation.transactionDate} | {donation.amount}</li>)}
       {/* <ul className="list-group">{children}</ul> */}
       <ul className="list-group"></ul>
     </div>

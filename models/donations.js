@@ -4,11 +4,11 @@ module.exports = function(sequelize, DataTypes) {
     amount: {
       type: DataTypes.INTEGER,
       allowNull: false
-    },
-    time: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+    }
+    // time: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false
+    // },
   });
 
   Donation.associate = function(models) {

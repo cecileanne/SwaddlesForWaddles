@@ -38,7 +38,7 @@ passport.use(
             console.log("username already taken");
             return done(null, false, { message: "username already taken" });
           } else {
-            console.log("WE HIT THIS");
+            //console.log("WE HIT THIS");
             //if user doesn't exists, create new user entry and hash password
             bcrypt.hash(password, BCRYPT_SALT_ROUNDS).then(hashedPassword => {
               db.User.create({
