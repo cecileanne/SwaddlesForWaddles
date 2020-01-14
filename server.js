@@ -18,18 +18,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use(logger("dev"));
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client/build")));
-}
+// if (process.env.NODE_ENV === "production") {
+app.use(express.static(path.join(__dirname, "client/build")));
+// }
 
 // Add routes, both API and view
-const routes = require("./routes");
+const routes = require("./routes/index");
 // middleware for jimp routes
 app.use((req, res, next) => {
   console.log(req.url, req.body);
   next();
 });
 app.use(routes);
+
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 // We need to use sessions to keep track of our user's login status
 app.use(
