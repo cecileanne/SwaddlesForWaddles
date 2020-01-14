@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Add routes, both API and view
-const routes = require("./routes/");
+const routes = require("./routes");
 // middleware for jimp routes
 app.use((req, res, next) => {
   console.log(req.url, req.body);
