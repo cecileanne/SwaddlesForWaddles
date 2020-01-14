@@ -101,4 +101,9 @@ router.get("/findUser", (req, res, next) => {
   })(req, res, next);
 });
 
+// router.get('/logoutUser', function(req, res){
+//   req.logout();
+//   res.redirect('/');
+// });
+
 module.exports = router;

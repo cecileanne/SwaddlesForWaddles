@@ -28,9 +28,7 @@ const routes = require("./routes/index.js");
 // middleware for jimp routes
 
 
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+app.use(logger("combined"));
 
 // We need to use sessions to keep track of our user's login status
 
@@ -46,7 +44,11 @@ app.use((req, res, next) => {
 });
 app.use(routes);
 
-app.use(logger("combined"));
+
+
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 //Syncing our database and logging a message to the user upon success
 db.sequelize.sync({ force: false }).then(function() {
