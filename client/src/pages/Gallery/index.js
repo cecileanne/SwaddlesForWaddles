@@ -1,5 +1,8 @@
-import React from "react";
-// import "./style.css";
+import React, { Component } from "react";
+import { Col, Row, Container } from "../../components/Grid";
+import GalleryImage from "../../components/GalleryImage";
+import Navbar from "../../components/Navbar";
+import "./style.css";
 
 class Gallery extends Component() {
   state = {
@@ -20,7 +23,7 @@ class Gallery extends Component() {
       <Container fluid>
         <Row>
           <Col size="md-3">
-            <Navbar history={this.props.history} />
+            <Navbar />
           </Col>
           <Col size="md-9">
             <Row>
@@ -37,8 +40,3 @@ class Gallery extends Component() {
 }
 
 export default Gallery;
-// function swaddlePenguin(props) {
-//   return <div />;
-// }
-
-// export default swaddlePenguin;

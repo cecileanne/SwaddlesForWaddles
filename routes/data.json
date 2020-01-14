@@ -1,0 +1,44 @@
+[
+  {
+    "imgURL": "process.env.PUBLIC_URL + '/assets/images/penguins/penguin001.jpg'",
+    "sweaterX": 180,
+    "sweaterY": 410,
+    "sweaterResizeX": "TBD",
+    "sweaterResizeY": "TBD",
+    "sweaterRotation": "TBD",
+    "textFont": "Jimp.FONT_SANS_64_WHITE",
+    "textPlacementX": 300,
+    "textPlacementY": 560,
+    "maxWidth": 300,
+    "maxHeight": 300,
+    "clicked": false
+  },
+  {
+    "imgURL": "process.env.PUBLIC_URL + '/assets/images/penguins/penguin002.jpg'",
+    "sweaterX": 325,
+    "sweaterY": 355,
+    "sweaterResizeX": "TBD",
+    "sweaterResizeY": "TBD",
+    "sweaterRotation": "TBD",
+    "textFont": "Jimp.FONT_SANS_64_WHITE",
+    "textPlacementX": 440,
+    "textPlacementY": 500,
+    "maxWidth": 300,
+    "maxHeight": 300,
+    "clicked": false
+  },
+  {
+    "imgURL": "process.env.PUBLIC_URL + '/assets/images/penguins/penguin006.jpg'",
+    "sweaterX": 220,
+    "sweaterY": 260,
+    "sweaterResizeX": "TBD",
+    "sweaterResizeY": "TBD",
+    "sweaterRotation": "TBD",
+    "textFont": "Jimp.FONT_SANS_64_WHITE",
+    "textPlacementX": 330,
+    "textPlacementY": 420,
+    "maxWidth": 300,
+    "maxHeight": 300,
+    "clicked": false
+  }
+]

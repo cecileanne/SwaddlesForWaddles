@@ -15,7 +15,7 @@ router.post("/registerUser", (req, res, next) => {
       console.log(err);
     }
     if (info != undefined) {
-      //console.log("info is not undefined");ss
+      //console.log("info is not undefined");
       console.log(info.message);
       res.send(info.message);
     } else {
@@ -115,8 +115,4 @@ router.get("/findUser", (req, res, next) => {
   })(req, res, next);
 });
 
-router.get('/logoutUser', function(req, res){
-  req.logout();
-  res.redirect('/');
-});
 module.exports = router;

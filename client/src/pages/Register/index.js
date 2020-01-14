@@ -67,7 +67,7 @@ class Register extends Component {
     return (
       <Container fluid>
         <Row>
-          <Navbar history={this.props.history} />
+          <Navbar />
           <Col size="md-12">
             <Jumbotron>
               <h1>Register</h1>
@@ -119,5 +119,4 @@ class Register extends Component {
     );
   };
 }
-
 export default Register;

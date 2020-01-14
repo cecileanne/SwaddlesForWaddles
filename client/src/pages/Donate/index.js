@@ -113,7 +113,7 @@ class Donate extends Component {
                 <h2>Total: $50.00</h2>
               </div>
             </Col>
-            <Navbar history={this.props.history} />
+            <Navbar />
           </Row>
         </Container>
       </div>

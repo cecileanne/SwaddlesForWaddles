@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "process.env.username_jaws",
+    "password": "process.env.password_jaws",
+    "database": "process.env.db_jaws",
+    "host": "process.env.host_jaws",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "process.env.username_jaws",
+    "password": "process.env.password_jaws",
+    "database": "process.env.db_jaws",
+    "host": "process.env.host_jaws",
+    "dialect": "mysql",
+    "use_env_variable": "mysql://qx9nuaz5102wlbzt:gbqcv1ag3zu4fvsb@tkck4yllxdrw0bhi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/h35yj8kso9exylkl"
+  }
+}

@@ -1,105 +1,147 @@
-import React from "react";
-// import { Link } from "react-router-dom";
+import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import UserTextInput from "../../components/UserTextInput";
-import Carousel from "../../components/Carousel";
+import { DownloadBtn, AddTextBtn } from "../../components/ButtonSubmit";
+import Navbar from "../../components/Navbar";
+import imageTypes from "../../components/Carousel/images.json";
+import ImageDisplay from "../../components/Carousel";
+import API from "../../utils/API";
+// import { stat } from "fs";
+import "./swaddle.css";
 
-// import "./style.css";
+class Swaddle extends Component {
+  state = {
+    imageTypes,
+    clickedPenguinURL: "/assets/images/penguins/penguin001.jpg",
+    clickedSweaterURL: "",
+    userTextGrabbed: "",
+    userName: ""
+    // userSelectedObject: { penguin: "", sweater: "", UserTextInput: "" }
+  };
+  componentDidMount() {
+    const userName = localStorage.getItem("email");
+    if (!userName) {
+      //redirect to login
+      this.props.history.push("/login");
+    } else {
+      this.setState({ userName });
+    }
+  }
+  // Selecting penguin and sweater
+  handleClick = event => {
+    const clickedImageURL = event.target.getAttribute("src");
+    const clickedImageType = event.target.getAttribute("datatype");
+    console.log(clickedImageURL, clickedImageType);
 
-function Swaddle() {
-  // COMMENTED FOR DEMO ROUTING
-
-  const Jimp = require("jimp");
-
-  // Initiate the images:
-  let imgPenguin =
-    process.env.PUBLIC_URL + "/assets/images/penguins/penguinTest1.jpg"; // background image examples should all be the same size
-  let sweaterRaw =
-    process.env.PUBLIC_URL + "/assets/images/sweaters/redSweaterTest.png"; // png layer
-  // THIS CAN GO IN AN API POST
-  let imgExported =
-    process.env.PUBLIC_URL + "/assets/images/exportedImages/swaddle.jpg"; //
-
-  // MOVE THIS TO THE TEXT INPUT COMPONENT
-  let textData = {
-    // we will save our sweaters to have minimal transparant pad pad
-    text: "BOOM", //the text to be rendered on the image - will be input
-    maxWidth: 1004, // SET THIS AS penguin image width - 10px margin left - 10px margin right
-    maxHeight: 100, // SET THIS AS penguin image width - 10px margin top - 10px margin bottom
-    placementX: -150, // x axis
-    placementY: 550 // y axis
+    // if penguin
+    if (clickedImageType == "penguin") {
+      const clickedPenguinURL = clickedImageURL;
+      console.log("clickedPenguinURL is " + clickedPenguinURL);
+      this.setState(
+        {
+          clickedPenguinURL: clickedPenguinURL
+        },
+        // TO DO: render a border around the selected penguin in Carousel
+        () => {
+          // console.log("callback executed");
+          if (this.state.clickedPenguinURL && this.state.clickedSweaterURL) {
+            // console.log("penguin selected");
+            API.jimpImages({
+              imgPenguin: this.state.clickedPenguinURL,
+              imgSweater: this.state.clickedSweaterURL
+            }).then(data => console.log("we are sending this", data));
+          }
+        }
+      );
+    }
+    // if sweater
+    if (clickedImageType == "sweater") {
+      const clickedSweaterURL = clickedImageURL;
+      console.log("clickedSweaterURL is " + clickedSweaterURL);
+      this.setState(
+        {
+          clickedSweaterURL: clickedSweaterURL
+        },
+        // TO DO: render a border around the selected sweater in Carousel
+        () => {
+          console.log("callback executed");
+          if (this.state.clickedPenguinURL && this.state.clickedSweaterURL) {
+            console.log("sweater selected");
+            API.jimpImages({
+              imgPenguin: this.state.clickedPenguinURL,
+              imgSweater: this.state.clickedSweaterURL
+            }).then(data => console.log("we are sending this", data));
+          }
+        }
+      );
+    }
   };
 
-  // read template
-  Jimp.read(imgPenguin)
+  handleInputChange = event => {
+    const value = event.target.value;
+    this.setState({
+      value: value
+    });
+  };
 
-    //combine sweater into image
-    .then(
-      mashUp =>
-        Jimp.read(sweaterRaw)
-          .then(sweaterTemplate => {
-            sweaterTemplate.opacity(1);
-            // numbers in next line are the position x, y for the sweater overlaw
-            return mashUp.composite(sweaterTemplate, 100, 400, [
-              Jimp.BLEND_DESTINATION_OVER,
-              0.2,
-              0.2
-            ]);
-          })
+  // Grabbing Text - able to grab keystrokes
+  handleText = event => {
+    const userTextGrabbed = event.target.value;
+    console.log("user text is ", userTextGrabbed);
+    // const userText = "";
+    // do we set a default? - placeholder is in UserTextInput component
+    this.setState({ userTextGrabbed: userTextGrabbed });
+  };
+  handleReset = () => {
+    {
+      this.setState({
+        clickedPenguinURL: "/assets/images/penguins/penguin001.jpg",
+        clickedSweaterURL: "",
+        userTextGrabbed: ""
+      });
+    }
+  };
 
-          //load font
-          .then(textTemplate =>
-            Jimp.loadFont(Jimp.FONT_SANS_64_WHITE).then(font => [
-              // Jimp.loadFont("./public/assets/fonts/FlappyBirdy-60.fnt").then(font => [
-              // We will need to convert a font we link into a .fnt and save it to the repo
-              textTemplate,
-              font
-            ])
-          )
-
-      // //  add text
-      // .then(data => {
-      //   textTemplate = data[0];
-      //   font = data[1];
-
-      //   return textTemplate.print(
-      //     font,
-      //     textData.placementX,
-      //     textData.placementY,
-      //     {
-      //       text: textData.text,
-      //       alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
-      //       alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
-      //     },
-      //     textData.maxWidth,
-      //     textData.maxHeight
-      //   );
-      // })
-
-      // //export image
-      // .then(textTemplate => textTemplate.quality(100).write(imgExported))
-
-      // //log exported filename
-      // .then(textTemplate => {
-      //   console.log("exported file: " + imgExported);
-      // })
-
-      // //catch errors
-      // .catch(err => {
-      //   console.error(err);
-      // })
+  handleTextAddClick = event => {
+    event.preventDefault();
+    console.log(
+      "checking userText passing",
+      this.state.userTextGrabbed,
+      " penguin is ",
+      this.state.clickedPenguinURL,
+      " sweater is ",
+      this.state.clickedSweaterURL
     );
-  return (
-    <>
-      <Container fluid>
-        <Row>
-          <Col size="md-12">
-            <p>Swaddles for Waddles</p>
-            <Carousel />
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-6">
+    if (
+      this.state.clickedPenguinURL &&
+      this.state.clickedSweaterURL &&
+      this.state.userTextGrabbed
+    ) {
+      console.log("we got it all");
+      // TO DO: render a border around the selected penguin in Carousel
+      API.jimpImages({
+        imgPenguin: this.state.clickedPenguinURL,
+        imgSweater: this.state.clickedSweaterURL,
+        userText: this.state.userTextGrabbed
+      }).then(data => console.log("we are sending this", data));
+    }
+  };
+
+  render() {
+    return (
+      <div className="swaddle">
+        <Container>
+          <div>
+            {/* header stuff can be a jumbotron or whatever is on brand */}
+            <Row>
+              {/* Header Stuf <p>{this.user.firstName}</p> */}
+              <Col size="md-3">
+                <h2> Hi {this.state.userName},</h2>
+              </Col>
+              <Col size="md-9">
+                <h1>Swaddle A Penguin</h1>
+              </Col>
+            </Row>
             <Row>
               <Col size="md-2">
                 {this.state.imageTypes.penguins.map((image, index) => (
@@ -162,48 +204,14 @@ function Swaddle() {
               </Col>
               <Col size="md-1">
                            
-                <Navbar history={this.props.history} />
+                <Navbar />
                            
               </Col>
             </Row>
-          </Col>
-          <Col size="md-6">
-            {/* Not sure if figure is best image area */}
-            <figure className="figure">
-              <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/assets/images/sweaters/blueSweaterTest.png"
-                }
-                className="figure-img img-fluid rounded"
-                alt="..."
-              />
-              <figcaption className="figure-caption">
-                meme area (delete this figcaption)
-              </figcaption>
-            </figure>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-4 offset-md-2">
-            {/* this will be a button component */}
-            <button>Save</button>
-          </Col>
-          <Col size="md-4 ">
-            {/* this will be a button component */}
-            <button>Reset</button>
-          </Col>
-        </Row>
-      </Container>
-    </>
-  );
+          </div>
+        </Container>
+      </div>
+    );
+  }
 }
-
 export default Swaddle;
-
-// // wrap above in this?
-// function swaddlePenguin(props) {
-//   return <div />;
-// }
-
-// export default swaddlePenguin;

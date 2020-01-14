@@ -1,5 +1,7 @@
 import React from "react";
-// import "./style.css";
+import { Col, Row, Container } from "../../components/Grid";
+import Navbar from "../../components/Navbar";
+import "./style.css";
 
 function Home() {
   return (
@@ -65,7 +67,7 @@ function Home() {
           </Row> */}
         </Col>
         <Col size="md-3">
-          <Navbar/>
+          <Navbar />
         </Col>
       </Row>
     </Container>
@@ -73,8 +75,3 @@ function Home() {
 }
 
 export default Home;
-// function swaddlePenguin(props) {
-//   return <div />;
-// }
-
-// export default swaddlePenguin;

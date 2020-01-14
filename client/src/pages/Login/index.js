@@ -59,7 +59,7 @@ class Login extends Component {
     return (
       <Container fluid>
         <Row>
-          <Navbar history={this.props.history} isLoading={this.state.isLoading}/>
+          <Navbar />
           <Col size="md-12">
             <Jumbotron>
               <h1>Login</h1>

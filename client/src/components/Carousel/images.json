@@ -1,0 +1,48 @@
+{
+  "penguins": [
+    {
+      "dataname": "penguin001",
+      "imgURL": "/assets/images/penguins/penguin001.jpg",
+      "type": "penguin",
+      "clicked": false
+    },
+    {
+      "dataname": "penguin002",
+      "imgURL": "/assets/images/penguins/penguin002.jpg",
+      "type": "penguin",
+      "clicked": false
+    },
+    {
+      "dataname": "penguin006",
+      "imgURL": "/assets/images/penguins/penguin006.jpg",
+      "type": "penguin",
+      "clicked": false
+    }
+  ],
+  "sweaters": [
+    {
+      "dataname": "sweater001",
+      "imgURL": "/assets/images/sweaters/sweater001.png",
+      "type": "sweater",
+      "clicked": false
+    },
+    {
+      "dataname": "sweater002",
+      "imgURL": "/assets/images/sweaters/sweater002.png",
+      "type": "sweater",
+      "clicked": false
+    },
+    {
+      "dataname": "sweater003",
+      "imgURL": "/assets/images/sweaters/sweater003.png",
+      "type": "sweater",
+      "clicked": false
+    },
+    {
+      "dataname": "sweater004",
+      "imgURL": "/assets/images/sweaters/sweater004.png",
+      "type": "sweater",
+      "clicked": false
+    }
+  ]
+}
