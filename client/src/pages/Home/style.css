@@ -6,16 +6,19 @@
   margin-left: -51px;
   position: fixed;
 }
+
 span {
   margin-left: 1300px;
-  color: white;
   font-size: 3em;
+  position: relative;
 }
 h2 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: white;
   text-align: center;
   font-size: 4em;
+  margin-top: 160px;
+  line-height: 0.1em;
 }
 .adopt {
   text-align: center;
@@ -24,15 +27,15 @@ h2 {
 .adoption {
   background-color: #c66353;
   width: 607px;
-  height: 60%;
+  height: 68%;
   float: right;
   font-size: 1.7em;
+
   /* line-height: -3px; */
 }
 
 .brand-text {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  /* font-size: 5em; */
   color: white;
   margin-top: -15px;
   letter-spacing: 2px;
@@ -59,10 +62,11 @@ p {
 .front-page-photo {
   width: 900px;
   height: 511px;
-  border-style: dashed;
+  border-right-style: dashed;
+  border-bottom-style: dashed;
   border-color: #c66353;
-  border-width: 1vw;
-  margin-top: -310px;
+  border-width: 0.7vw;
+  margin-top: -250px;
   margin-left: -67px;
   z-index: 0;
 }
