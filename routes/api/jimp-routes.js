@@ -29,6 +29,7 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
   let penguinRaw = path.join(__dirname, "../../client/public", imgPenguin); // background image examples should all be the same size
   let sweaterRaw = path.join(__dirname, "../../client/public", imgSweater); // png layer
   let imgExported = path.join(__dirname, "/swaddle.jpg"); // place to save the finished if we have to write in order to make base64 work
+
   // set jimp positioning based on what penguin is chosen
   if ((penguinRaw = "/assets/images/penguins/penguin001.jpg")) {
     sweaterX = 180;
@@ -111,13 +112,13 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
           );
         })
 
-        //export image - don't write, encode as base64
+        //export image - writing only temporary, encode as base64 as the goal
         .then(textTemplate => textTemplate.quality(100).write(imgExported))
         .then(imgExported => imgExported.getBase64Async(Jimp.MIME_JPEG))
 
         //log exported filename
         .then(base64Img => {
-          // console.log("base64Img", base64Img);
+          console.log("base64Img", base64Img);
           cb(base64Img);
         })
 
