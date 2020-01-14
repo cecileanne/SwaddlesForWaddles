@@ -1,23 +1,9 @@
 import axios from "axios";
 
-// TO DO: USE COMPONENTS INSTEAD OF URL
-
 export default {
-  // swaddle: function(userSelectedObject) {
-  //   return axios.post("/api", userSelectedObject); // this is a promise!
-  // },
-
   jimpImages: function(configObject) {
     return axios.post("/api/jimpimages", configObject); // this is a promise!
   },
-
-  base64preview: function(cb) {
-    return axios.get("/api/jimpimages", cb);
-  },
-
-  // textInput: function(userTextInput) {
-  //   return axios.post("/api/textInput", userTextInput); // this is a promise!
-  // },
 
   //get all donations of a user
   getDonations: function(userId) {
@@ -34,8 +20,4 @@ export default {
   // postGalleryImage: function(galleryData) {
   //   return axios.post("/api/gallery", galleryData); // this is a promise!
   // }
-
-  //   textInput: function(userTextGrabbed) {
-  //     return axios.post("/api/textInput", userTextGrabbed); // this is a promise!
-  //   }
 };

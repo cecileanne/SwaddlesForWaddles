@@ -6,7 +6,6 @@ import Navbar from "../../components/Navbar";
 import imageTypes from "../../components/Carousel/images.json";
 import ImageDisplay from "../../components/Carousel";
 import API from "../../utils/API";
-// import { stat } from "fs";
 import "./swaddle.css";
 
 class Swaddle extends Component {
@@ -16,7 +15,6 @@ class Swaddle extends Component {
     clickedSweaterURL: "",
     userTextGrabbed: "",
     userName: ""
-    // userSelectedObject: { penguin: "", sweater: "", UserTextInput: "" }
   };
   componentDidMount() {
     const userName = localStorage.getItem("email");
@@ -36,15 +34,12 @@ class Swaddle extends Component {
     // if penguin
     if (clickedImageType == "penguin") {
       const clickedPenguinURL = clickedImageURL;
-      // console.log("clickedPenguinURL is " + clickedPenguinURL);
       this.setState(
         {
           clickedPenguinURL: clickedPenguinURL
         },
         () => {
-          // console.log("callback executed");
           if (this.state.clickedPenguinURL && this.state.clickedSweaterURL) {
-            // console.log("penguin selected");
             API.jimpImages({
               imgPenguin: this.state.clickedPenguinURL,
               imgSweater: this.state.clickedSweaterURL
@@ -116,9 +111,7 @@ class Swaddle extends Component {
       <div className="swaddle">
         <Container>
           <div>
-            {/* header stuff can be a jumbotron or whatever is on brand */}
             <Row>
-              {/* Header Stuf <p>{this.user.firstName}</p> */}
               <Col size="md-3">
                 <h2> Hi {this.state.userName},</h2>
               </Col>
@@ -157,15 +150,11 @@ class Swaddle extends Component {
                     <AddTextBtn onClick={this.handleTextAddClick}>
                       Add
                     </AddTextBtn>
-                    <AddTextBtn onClick={this.handleReset}>Rest </AddTextBtn> 
-                    {/* resets to default penguin/clear space */}
+                    <AddTextBtn onClick={this.handleReset}>Reset </AddTextBtn> 
                   </form>
-                  <div className="text-center">
-                                                  
-                  </div>
-                  <DownloadBtn />
+                  <div className="text-center">                        </div>
+                  <DownloadBtn process={this.state.process} />
                 </section>
-                 {/* downloads image  */}
               </Col>
               <Col size="md-2">
                 {this.state.imageTypes.sweaters.map((image, index) => (
