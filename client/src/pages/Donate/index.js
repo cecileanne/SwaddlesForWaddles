@@ -29,10 +29,13 @@ class Donate extends Component {
     if (userId) {
       API.getDonations(userId)
         .then(res => {
-          this.setState({
-            donation: res.data,
-            amount: ""
-          }, ()=>console.log("STATE MOUNTS", this.state));
+          this.setState(
+            {
+              donations: res.data,
+              amount: ""
+            },
+            () => console.log("STATE MOUNTS", this.state)
+          );
           console.log("THIS IS RES FROM GET DONATIONS", res);
         })
         .catch(err => console.log(err));
@@ -58,9 +61,9 @@ class Donate extends Component {
       amount: this.state.amount,
       UserId: userId
     })
-      .then(res => 
-        {
-          this.loadDonations()})
+      .then(res => {
+        this.loadDonations();
+      })
       .catch(err => console.log(err));
   };
   render() {
@@ -104,9 +107,24 @@ class Donate extends Component {
               </form>
             </Col>
             <Col size="md-6">
-            {this.state.donations.map(donation=><li className="list-group-item">{donation.transactionDate} | {donation.amount}</li>)}
+              <List k={this.state.donations} />
+              {this.state.donations.map(donation => (
+                <li className="list-group-item">
+                  {donation.transactionDate} | ${donation.amount}
+                </li>
+              ))}
               <div>
-                <h2>Total: $50.00</h2>
+                {this.state.donations.length ? (
+                  <h2>
+                    Total: $
+                    {this.state.donations.reduce(
+                      (total, object) => total + Number(object.amount),
+                      0
+                    )}
+                  </h2>
+                ) : (
+                  <p>no donations</p>
+                )}
               </div>
             </Col>
             <Navbar />

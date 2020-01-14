@@ -1,0 +1,120 @@
+.donate {
+  width: 100vw;
+  height: 100vh;
+  margin-top: -24px;
+  margin-left: -67px;
+  background: #3d61b2;
+}
+
+.donationHeader {
+  background: #c66353;
+  width: 100%;
+  overflow: auto;
+  align-content: center;
+  /* background-color: white; */
+  height: 150px;
+  position: fixed;
+  top: 0;
+  margin: 0;
+  z-index: 10;
+  /* padding-bottom: 100px; */
+}
+
+.headerBarLogo {
+  max-height: 150px;
+  max-width: 150px;
+  margin-top: 0px;
+  margin-left: 20px;
+  padding: 5px;
+  position: fixed;
+}
+
+.donationGreet {
+  color: black;
+  font-family: "candida";
+  position: fixed;
+  top: 0;
+  margin-left: 170px;
+  align-content: flex-end;
+  /* top: 0; */
+}
+
+.donationTitle {
+  align-content: center;
+  color: black;
+  position: fixed;
+  top: 80px;
+}
+
+h1 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 5.5em;
+  color: black;
+  /* margin-top: -50px; */
+  letter-spacing: 5px;
+}
+
+.containerDonationReq {
+  position: relative;
+  padding-top: 200px;
+  /* background-color: #c66353; */
+}
+
+h4 {
+  font-family: "candida";
+}
+
+.italics {
+  font-family: "candida";
+  font-style: oblique;
+}
+
+button img {
+  width: 50px;
+}
+
+/* span {
+  color: #3d61b2;
+} 
+.subtext {
+  font-size: 2em;
+  color: black;
+  margin-top: -10px;
+  float: right;
+  margin-right: 40px;
+}
+.text-over-imgs {
+  margin-top: 10px;
+  z-index: -3;
+}
+p {
+  color: rgb(255, 255, 255);
+  opacity: 100%;
+}
+
+.the-issue {
+  justify-content: left;
+  background-color: black;
+  opacity: 50%;
+  width: 900px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: -400px;
+  margin-left: 200px;
+  line-height: 3em;
+  font-size: 0.7em;
+  position: absolute;
+}
+
+.footer {
+  background-color: #3d61b2;
+  text-align: center;
+  margin-top: 300px;
+  width: 100%;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+a {
+  color: white;
+} */

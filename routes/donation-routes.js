@@ -6,7 +6,7 @@ router.get("/donations/:user_id", (req, res) => {
   // if (req.params.user_id) {
   //   query.UserId = req.params.user_id;
   // }
-  console.log(req.params, "REQ PARAMS")
+  console.log(req.params, "REQ PARAMS");
   let userId = req.params.user_id;
   console.log(userId);
   db.Donation.findAll({
@@ -14,12 +14,13 @@ router.get("/donations/:user_id", (req, res) => {
     hierarchy: true
   }).then(function(dbDonation) {
     console.log("DONATION TABLE GOES HERE", dbDonation);
-    const relevantData= dbDonation.map(Donation=>{
+    const relevantData = dbDonation.map(Donation => {
+      console.log("TYPE", typeof Donation.dataValues.createdAt.toString());
       return {
         amount: Donation.dataValues.amount,
-        transactionDate: Donation.dataValues.createdAt
-      }
-    })
+        transactionDate: Donation.dataValues.createdAt.toDateString() //.split("T")[0]
+      };
+    });
     // dbDonation.forEach(donation => {
     //   // console.log(donation);
     // });
