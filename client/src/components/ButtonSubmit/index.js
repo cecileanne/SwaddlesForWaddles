@@ -9,13 +9,6 @@ export function AddTextBtn(props) {
   );
 }
 
-// export function SaveBtn() {
-//   return <button>Save</button>;
-// }
-// export function SubmitBtn() {
-//   return <button>Submit</button>;
-// }
-
 export function DonateBtn() {
   return (
     <a href="/donate" role="button">
@@ -24,30 +17,17 @@ export function DonateBtn() {
   );
 }
 
-export function DownloadBtn({ imgURL, dataName }) {
+export function DownloadBtn({ process, dataName }) {
   return (
     <button>
       <a
-        href={"/assets/images/penguins/penguinTest1.jpg"} //this is the prop {imgURL} from jimp/database
-        download="PenguinTest1" //this is the prop {dataName}
+        class="btn btn-primary"
+        href={process}
+        download="penguin_meme.jpg"
         role="button"
       >
-        {/* <a
-      class="btn btn-primary"
-      href=atob({prop.base64})//this is the prop {imgURL} from jimp/database
-      download={dataName} //this is the prop {dataName}
-      role="button"
-    > */}
         Download
       </a>
     </button>
   );
 }
-
-// export function DeleteBtn(props) {
-//   return (
-//     <span className="delete-btn" {...props} role="button" tabIndex="0">
-//       ✗
-//     </span>
-//   );
-// }
