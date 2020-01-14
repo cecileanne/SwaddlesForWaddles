@@ -10,6 +10,7 @@ span {
   margin-left: 1300px;
   color: white;
   font-size: 3em;
+  position: relative;
 }
 h2 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -59,9 +60,10 @@ p {
 .front-page-photo {
   width: 900px;
   height: 511px;
-  border-style: dashed;
+  border-right-style: dashed;
+  border-bottom-style: dashed;
   border-color: #c66353;
-  border-width: 1vw;
+  border-width: 0.7vw;
   margin-top: -310px;
   margin-left: -67px;
   z-index: 0;
