@@ -101,13 +101,70 @@ function Swaddle() {
         <Row>
           <Col size="md-6">
             <Row>
-              <Col size="md-2">button</Col>
-              <Col size="md-2">button</Col>
-              <Row>
-                <Col size="md-12">
-                  <UserTextInput />
-                </Col>
-              </Row>
+              <Col size="md-2">
+                {this.state.imageTypes.penguins.map((image, index) => (
+                  <ImageDisplay
+                    key={index}
+                    imgURL={image.imgURL}
+                    dateName={image.dataname}
+                    datatype={image.type}
+                    clicked={image.clicked}
+                    handleClick={this.handleClick}
+                  />
+                ))}
+              </Col>
+              <Col size="md-7">
+                <section className="text-center">
+                  <div className="card ">
+                    <img
+                      id="preview"
+                      className="card-img-top "
+                      // {if(jimpImages){
+
+                      //   src={this.state.JimpImages}
+                      // }else{
+
+                      src={this.state.clickedPenguinURL}
+                      // }}
+
+                      alt="Meme Preview"
+                    />
+                  </div>
+                  <form>
+                    <UserTextInput
+                      userTextGrabbed={this.state.userTextGrabbed}
+                      handleChange={this.handleText}
+                    />
+                    <AddTextBtn onClick={this.handleTextAddClick}>
+                      Add
+                    </AddTextBtn>
+                    <AddTextBtn onClick={this.handleReset}>Rest </AddTextBtn> 
+                    {/* resets to default penguin/clear space */}
+                  </form>
+                  <div className="text-center">
+                                                  
+                  </div>
+                  <DownloadBtn />
+                </section>
+                 {/* downloads image  */}
+              </Col>
+              <Col size="md-2">
+                {this.state.imageTypes.sweaters.map((image, index) => (
+                  <ImageDisplay
+                    key={index}
+                    imgURL={image.imgURL}
+                    dateName={image.dataname}
+                    datatype={image.type}
+                    clicked={image.clicked}
+                    handleClick={this.handleClick}
+                  />
+                ))}
+              </Col>
+              <Col size="md-1">
+                           
+                <Navbar history={this.props.history} />
+                           
+              </Col>
             </Row>
           </Col>
           <Col size="md-6">
