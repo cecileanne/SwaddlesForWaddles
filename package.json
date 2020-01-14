@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/cecileanne/SwaddlesForWaddles/issues"
   },
-  "homepage": "https://github.com/cecileanne/SwaddlesForWaddles#readme",
+  "homepage": "peaceful-wildwood-69341.herokuapp.com",
   "dependencies": {
     "axios": "^0.19.1",
     "bcryptjs": "^2.4.3",
