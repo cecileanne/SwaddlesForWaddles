@@ -31,7 +31,7 @@ While memes are fun and easy to dismiss, they are a force in pop culture. Combin
 
 ## How to Use
 
-Navigate to the login page. **Either sign in as guest (add guest creditals)** or register yourself to login in.
+Navigate to the login page. Sign is at guest@gmail.com with password: guest or register yourself to login in.
 Once logged in, create memes!</br>
 Click on a penguin image, click on a sweater (the order does not matter), then type in text (35 character limit) and hit add. </br>
 If you like your meme, you can download the .jpg! If not, clear the text by hitting reset and reselect your penguin and sweater.
