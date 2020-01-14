@@ -31,7 +31,11 @@ class Donate extends Component {
         .then(res => {
           this.setState(
             {
+<<<<<<< HEAD
               donation: res.data,
+=======
+              donations: res.data,
+>>>>>>> 7b79913a76f830fb78500f923d9ba241632c91b9
               amount: ""
             },
             () => console.log("STATE MOUNTS", this.state)
@@ -122,6 +126,7 @@ class Donate extends Component {
               </form>
             </Col>
             <Col size="md-6">
+<<<<<<< HEAD
               {this.state.donations.map(donation => (
                 <li className="list-group-item">
                   {donation.transactionDate} | {donation.amount}
@@ -129,6 +134,26 @@ class Donate extends Component {
               ))}
               <div>
                 <h2>Total Donations to date: $50.00 (MAKE THIS INTO STATE?)</h2>
+=======
+              <List k={this.state.donations} />
+              {this.state.donations.map(donation => (
+                <li className="list-group-item">
+                  {donation.transactionDate} | ${donation.amount}
+                </li>
+              ))}
+              <div>
+                {this.state.donations.length ? (
+                  <h2>
+                    Total: $
+                    {this.state.donations.reduce(
+                      (total, object) => total + Number(object.amount),
+                      0
+                    )}
+                  </h2>
+                ) : (
+                  <p>no donations</p>
+                )}
+>>>>>>> 7b79913a76f830fb78500f923d9ba241632c91b9
               </div>
             </Col>
           </Row>
