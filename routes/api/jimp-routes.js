@@ -11,7 +11,8 @@ router
   .post((req, res) => {
     console.log(`the goal`, req.body);
     jimp(req.body, img => res.json({ base64: img }));
-  });
+  })
+  .get(res => {});
 // potentially the other way that will take the callback
 // .post((req, res) => {
 //   console.log(req.body);
@@ -35,21 +36,21 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
   let textX = 0;
   let textY = 0;
 
-  // setting userText as a string so we won't get an object
+  if (!userText) {
+    userText = "";
+  }
 
+  // TO DO: make this dryer by running through the array in data.json
   // set jimp positioning based on what penguin is chosen
   if (imgPenguin == "/assets/images/penguins/penguin001.jpg") {
     textX = 300;
     textY = 560;
-    userText = "";
   } else if (imgPenguin == "/assets/images/penguins/penguin002.jpg") {
     textX = 440;
     textY = 500;
-    userText = "";
   } else if (imgPenguin == "/assets/images/penguins/penguin006.jpg") {
     textX = 330;
     textY = 420;
-    userText = "";
   }
 
   // Initiate the images:
@@ -73,6 +74,7 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
     .then(mashUp =>
       Jimp.read(sweaterRaw)
         .then(sweaterTemplate => {
+          // TO DO: make this dryer by running through the array in data.json
           // set jimp positioning based on what penguin is chosen
           if (imgPenguin == "/assets/images/penguins/penguin001.jpg") {
             sweaterX = 180;
