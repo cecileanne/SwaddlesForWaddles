@@ -28,8 +28,9 @@ const routes = require("./routes/");
 app.use((req, res, next) => {
   console.log(req.url, req.body);
   next();
-  app.use(routes);
 });
+app.use(routes);
+
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })

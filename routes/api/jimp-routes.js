@@ -1,77 +1,74 @@
-const jimpPositions = require("../data.json");
+// const jimpPositions = require("../data.json");
 const Jimp = require("jimp");
 const router = require("express").Router();
 const path = require("path");
+let userText = "";
 
 // Matches with "/api/jimp-routes/:penguin"
-router
-  .route("/jimpimages")
-
-  .post((req, res) => {
-    console.log(`the goal`, req.body);
-    jimp(req.body, img => res.json({ base64: img }));
-  });
+router.route("/jimpimages").post((req, res) => {
+  console.log(`the goal`, req.body);
+  jimp(req.body, img => res.json({ base64: img }));
+});
 
 // Process Jimp
 
 function jimp({ imgPenguin, imgSweater, userText }, cb) {
-  // const userText = "";
-  console.log(typeof __dirname);
-  console.log(typeof imgPenguin);
-  console.log(imgPenguin, imgSweater);
+  // define variables for positioning
+  let sweaterX = 0;
+  let sweaterY = 0;
+  let textX = 0;
+  let textY = 0;
 
-  let sweaterX = "";
-  let sweaterY = "";
-  let textX = "";
-  let textY = "";
+  if (!userText) {
+    userText = "";
+  }
+
+  // TO DO: make this dryer by running through the array in data.json
+  // set jimp positioning based on what penguin is chosen
+  if (imgPenguin == "/assets/images/penguins/penguin001.jpg") {
+    textX = 300;
+    textY = 560;
+  } else if (imgPenguin == "/assets/images/penguins/penguin002.jpg") {
+    textX = 440;
+    textY = 500;
+  } else if (imgPenguin == "/assets/images/penguins/penguin006.jpg") {
+    textX = 330;
+    textY = 420;
+  }
 
   // Initiate the images:
-  // let penguinRaw = process.env.PUBLIC_URL + imgPenguin; // background image examples should all be the same size
-  // let sweaterRaw = process.env.PUBLIC_URL + imgSweater; // png layer
   let penguinRaw = path.join(__dirname, "../../client/public", imgPenguin); // background image examples should all be the same size
   let sweaterRaw = path.join(__dirname, "../../client/public", imgSweater); // png layer
-  // TO DO - THIS CAN BE MADE INTO AN API POST, and should save with a primary key id
-  // TO DO after Saturday MVP, maybe set up caching? Don't need if we save as base64?
-  // let imgExported = process.env.PUBLIC_URL + "/exportedImages/swaddle.jpg"; //
-  let imgExported = path.join(__dirname, "/swaddle.jpg"); //
-  if ((penguinRaw = "/assets/images/penguins/penguin001.jpg")) {
-    sweaterX = "180";
-    sweaterY = "410";
-    textX = "300";
-    textY = "560";
-  }
-  if ((penguinRaw = "/assets/images/penguins/penguin002.jpg")) {
-    sweaterX = "325";
-    sweaterY = "355";
-    textX = "440";
-    textY = "500";
-  }
-  if ((penguinRaw = "/assets/images/penguins/penguin006.jpg")) {
-    sweaterX = "220";
-    sweaterY = "260";
-    textX = "330";
-    textY = "420";
-  }
-  // TO DO - MOVE THIS TO THE TEXT INPUT COMPONENT (already noted)
+  let imgExported = path.join(__dirname, "/swaddle.jpg"); // place to save the finished if we have to write in order to make base64 work
+
+  // per jimp documentation, process how text will be displayed on top of the mashup
   let textData = {
-    // we will save our sweaters to have minimal transparant pad pad
-    text: userText, //the text to be rendered on the image - will be input
-    maxWidth: 300, // SET THIS AS penguin image width - 10px margin left - 10px margin right
-    maxHeight: 300, // SET THIS AS penguin image width - 10px margin top - 10px margin bottom
+    text: userText, //the text to be rendered on the image
+    maxWidth: 300, // width of sweater
+    maxHeight: 300, // height of sweater
     placementX: textX, // x axis
     placementY: textY // y axis
   };
 
-  // read template
-
+  // read template (bottom later is penguinRaw)
   Jimp.read(penguinRaw)
-
     //combine sweater into image
     .then(mashUp =>
       Jimp.read(sweaterRaw)
         .then(sweaterTemplate => {
+          // TO DO: make this dryer by running through the array in data.json
+          // set jimp positioning based on what penguin is chosen
+          if (imgPenguin == "/assets/images/penguins/penguin001.jpg") {
+            sweaterX = 180;
+            sweaterY = 410;
+          } else if (imgPenguin == "/assets/images/penguins/penguin002.jpg") {
+            sweaterX = 325;
+            sweaterY = 355;
+          } else if (imgPenguin == "/assets/images/penguins/penguin006.jpg") {
+            sweaterX = 220;
+            sweaterY = 260;
+          }
           sweaterTemplate.opacity(1);
-          // numbers in next line are the position x, y for the sweater overlaw
           return mashUp.composite(sweaterTemplate, sweaterX, sweaterY, [
             Jimp.BLEND_DESTINATION_OVER,
             0.2,
@@ -108,13 +105,11 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
           );
         })
 
-        //export image - don't write, encode as base64
+        //export image - writing only temporary, encode as base64 as the goal
+        // TO DO do this without also writing?
         .then(textTemplate => textTemplate.quality(100).write(imgExported))
         .then(imgExported => imgExported.getBase64Async(Jimp.MIME_JPEG))
-
-        //log exported filename
         .then(base64Img => {
-          // console.log("base64Img", base64Img);
           cb(base64Img);
         })
 
@@ -124,7 +119,5 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
         })
     );
 }
-//   // TO DO res. send processed image
-// });
 
 module.exports = router;
