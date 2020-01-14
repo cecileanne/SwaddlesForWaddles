@@ -51,7 +51,7 @@ class Login extends Component {
       localStorage.setItem("email", res.data.username);
       localStorage.setItem("userId", res.data.userId);
     });
-    this.props.history.push("/Swaddle");
+    // this.props.history.push("/Swaddle");
   };
   render = () => {
     return (
