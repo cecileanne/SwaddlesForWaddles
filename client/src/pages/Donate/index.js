@@ -33,12 +33,7 @@ function Donate() {
                   placeholder="$ 0.00"
                 />
 
-                <DonateBtn
-                // disabled={!(this.state.author && this.state.title)}
-                // onClick={this.handleFormSubmit}
-                >
-                  Donate
-                </DonateBtn>
+                <DonateBtn>Donate</DonateBtn>
               </form>
             </Col>
             <Col size="md-6">

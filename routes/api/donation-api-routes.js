@@ -15,6 +15,7 @@ module.exports = function(app) {
   });
 
   app.post("/api/donations", function(req, res) {
+    console.log(req);
     db.Donation.create(req.body).then(function(dbDonation) {
       res.json(dbDonation);
     });

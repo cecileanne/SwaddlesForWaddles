@@ -9,7 +9,7 @@ function UserTextInput(props) {
   // const handleText = event => {};
   return (
     <div className="form-group">
-      <label for="textInput">Add Text</label>
+      <label htmlFor="textInput">Add Text</label>
 
       <textarea
         className="form-control"

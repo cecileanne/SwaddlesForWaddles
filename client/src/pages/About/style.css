@@ -1,6 +1,17 @@
+span {
+  color: #3d61b2;
+}
 img {
   width: 300px;
 }
 button img {
   width: 50px;
+}
+h1 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 5em;
+  color: black;
+}
+p {
+  color: black;
 }
