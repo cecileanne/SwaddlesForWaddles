@@ -48,7 +48,7 @@ class Swaddle extends Component {
             API.jimpImages({
               imgPenguin: this.state.clickedPenguinURL,
               imgSweater: this.state.clickedSweaterURL
-            }).then(data => console.log("we are sending this", data));
+            }).then(data => this.setState({ process: data.data.base64 }));
           }
         }
       );
@@ -56,19 +56,16 @@ class Swaddle extends Component {
     // if sweater
     if (clickedImageType == "sweater") {
       const clickedSweaterURL = clickedImageURL;
-      // console.log("clickedSweaterURL is " + clickedSweaterURL);
       this.setState(
         {
           clickedSweaterURL: clickedSweaterURL
         },
         () => {
-          console.log("callback executed");
           if (this.state.clickedPenguinURL && this.state.clickedSweaterURL) {
-            // console.log("sweater selected");
             API.jimpImages({
               imgPenguin: this.state.clickedPenguinURL,
               imgSweater: this.state.clickedSweaterURL
-            }).then(data => console.log("we are sending this", data));
+            }).then(data => this.setState({ process: data.data.base64 }));
           }
         }
       );
@@ -85,7 +82,6 @@ class Swaddle extends Component {
   // Grabbing Text - able to grab keystrokes
   handleText = event => {
     const userTextGrabbed = event.target.value;
-    console.log("user text is ", userTextGrabbed);
     this.setState({ userTextGrabbed: userTextGrabbed });
   };
   handleReset = () => {
@@ -100,25 +96,18 @@ class Swaddle extends Component {
 
   handleTextAddClick = event => {
     event.preventDefault();
-    // console.log(
-    //   "checking userText passing",
-    //   this.state.userTextGrabbed,
-    //   " penguin is ",
-    //   this.state.clickedPenguinURL,
-    //   " sweater is ",
-    //   this.state.clickedSweaterURL
-    // );
     if (
       this.state.clickedPenguinURL &&
       this.state.clickedSweaterURL &&
       this.state.userTextGrabbed
     ) {
-      console.log("we got it all");
       API.jimpImages({
         imgPenguin: this.state.clickedPenguinURL,
         imgSweater: this.state.clickedSweaterURL,
         userText: this.state.userTextGrabbed
-      }).then(data => console.log("we are sending this", data));
+      }).then(data => {
+        this.setState({ process: data.data.base64 });
+      });
     }
   };
 
@@ -156,14 +145,7 @@ class Swaddle extends Component {
                     <img
                       id="preview"
                       className="card-img-top "
-                      // {if(jimpImages){
-
-                      //   src={this.state.JimpImages}
-                      // }else{
-
-                      src={this.state.clickedPenguinURL}
-                      // }}
-
+                      src={this.state.process || this.state.clickedPenguinURL}
                       alt="Meme Preview"
                     />
                   </div>
