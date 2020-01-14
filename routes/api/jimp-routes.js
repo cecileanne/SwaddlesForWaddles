@@ -2,18 +2,28 @@
 const Jimp = require("jimp");
 const router = require("express").Router();
 const path = require("path");
+let userText = "";
 
 // Matches with "/api/jimp-routes/:penguin"
 router
   .route("/jimpimages")
-
+  // post that will take into account the callback
   .post((req, res) => {
     console.log(`the goal`, req.body);
     jimp(req.body, img => res.json({ base64: img }));
   });
+// potentially the other way that will take the callback
+// .post((req, res) => {
+//   console.log(req.body);
+//   jimp(req.body);
+//   res.json({ base64Img: img });
+// });
 
 // Process Jimp
 
+// original jimp, no base64
+// function jimp({ imgPenguin, imgSweater, userText }) {
+// one that will take the callback
 function jimp({ imgPenguin, imgSweater, userText }, cb) {
   // console.log(typeof __dirname);
   // console.log(typeof imgPenguin);
@@ -25,34 +35,31 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
   let textX = 0;
   let textY = 0;
 
+  // setting userText as a string so we won't get an object
+
+  // set jimp positioning based on what penguin is chosen
+  if (imgPenguin == "/assets/images/penguins/penguin001.jpg") {
+    textX = 300;
+    textY = 560;
+    userText = "";
+  } else if (imgPenguin == "/assets/images/penguins/penguin002.jpg") {
+    textX = 440;
+    textY = 500;
+    userText = "";
+  } else if (imgPenguin == "/assets/images/penguins/penguin006.jpg") {
+    textX = 330;
+    textY = 420;
+    userText = "";
+  }
+
   // Initiate the images:
   let penguinRaw = path.join(__dirname, "../../client/public", imgPenguin); // background image examples should all be the same size
   let sweaterRaw = path.join(__dirname, "../../client/public", imgSweater); // png layer
   let imgExported = path.join(__dirname, "/swaddle.jpg"); // place to save the finished if we have to write in order to make base64 work
 
-  // set jimp positioning based on what penguin is chosen
-  if ((penguinRaw = "/assets/images/penguins/penguin001.jpg")) {
-    sweaterX = 180;
-    sweaterY = 410;
-    textX = 300;
-    textY = 560;
-  }
-  if ((penguinRaw = "/assets/images/penguins/penguin002.jpg")) {
-    sweaterX = 325;
-    sweaterY = 355;
-    textX = 440;
-    textY = 500;
-  }
-  if ((penguinRaw = "/assets/images/penguins/penguin006.jpg")) {
-    sweaterX = 220;
-    sweaterY = 260;
-    textX = 330;
-    textY = 420;
-  }
-
   // per jimp documentation, process how text will be displayed on top of the mashup
   let textData = {
-    // we will save our sweaters to have minimal transparant pad pad
+    // TO DO if userText is null "say something funny"
     text: userText, //the text to be rendered on the image - will be input
     maxWidth: 300, // SET THIS AS penguin image width - 10px margin left - 10px margin right
     maxHeight: 300, // SET THIS AS penguin image width - 10px margin top - 10px margin bottom
@@ -62,20 +69,22 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
 
   // read template (bottom later is penguinRaw)
   Jimp.read(penguinRaw)
-
     //combine sweater into image
     .then(mashUp =>
       Jimp.read(sweaterRaw)
         .then(sweaterTemplate => {
+          // set jimp positioning based on what penguin is chosen
+          if (imgPenguin == "/assets/images/penguins/penguin001.jpg") {
+            sweaterX = 180;
+            sweaterY = 410;
+          } else if (imgPenguin == "/assets/images/penguins/penguin002.jpg") {
+            sweaterX = 325;
+            sweaterY = 355;
+          } else if (imgPenguin == "/assets/images/penguins/penguin006.jpg") {
+            sweaterX = 220;
+            sweaterY = 260;
+          }
           sweaterTemplate.opacity(1);
-          console.log(
-            "i picked this penguin",
-            penguinRaw,
-            "position x of the sweater is",
-            sweaterX,
-            "position y is",
-            sweaterY
-          );
           return mashUp.composite(sweaterTemplate, sweaterX, sweaterY, [
             Jimp.BLEND_DESTINATION_OVER,
             0.2,
@@ -116,9 +125,10 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
         .then(textTemplate => textTemplate.quality(100).write(imgExported))
         .then(imgExported => imgExported.getBase64Async(Jimp.MIME_JPEG))
 
-        //log exported filename
+        //log exported filename old version with just console logged imgExported
+        //log exported filename new version with base64
         .then(base64Img => {
-          console.log("base64Img", base64Img);
+          // console.log("base64Img", base64Img);
           cb(base64Img);
         })
 

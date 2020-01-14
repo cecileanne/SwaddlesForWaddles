@@ -11,6 +11,10 @@ export default {
     return axios.post("/api/jimpimages", configObject); // this is a promise!
   },
 
+  base64preview: function(cb) {
+    return axios.get("/api/jimpimages", cb);
+  },
+
   // textInput: function(userTextInput) {
   //   return axios.post("/api/textInput", userTextInput); // this is a promise!
   // },
