@@ -32,8 +32,8 @@ class Donate extends Component {
           this.setState({
             donation: res.data,
             amount: ""
-          });
-          console.log(res);
+          }, ()=>console.log("STATE MOUNTS", this.state));
+          console.log("THIS IS RES FROM GET DONATIONS", res);
         })
         .catch(err => console.log(err));
     } else {
@@ -58,7 +58,9 @@ class Donate extends Component {
       amount: this.state.amount,
       UserId: userId
     })
-      .then(res => this.loadDonations())
+      .then(res => 
+        {
+          this.loadDonations()})
       .catch(err => console.log(err));
   };
   render() {
@@ -102,7 +104,7 @@ class Donate extends Component {
               </form>
             </Col>
             <Col size="md-6">
-              <List />
+            {this.state.donations.map(donation=><li className="list-group-item">{donation.transactionDate} | {donation.amount}</li>)}
               <div>
                 <h2>Total: $50.00</h2>
               </div>
