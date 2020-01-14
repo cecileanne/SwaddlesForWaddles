@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, "client/build")));
 // }
 
 // Add routes, both API and view
-const routes = require("./routes/index");
+const routes = require("./routes/index.js");
 // middleware for jimp routes
 app.use((req, res, next) => {
   console.log(req.url, req.body);
