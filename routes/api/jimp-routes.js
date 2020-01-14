@@ -98,7 +98,7 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
             {
               text: textData.text,
               alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
-              alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
+              alignmentY: Jimp.VERTICAL_ALIGN_BOTTOM
             },
             textData.maxWidth,
             textData.maxHeight
