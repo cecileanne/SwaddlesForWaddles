@@ -79,15 +79,6 @@ class Swaddle extends Component {
     const userTextGrabbed = event.target.value;
     this.setState({ userTextGrabbed: userTextGrabbed });
   };
-  handleReset = () => {
-    {
-      this.setState({
-        clickedPenguinURL: "/assets/images/penguins/penguin001.jpg",
-        clickedSweaterURL: "",
-        userTextGrabbed: ""
-      });
-    }
-  };
 
   handleTextAddClick = event => {
     event.preventDefault();
@@ -112,13 +103,13 @@ class Swaddle extends Component {
         <div className="container">
           <Row>
             <Col size="md-3">
-              <h2> Hi {this.state.userName}</h2>
+              <h2 id="greeting"> Hi {this.state.userName}!</h2>
             </Col>
             <Col size="md-9">
-              <h1>SWADDLE A PENGUIN</h1>
+              <h1 id="title">SWADDLE A PENGUIN</h1>
             </Col>
           </Row>
-          <hr />
+
           <Row>
             <Col size="md-2">
               <div id="penguins">
@@ -151,7 +142,6 @@ class Swaddle extends Component {
                     handleChange={this.handleText}
                   />
                   <AddTextBtn onClick={this.handleTextAddClick}>Add</AddTextBtn>
-                  <AddTextBtn onClick={this.handleReset}>Reset </AddTextBtn> 
                 </form>
                 <div className="text-center"></div>
                 <DownloadBtn process={this.state.process} />

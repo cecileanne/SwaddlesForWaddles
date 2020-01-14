@@ -4,7 +4,6 @@ import { Input } from "../../components/Form";
 import Navbar from "../../components/Navbar";
 import { List, ListItem } from "../../components/List";
 import API from "../../utils/API";
-
 import "./style.css";
 
 class Donate extends Component {
@@ -103,19 +102,10 @@ class Donate extends Component {
               </form>
             </Col>
             <Col size="md-6">
-              <h2>{this.state.userName}'s Donations:</h2>
-              {this.state.donations.length ? (
-                <List>
-                  {this.state.donations.map(donate => (
-                    <ListItem>{donate.amount}</ListItem>
-                  ))}
-                </List>
-              ) : (
-                <h3>You haven't donated yet.</h3>
-              )}
-              {/* <div>
-                <h2>Total: {}/h2>
-              </div> */}
+              <List />
+              <div>
+                <h2>Total: $50.00</h2>
+              </div>
             </Col>
             <Navbar />
           </Row>

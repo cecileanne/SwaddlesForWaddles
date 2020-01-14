@@ -9,10 +9,6 @@ export function AddTextBtn(props) {
   );
 }
 
-export function ResetBtn() {
-  return <button type="reset">Reset</button>;
-}
-
 export function SaveBtn() {
   return <button>Save</button>;
 }
