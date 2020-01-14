@@ -4,7 +4,7 @@ import { Input } from "../../components/Form";
 import Navbar from "../../components/Navbar";
 import { List, ListItem } from "../../components/List";
 import API from "../../utils/API";
-import "./style.css";
+import "./donate.css";
 
 class Donate extends Component {
   state = {
@@ -61,29 +61,44 @@ class Donate extends Component {
       .then(res => this.loadDonations())
       .catch(err => console.log(err));
   };
+
   render() {
     return (
       <div className="donate">
-        <Container>
+        <div className="donationHeader">
           <Row>
             <Col size="md-3">
-              <h2>{this.state.userName}</h2>
+              <img
+                className="headerBarLogo"
+                src={
+                  process.env.PUBLIC_URL +
+                  "/assets/images/icons/swaddles_for_waddles_logo.png"
+                }
+                alt="Swaddles for Waddles Logo"
+              ></img>
+              <h3 className="donationGreet">Hello {this.state.userName}!</h3>
             </Col>
-            <Col size="md-9">
-              <h1>Swaddle A Penguin</h1>
+            <Col size="md-8">
+              <h1 className="donationTitle">Support the Penguins</h1>
+            </Col>
+            <Col size="md-1">
+               <Navbar className="navBarBlue"></Navbar>
             </Col>
           </Row>
+        </div>
+        <div className="containerDonationReq">
           <Row>
-            <Col size="md-6">
+            <Col size="md-8" classname="containerInfoForm">
               <h4>
                 The World Wildlife Fund is our favorite organization for saving
                 animals. If you would like to help the penguins please pledge to
                 donate.
               </h4>
-              <p>
+              <h4 className="italics">
                 Please note - no financial information will be requested at this
                 time.
-              </p>
+              </h4>
+              <hr></hr>
               <form>
                 <Input
                   value={this.state.value}
@@ -96,20 +111,19 @@ class Donate extends Component {
                     // disabled={!(this.state.author && this.state.title)}
                     onClick={this.handleFormSubmit}
                   >
-                    Donate
+                    Pledge
                   </button>
                 </div>
               </form>
             </Col>
-            <Col size="md-6">
+            <Col size="md-4">
               <List />
               <div>
-                <h2>Total: $50.00</h2>
+                <h2>Total Donations to date: $50.00 (MAKE THIS INTO STATE?)</h2>
               </div>
             </Col>
-            <Navbar />
           </Row>
-        </Container>
+        </div>
       </div>
     );
   }
