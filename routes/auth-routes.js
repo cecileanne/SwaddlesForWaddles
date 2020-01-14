@@ -23,6 +23,7 @@ router.post("/registerUser", (req, res, next) => {
           username: req.body.username //,
           //username: user.username
         };
+        console.log("this is the data portion", data)
         db.User.findOne({
           where: {
             username: data.username
@@ -36,8 +37,7 @@ router.post("/registerUser", (req, res, next) => {
             });
           })
           .then(() => {
-            const token = jwt.sign({ id: data.username }, jwtSecret.secret);
-
+            const token = jwt.sign({ id: data.username }, jwtSecret.secret)
             res.json({
               username: data.username,
               userId: user.dataValues.id,

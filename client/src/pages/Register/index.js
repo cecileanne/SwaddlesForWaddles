@@ -49,6 +49,7 @@ class Register extends Component {
     event.preventDefault();
 
     axios.post("/auth/registerUser", this.state).then(res => {
+      
       localStorage.setItem("JWT", res.data.token);
       localStorage.setItem("email", res.data.username);
       localStorage.setItem("userId", res.data.userId);
