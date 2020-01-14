@@ -74,6 +74,11 @@ function About() {
           </p>
         </article>
       </div>
+      {/* <div className="footer">
+        <h3>
+          <Link to="/Donate"> Donate Now!</Link>
+        </h3>
+      </div> */}
     </div>
   );
 }

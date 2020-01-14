@@ -41,12 +41,7 @@ function handleClick(e) {
 // }
 export function DonateBtn() {
   return (
-    <a
-      className="btn btn-primary"
-      href="/donate"
-      role="button"
-      onClick={handleClick}
-    >
+    <a className="button" href="/donate" role="button" onClick={handleClick}>
       Donate Now!
     </a>
   );

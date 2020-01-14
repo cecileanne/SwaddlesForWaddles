@@ -2,7 +2,8 @@
   background-color: #3d61b2;
   width: 100vw;
   height: 100vh;
-  margin: 0;
+  margin-top: -24px;
+  margin-left: -51px;
 }
 span {
   margin-left: 1300px;
@@ -24,17 +25,16 @@ p {
   color: white;
 }
 
-.mainlogo {
+.logo-wrapper {
   height: 200px;
   width: 200px;
   margin-top: 50px;
-  z-index: 1;
   position: relative;
 }
 
 .front-page-photo {
   width: 800px;
-  margin-top: -224px;
+  margin-top: -310px;
   margin-left: -67px;
   z-index: 0;
 }
