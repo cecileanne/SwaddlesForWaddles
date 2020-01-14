@@ -5,11 +5,12 @@
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "npm run build && node server.js",
+    "start:prod": "node server.js",
     "start:dev": "npm run client",
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run builds"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,6 @@
   "bugs": {
     "url": "https://github.com/cecileanne/SwaddlesForWaddles/issues"
   },
-  "proxy": "http://localhost:3001",
   "homepage": "https://github.com/cecileanne/SwaddlesForWaddles#readme",
   "dependencies": {
     "axios": "^0.19.1",
