@@ -7,6 +7,7 @@ require("dotenv").config();
 const Cors = require("cors");
 const passport = require("passport");
 require("./config/passport");
+const path = require("path");
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 3001;
