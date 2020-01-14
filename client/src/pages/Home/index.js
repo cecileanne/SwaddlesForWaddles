@@ -9,12 +9,12 @@ import { Container } from "../../components/Grid";
 function Home() {
   return (
     <div className="background">
-      <Navbar className="navbar" />
       <div className="adoption">
         <h2 className="adopt">ADOPT</h2>
         <h2>A PENGUIN</h2>
       </div>
       <div className="logo-wrapper">
+        <Navbar className="navbar" />
         <img
           className="mainlogo"
           src={
