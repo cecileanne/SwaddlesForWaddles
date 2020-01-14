@@ -54,7 +54,7 @@ class Register extends Component {
       localStorage.setItem("email", res.data.username);
       localStorage.setItem("userId", res.data.userId);
       console.log(res.data);
-      // this.props.history.push("/Swaddle");
+      this.props.history.push("/Swaddle");
     });
   };
   render = () => {
