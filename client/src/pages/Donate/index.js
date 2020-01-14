@@ -68,7 +68,7 @@ class Donate extends Component {
         <Container>
           <Row>
             <Col size="md-3">
-              <h2> Hi {this.state.userName},</h2>
+              <h2>{this.state.userName}</h2>
             </Col>
             <Col size="md-9">
               <h1>Swaddle A Penguin</h1>

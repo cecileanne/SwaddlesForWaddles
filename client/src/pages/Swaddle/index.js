@@ -130,20 +130,19 @@ class Swaddle extends Component {
   render() {
     return (
       <div className="swaddle">
-        <Container>
-          <div>
-            {/* header stuff can be a jumbotron or whatever is on brand */}
-            <Row>
-              {/* Header Stuf <p>{this.user.firstName}</p> */}
-              <Col size="md-3">
-                <h2> Hi {this.state.userName},</h2>
-              </Col>
-              <Col size="md-9">
-                <h1>Swaddle A Penguin</h1>
-              </Col>
-            </Row>
-            <Row>
-              <Col size="md-2">
+        <div className="container">
+          <Row>
+            <Col size="md-3">
+              <h2> Hi {this.state.userName}</h2>
+            </Col>
+            <Col size="md-9">
+              <h1>SWADDLE A PENGUIN</h1>
+            </Col>
+          </Row>
+          <hr />
+          <Row>
+            <Col size="md-2">
+              <div id="penguins">
                 {this.state.imageTypes.penguins.map((image, index) => (
                   <ImageDisplay
                     key={index}
@@ -154,62 +153,58 @@ class Swaddle extends Component {
                     handleClick={this.handleClick}
                   />
                 ))}
-              </Col>
-              <Col size="md-7">
-                <section className="text-center">
-                  <div className="card ">
-                    <img
-                      id="preview"
-                      className="card-img-top "
-                      // {if(jimpImages){
+              </div>
+            </Col>
+            <Col size="md-7">
+              <section className="text-center">
+                <div className="card ">
+                  <img
+                    id="preview"
+                    className="card-img-top "
+                    // {if(jimpImages){
 
-                      //   src={this.state.JimpImages}
-                      // }else{
+                    //   src={this.state.JimpImages}
+                    // }else{
 
-                      src={this.state.clickedPenguinURL}
-                      // }}
+                    src={this.state.clickedPenguinURL}
+                    // }}
 
-                      alt="Meme Preview"
-                    />
-                  </div>
-                  <form>
-                    <UserTextInput
-                      userTextGrabbed={this.state.userTextGrabbed}
-                      handleChange={this.handleText}
-                    />
-                    <AddTextBtn onClick={this.handleTextAddClick}>
-                      Add
-                    </AddTextBtn>
-                    <AddTextBtn onClick={this.handleReset}>Rest </AddTextBtn> 
-                    {/* resets to default penguin/clear space */}
-                  </form>
-                  <div className="text-center">
-                                                  
-                  </div>
-                  <DownloadBtn />
-                </section>
-                 {/* downloads image  */}
-              </Col>
-              <Col size="md-2">
-                {this.state.imageTypes.sweaters.map((image, index) => (
-                  <ImageDisplay
-                    key={index}
-                    imgURL={image.imgURL}
-                    dateName={image.dataname}
-                    datatype={image.type}
-                    clicked={image.clicked}
-                    handleClick={this.handleClick}
+                    alt="Meme Preview"
                   />
-                ))}
-              </Col>
-              <Col size="md-1">
-                           
-                <Navbar />
-                           
-              </Col>
-            </Row>
-          </div>
-        </Container>
+                </div>
+                <form>
+                  <UserTextInput
+                    userTextGrabbed={this.state.userTextGrabbed}
+                    handleChange={this.handleText}
+                  />
+                  <AddTextBtn onClick={this.handleTextAddClick}>Add</AddTextBtn>
+                  <AddTextBtn onClick={this.handleReset}>Reset </AddTextBtn> 
+                </form>
+                <div className="text-center">
+                                                
+                </div>
+                <DownloadBtn />
+              </section>
+            </Col>
+            <Col size="md-2">
+              {this.state.imageTypes.sweaters.map((image, index) => (
+                <ImageDisplay
+                  key={index}
+                  imgURL={image.imgURL}
+                  dateName={image.dataname}
+                  datatype={image.type}
+                  clicked={image.clicked}
+                  handleClick={this.handleClick}
+                />
+              ))}
+            </Col>
+            <Col size="md-1">
+                         
+              <Navbar />
+                         
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }
