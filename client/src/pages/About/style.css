@@ -1,17 +1,42 @@
+.container {
+  margin: 0;
+}
 span {
   color: #3d61b2;
 }
-img {
-  width: 300px;
+.penguin {
+  height: 500px;
+  opacity: 35%;
+}
+.oil-spill {
+  height: 500.5px;
+  opacity: 35%;
+}
+.mainlogo {
+  height: 200px;
+  width: 200px;
+  margin-top: 50px;
+  z-index: 1;
+  position: relative;
 }
 button img {
   width: 50px;
 }
+
 h1 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 5em;
   color: black;
+  kerning: 200px;
 }
 p {
+  font-size: 2em;
+  color: black;
+  float: right;
+}
+.the-issue {
+  justify-content: left;
+  line-height: 3em;
+  font-size: 0.7em;
   color: black;
 }

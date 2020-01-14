@@ -4,7 +4,9 @@ import "./style.css";
 
 function Navbar() {
   const [isNavOpen, navIsOpen] = useState(false); // [value, fn]
-
+  {
+    /* <span onClick={() => navIsOpen(false)}>&#10006;</span> */
+  }
   return isNavOpen ? (
     <nav className="navbar" onClick={() => navIsOpen(false)}>
       <ul className="nav flex-column">
