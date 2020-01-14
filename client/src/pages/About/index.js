@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row, Container } from "../../components/Grid";
-import Jumbotron from "../../components/Jumbotron";
+// import Jumbotron from "../../components/Jumbotron";
 import { DonateBtn } from "../../components/ButtonSubmit";
 import Navbar from "../../components/Navbar";
 import "./style.css";
