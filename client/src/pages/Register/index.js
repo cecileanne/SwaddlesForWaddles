@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { Col, Row, Container } from "../../components/Grid";
 import { Input } from "../../components/Form";
-import Jumbotron from "../../components/Jumbotron";
 import Navbar from "../../components/Navbar";
-
 import "./style.css";
 import axios from "axios";
 
@@ -15,7 +12,6 @@ class Register extends Component {
     password: "",
     confirmPassword: ""
   };
-  //console.log(this.state.cards);
 
   componentDidMount() {
     let accessString = localStorage.getItem("JWT");
@@ -46,9 +42,7 @@ class Register extends Component {
   }
 
   handleInputChange = event => {
-    //console.log(event);
     const { value, name } = event.target;
-    //console.log(value, name);
     this.setState({ [name]: value }, () => console.log(this.state));
   };
   handleFormSubmit = event => {
@@ -61,61 +55,68 @@ class Register extends Component {
       console.log(res.data);
       this.props.history.push("/Swaddle");
     });
-    //return <Redirect to="/Swaddle" />;
   };
   render = () => {
     return (
-      <Container fluid>
-        <Row>
+      <div className="main-swaddle-container">
+        <div className="main-container">
           <Navbar />
-          <Col size="md-12">
-            <Jumbotron>
-              <h1>Register</h1>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.firstName}
-                changeHandler={this.handleInputChange}
-                name="firstName"
-                placeholder="First Name (required)"
-              />
-              <Input
-                value={this.state.lastName}
-                changeHandler={this.handleInputChange}
-                name="lastName"
-                placeholder="Last Name (required)"
-              />
-              <Input
-                value={this.state.username}
-                changeHandler={this.handleInputChange}
-                name="username"
-                placeholder="Email (required)"
-              />
-              <Input
-                value={this.state.password}
-                changeHandler={this.handleInputChange}
-                name="password"
-                placeholder="Password (required)"
-                type="password"
-              />
-              <Input
-                value={this.state.confirmPassword}
-                changeHandler={this.handleInputChange}
-                name="confirmPassword"
-                placeholder="Confirm Password (required)"
-                type="password"
-              />
+          <h1 className="register">REGISTER</h1>
+          <div className="logo-wrapper">
+            <img
+              className="mainlogo"
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/images/icons/swaddles_for_waddles_logo.png"
+              }
+            />
+          </div>
+          <form>
+            <Input
+              value={this.state.firstName}
+              changeHandler={this.handleInputChange}
+              name="firstName"
+              placeholder="First Name (required)"
+            />
+            <Input
+              value={this.state.lastName}
+              changeHandler={this.handleInputChange}
+              name="lastName"
+              placeholder="Last Name (required)"
+            />
+            <Input
+              value={this.state.username}
+              changeHandler={this.handleInputChange}
+              name="username"
+              placeholder="Email (required)"
+            />
+            <Input
+              value={this.state.password}
+              changeHandler={this.handleInputChange}
+              name="password"
+              placeholder="Password (required)"
+              type="password"
+            />
+            <Input
+              value={this.state.confirmPassword}
+              changeHandler={this.handleInputChange}
+              name="confirmPassword"
+              placeholder="Confirm Password (required)"
+              type="password"
+            />
 
-              <button
-                // disabled={!(this.state.author && this.state.title)}
-                onClick={this.handleFormSubmit}
-              >
-                Register
-              </button>
-            </form>
-          </Col>
-        </Row>
-      </Container>
+            <button
+              // disabled={!(this.state.author && this.state.title)}
+              onClick={this.handleFormSubmit}
+            >
+              Register
+            </button>
+          </form>
+        </div>
+        <div className="swaddle-text">
+          <h1 className="swaddleee">SWADDLES FOR WADDLES</h1>
+        </div>
+      </div>
     );
   };
 }

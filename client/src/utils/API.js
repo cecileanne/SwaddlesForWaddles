@@ -7,11 +7,11 @@ export default {
 
   //get all donations of a user
   getDonations: function(userId) {
-    return axios.get("/donate/donations?user_id=" + userId); // this is a promise!
+    return axios.get(`/donate/donations/${userId}`); // this is a promise!
   },
   //post one donation
   postDonation: function(donationData) {
-    return axios.post("/donate/donations", donationData); // this is a promise!
+    return axios.post(`/donate/donations`, donationData); // this is a promise!
   }
   // getGalleryImages: function() {
   //   return axios.get("/api/gallery"); // this is a promise!

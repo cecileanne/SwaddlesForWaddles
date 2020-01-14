@@ -8,27 +8,21 @@ const jwt = require("jsonwebtoken");
 // middleware that is specific to this router
 
 router.post("/registerUser", (req, res, next) => {
-  console.log("we hit it, register.js");
   passport.authenticate("register", (err, user, info) => {
-    console.log("THIS IS USER", user);
     if (err) {
       console.log(err);
     }
     if (info != undefined) {
-      //console.log("info is not undefined");
-      console.log(info.message);
       res.send(info.message);
     } else {
       //console.log(req.body);
       req.logIn(user, err => {
-        console.log(user, "from register back end login");
         const data = {
           first_name: req.body.firstName,
           last_name: req.body.lastName,
           username: req.body.username //,
           //username: user.username
         };
-        console.log(data);
         db.User.findOne({
           where: {
             username: data.username
@@ -42,7 +36,6 @@ router.post("/registerUser", (req, res, next) => {
             });
           })
           .then(() => {
-            console.log("user  created in db");
             const token = jwt.sign({ id: data.username }, jwtSecret.secret);
 
             res.json({
@@ -61,13 +54,10 @@ router.post("/registerUser", (req, res, next) => {
 
 router.post("/loginUser", (req, res, next) => {
   passport.authenticate("login", (err, user, info) => {
-    console.log(user);
-    console.log(info);
     if (err) {
       console.log(err);
     }
     if (info != undefined) {
-      console.log(info.message);
       res.send(info.message);
     } else {
       req.logIn(user, err => {
@@ -76,11 +66,10 @@ router.post("/loginUser", (req, res, next) => {
             username: user.username
           }
         }).then(user => {
-          console.log("found user!");
-
           //generate new token for user
           const token = jwt.sign({ id: user.username }, jwtSecret.secret);
           res.json({
+            userId: user.id,
             username: user.username,
             auth: true,
             token: token,
@@ -94,15 +83,12 @@ router.post("/loginUser", (req, res, next) => {
 
 router.get("/findUser", (req, res, next) => {
   passport.authenticate("jwt", { session: false }, (err, user, info) => {
-    console.log("user fro finduser back end route", user);
     if (err) {
       console.log(err);
     }
     if (info != undefined) {
-      console.log(info.message);
       res.send(info.message);
     } else {
-      console.log("user found in db from route", user);
       res.status(200).send({
         auth: true,
         firstName: user.firstName,

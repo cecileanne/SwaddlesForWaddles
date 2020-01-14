@@ -4,14 +4,16 @@ import "./style.css";
 
 function Navbar() {
   const [isNavOpen, navIsOpen] = useState(false); // [value, fn]
-
+  {
+    /* <span onClick={() => navIsOpen(false)}>&#10006;</span> */
+  }
   return isNavOpen ? (
     <nav className="navbar" onClick={() => navIsOpen(false)}>
       <ul className="nav flex-column">
         <li className="nav-item">
           <Link to="/">HOME</Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-item-login">
           <Link to="/Login"> REGISTER / LOGIN</Link>
         </li>
         <li className="nav-item">

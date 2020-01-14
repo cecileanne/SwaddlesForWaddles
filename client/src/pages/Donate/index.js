@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input } from "../../components/Form";
-import Jumbotron from "../../components/Jumbotron";
 import Navbar from "../../components/Navbar";
 import { List, ListItem } from "../../components/List";
 import API from "../../utils/API";
-
 import "./style.css";
 
 class Donate extends Component {
   state = {
     userName: "",
-    donation: [],
+    donations: [],
     amount: ""
   };
 
@@ -30,12 +28,13 @@ class Donate extends Component {
     const userId = localStorage.getItem("userId");
     if (userId) {
       API.getDonations(userId)
-        .then(res =>
+        .then(res => {
           this.setState({
             donation: res.data,
             amount: ""
-          })
-        )
+          });
+          console.log(res);
+        })
         .catch(err => console.log(err));
     } else {
       this.props.history.push("/login");
@@ -46,7 +45,7 @@ class Donate extends Component {
     const value = event.target.value;
     this.setState(
       {
-        value: value
+        amount: value
       },
       () => console.log(this.state)
     );
@@ -54,8 +53,10 @@ class Donate extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    const userId = localStorage.getItem("userId");
     API.postDonation({
-      amount: this.state.amount
+      amount: this.state.amount,
+      UserId: userId
     })
       .then(res => this.loadDonations())
       .catch(err => console.log(err));
@@ -66,7 +67,7 @@ class Donate extends Component {
         <Container>
           <Row>
             <Col size="md-3">
-              <h2> Hi {this.state.userName},</h2>
+              <h2>{this.state.userName}</h2>
             </Col>
             <Col size="md-9">
               <h1>Swaddle A Penguin</h1>
@@ -85,7 +86,7 @@ class Donate extends Component {
               </p>
               <form>
                 <Input
-                  value={this.state.title}
+                  value={this.state.value}
                   changeHandler={this.handleInputChange}
                   name="Donation"
                   placeholder="$ 0.00"
@@ -101,14 +102,7 @@ class Donate extends Component {
               </form>
             </Col>
             <Col size="md-6">
-              <h1>Donations</h1>
-              <List>
-                {/* {this.state.donations.map(donation => ( */}
-                {/* <ListItem key={donation._id}> */}
-                <ListItem>
-                  <strong>{/* {donation.date} by {donation.amount} */}</strong>
-                </ListItem>
-              </List>
+              <List />
               <div>
                 <h2>Total: $50.00</h2>
               </div>

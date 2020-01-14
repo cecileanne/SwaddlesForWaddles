@@ -6,10 +6,9 @@ import React from "react";
 export function List() {
   return (
     <div className="list-overflow-container">
+      <ListItem />
       {/* <ul className="list-group">{children}</ul> */}
-      <ul className="list-group">
-        <ListItem />
-      </ul>
+      <ul className="list-group"></ul>
     </div>
   );
 }

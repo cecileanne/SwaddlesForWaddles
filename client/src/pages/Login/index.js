@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row, Container } from "../../components/Grid";
 import { Input } from "../../components/Form";
-import Jumbotron from "../../components/Jumbotron";
 import Navbar from "../../components/Navbar";
 import "./style.css";
 import axios from "axios";
@@ -22,7 +20,10 @@ class Login extends Component {
     } else {
       axios
         .get("/auth/findUser", {
-          params: { username: localStorage.getItem("email") },
+          params: {
+            username: localStorage.getItem("email"),
+            userId: localStorage.getItem("userId")
+          },
           headers: { Authorization: `JWT ${accessString}` }
         })
         .then(res => {
@@ -39,16 +40,13 @@ class Login extends Component {
   }
 
   handleInputChange = event => {
-    //console.log(event);
     const { value, name } = event.target;
-    //console.log(value, name);
     this.setState({ [name]: value }, () => this.state);
   };
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.state);
     axios.post("/auth/loginUser", this.state).then(res => {
-      console.log(res);
       localStorage.setItem("JWT", res.data.token);
       localStorage.setItem("email", res.data.username);
       localStorage.setItem("userId", res.data.userId);
@@ -57,41 +55,50 @@ class Login extends Component {
   };
   render = () => {
     return (
-      <Container fluid>
-        <Row>
-          <Navbar />
-          <Col size="md-12">
-            <Jumbotron>
-              <h1>Login</h1>
-              <p>
-                Don't have an account? Register <a href="/register">here</a>
-              </p>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.username}
-                changeHandler={this.handleInputChange}
-                name="username"
-                placeholder="Email (required)"
-              />
-              <Input
-                value={this.state.password}
-                changeHandler={this.handleInputChange}
-                name="password"
-                placeholder="Password (required)"
-                type="password"
-              />
+      <div className="main-swaddle-container">
+        <div className="login-container">
+          <Navbar className="navbar" />
+          <h1 className="login">LOGIN</h1>
+          <div className="logo-wrapper">
+            <img
+              className="mainlogo"
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/images/icons/swaddles_for_waddles_logo.png"
+              }
+            />
+          </div>
+          <form>
+            <Input
+              value={this.state.username}
+              changeHandler={this.handleInputChange}
+              name="username"
+              placeholder="Email (required)"
+            />
+            <Input
+              value={this.state.password}
+              changeHandler={this.handleInputChange}
+              name="password"
+              placeholder="Password (required)"
+              type="password"
+            />
 
-              <button
-                onClick={this.handleFormSubmit}
-                // disabled={!(this.state.author && this.state.title)}
-              >
-                Login
-              </button>
-            </form>
-          </Col>
-        </Row>
-      </Container>
+            <button
+              onClick={this.handleFormSubmit}
+              // disabled={!(this.state.author && this.state.title)}
+            >
+              Login
+            </button>
+          </form>
+
+          <p className="suggestion">
+            Don't have an account? Register <a href="/register">here</a>
+          </p>
+        </div>
+        <div className="swaddle-text">
+          <h1 className="swaddleee">SWADDLES FOR WADDLES</h1>
+        </div>
+      </div>
     );
   };
 }
