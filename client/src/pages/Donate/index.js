@@ -94,51 +94,57 @@ class Donate extends Component {
         <div className="containerDonationReq">
           <Row>
             <Col size="md-8" className="containerInfoForm">
-              <h4>
-                The World Wildlife Fund is our favorite organization for saving
-                animals. If you would like to help the penguins please pledge to
-                donate.
-              </h4>
-              <h4 className="italics">
-                Please note - no financial information will be requested at this
-                time.
-              </h4>
-              <form>
-                <Input
-                  value={this.state.value}
-                  changeHandler={this.handleInputChange}
-                  name="Donation"
-                  placeholder="$ 0.00"
-                />
-                <div className="text-center">
-                  <button
-                    // disabled={!(this.state.author && this.state.title)}
-                    onClick={this.handleFormSubmit}
-                  >
-                    Pledge
-                  </button>
-                </div>
-              </form>
+              <div className="whiteBoxContainerWithBorder">
+                <h4>
+                  The World Wildlife Fund is our favorite organization for
+                  saving animals. If you would like to help the penguins please
+                  pledge to donate.
+                </h4>
+                <h4 className="italics">
+                  Please note - no financial information will be requested at
+                  this time.
+                </h4>
+                <hr></hr>
+                <form>
+                  <Input
+                    value={this.state.value}
+                    changeHandler={this.handleInputChange}
+                    name="Donation"
+                    placeholder="$ 0.00"
+                  />
+                  <div className="text-center">
+                    <button
+                      // disabled={!(this.state.author && this.state.title)}
+                      onClick={this.handleFormSubmit}
+                    >
+                      Pledge
+                    </button>
+                  </div>
+                </form>
+              </div>
             </Col>
-            <Col size="md-4" className="containerForTable">
-              <List k={this.state.donations} />
-              {this.state.donations.map(donation => (
-                <li className="list-group-item">
-                  {donation.transactionDate} | ${donation.amount}
-                </li>
-              ))}
-              <div>
-                {this.state.donations.length ? (
-                  <h3>
-                    Your donations to date: $
-                    {this.state.donations.reduce(
-                      (total, object) => total + Number(object.amount),
-                      0
-                    )}
-                  </h3>
-                ) : (
-                  <p>No donations-- Please give generously</p>
-                )}
+            <Col size="md-4">
+              <div className="containerForTable">
+                <h3 className="listTitle">Your Donations</h3>
+                <List k={this.state.donations} />
+                {this.state.donations.map(donation => (
+                  <li className="list-group-item">
+                    {donation.transactionDate} | ${donation.amount}
+                  </li>
+                ))}
+                <div>
+                  {this.state.donations.length ? (
+                    <h3 classname="totalDonationAnnouncement">
+                      Total donations to date: $
+                      {this.state.donations.reduce(
+                        (total, object) => total + Number(object.amount),
+                        0
+                      )}
+                    </h3>
+                  ) : (
+                    <p>No donations-- Please give generously</p>
+                  )}
+                </div>
               </div>
             </Col>
           </Row>

@@ -32,7 +32,7 @@
 .donationGreet {
   color: black;
   font-family: "candida";
-  position: fixed;
+  position: absolute;
   top: 0;
   margin-left: 170px;
   align-content: flex-end;
@@ -40,9 +40,9 @@
 }
 
 .donationTitle {
-  align-content: center;
+  align-content: flex-end;
   color: black;
-  position: fixed;
+  position: absolute;
   top: 80px;
 }
 
@@ -60,6 +60,15 @@ h1 {
   /* background-color: #c66353; */
 }
 
+.whiteBoxContainerWithBorder {
+  background: white;
+  margin-left: 50px;
+  padding: 20px;
+  border: #c66353;
+  border-style: dashed;
+  border-width: 8px;
+}
+
 h4 {
   font-family: "candida";
 }
@@ -73,48 +82,22 @@ button img {
   width: 50px;
 }
 
-/* span {
+.containerForTable {
+  background: white;
+  margin-right: 50px;
+  padding: 20px;
+  border: #c66353;
+  border-style: dashed;
+  border-width: 8px;
+}
+
+.listTitle {
   color: #3d61b2;
-} 
-.subtext {
-  font-size: 2em;
-  color: black;
-  margin-top: -10px;
-  float: right;
-  margin-right: 40px;
+  font-family: "candida";
+  top: 0;
+  align-content: "center";
 }
-.text-over-imgs {
-  margin-top: 10px;
-  z-index: -3;
+.totalDonationAnnouncement {
+  color: #3d61b2;
+  font-family: "candida";
 }
-p {
-  color: rgb(255, 255, 255);
-  opacity: 100%;
-}
-
-.the-issue {
-  justify-content: left;
-  background-color: black;
-  opacity: 50%;
-  width: 900px;
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-top: -400px;
-  margin-left: 200px;
-  line-height: 3em;
-  font-size: 0.7em;
-  position: absolute;
-}
-
-.footer {
-  background-color: #3d61b2;
-  text-align: center;
-  margin-top: 300px;
-  width: 100%;
-  padding-top: 7px;
-  padding-bottom: 7px;
-}
-a {
-  color: white;
-} */
