@@ -18,11 +18,12 @@ class Swaddle extends Component {
   };
   componentDidMount() {
     const userName = localStorage.getItem("email");
+    const name_local = localStorage.getItem("firstName")
     if (!userName) {
       //redirect to login
       this.props.history.push("/login");
     } else {
-      this.setState({ userName });
+      this.setState({ userName, name_local });
     }
   }
   // Selecting penguin and sweater
@@ -103,7 +104,7 @@ class Swaddle extends Component {
         <div className="container">
           <Row>
             <Col size="md-3">
-              <h2 id="greeting"> Hi {this.state.userName}!</h2>
+              <h2 id="greeting"> Hi {this.state.name_local}!</h2>
             </Col>
             <Col size="md-9">
               <h1 id="title">SWADDLE A PENGUIN</h1>

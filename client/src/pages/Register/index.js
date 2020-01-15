@@ -53,6 +53,7 @@ class Register extends Component {
       localStorage.setItem("JWT", res.data.token);
       localStorage.setItem("email", res.data.username);
       localStorage.setItem("userId", res.data.userId);
+      localStorage.setItem("firstName", res.data.firstName)
       console.log(res.data);
       this.props.history.push("/Swaddle");
     });

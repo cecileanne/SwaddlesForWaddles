@@ -20,7 +20,8 @@ router.post("/registerUser", (req, res, next) => {
         const data = {
           first_name: req.body.firstName,
           last_name: req.body.lastName,
-          username: req.body.username //,
+          username: req.body.username, 
+          //,
           //username: user.username
         };
         console.log("this is the data portion", data)
@@ -37,9 +38,11 @@ router.post("/registerUser", (req, res, next) => {
             });
           })
           .then(() => {
+            
             const token = jwt.sign({ id: data.username }, jwtSecret.secret)
             res.json({
               username: data.username,
+              firstName: data.first_name,
               userId: user.dataValues.id,
               auth: true,
               token: token,
@@ -69,6 +72,7 @@ router.post("/loginUser", (req, res, next) => {
           //generate new token for user
           const token = jwt.sign({ id: user.username }, jwtSecret.secret);
           res.json({
+            firstName: user.first_name,
             userId: user.id,
             username: user.username,
             auth: true,
