@@ -9,7 +9,7 @@
 .donationHeader {
   background: #c66353;
   width: 100%;
-  overflow: auto;
+  overflow: clip;
   align-content: center;
   /* background-color: white; */
   height: 150px;
