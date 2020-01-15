@@ -105,29 +105,11 @@ class Swaddle extends Component {
           <Row>
             <Navbar />             
             <Col size="md-3">
-              <h2 id="greeting"> HI {this.state.name_local}!</h2>
+              <h2 id="greeting">HI {this.state.name_local}!</h2>
             </Col>
             <Col size="md-9">
               <h1 id="title">SWADDLE A PENGUIN</h1>
             </Col>
-          </Row>
-          <Row>
-            <div className="card">
-              <div className="card-header" id="headingOne">
-                <h5 className="mb-0">How to Meme</h5>
-              </div>
-
-              <div
-                id="collapseOne"
-                aria-labelledby="headingOne"
-                data-parent="#accordion"
-              >
-                <div className="card-body">
-                  It's easy! Click on a penguin and a sweater. Then add your fun
-                  message and click "Add".
-                </div>
-              </div>
-            </div>
           </Row>
 
           <Row>
@@ -147,6 +129,25 @@ class Swaddle extends Component {
             </Col>
 
             <Col size="md-7">
+              <Row>
+                <div className="card text-center">
+                  <div className="card-header" id="headingOne">
+                    <h5 className="mb-0">How to Meme</h5>
+                  </div>
+
+                  <div
+                    id="collapseOne"
+                    aria-labelledby="headingOne"
+                    data-parent="#accordion"
+                  >
+                    <div className="card-body">
+                      It's easy! <br />
+                      Click on a penguin and a sweater. Then add your fun
+                      message and click "Add Text".
+                    </div>
+                  </div>
+                </div>
+              </Row>
               <section className="text-center">
                 <div className="card ">
                   <img

@@ -14,7 +14,7 @@ function Navbar() {
           <Link to="/">HOME</Link>
         </li>
         <li className="nav-item-login">
-          <Link to="/Login"> REGISTER / LOGIN</Link>
+          <Link to="/Login">LOGIN</Link>
         </li>
         <li className="nav-item">
           <Link to="/About"> ABOUT THIS APP</Link>
