@@ -6,11 +6,11 @@ function Home() {
   return (
     <div className="background">
       <div className="adoption">
+        <Navbar className="navbar" />
         <h2 className="adopt">ADOPT</h2>
         <h2>A PENGUIN</h2>
       </div>
       <div className="logo-wrapper">
-        <Navbar className="navbar" />
         <img
           className="mainlogo"
           src={

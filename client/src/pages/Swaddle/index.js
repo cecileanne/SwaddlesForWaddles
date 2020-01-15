@@ -18,7 +18,7 @@ class Swaddle extends Component {
   };
   componentDidMount() {
     const userName = localStorage.getItem("email");
-    const name_local = localStorage.getItem("firstName")
+    const name_local = localStorage.getItem("firstName");
     if (!userName) {
       //redirect to login
       this.props.history.push("/login");
@@ -103,11 +103,12 @@ class Swaddle extends Component {
       <div className="swaddle">
         <div className="container">
           <Row>
+            <Navbar />             
             <Col size="md-3">
-              <h2 id="greeting"> Hi {this.state.name_local}!</h2>
+              <h2 id="greeting"> HI {this.state.name_local}!</h2>
             </Col>
             <Col size="md-9">
-              <h1 id="title">Swaddle a Penguin</h1>
+              <h1 id="title">SWADDLE A PENGUIN</h1>
             </Col>
           </Row>
           <Row>
@@ -166,11 +167,6 @@ class Swaddle extends Component {
                   handleClick={this.handleClick}
                 />
               ))}
-            </Col>
-            <Col size="md-1">
-                         
-              <Navbar />
-                         
             </Col>
           </Row>
         </div>
