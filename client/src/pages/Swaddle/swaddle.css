@@ -10,10 +10,12 @@
   font-size: 2em;
 }
 #title {
-  font-family: "candida";
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   margin-top: 50px;
-  font-size: 4em;
+  font-size: 5.5em;
   margin-bottom: 50px;
+  letter-spacing: 5px;
+  color: white;
 }
 .clickalbeIMG:hover {
   border-color: white;

@@ -6,6 +6,10 @@
   background: #3d61b2;
 }
 
+span {
+  float: right;
+}
+
 .donationHeader {
   background: #c66353;
   width: 100%;
@@ -41,16 +45,17 @@
 
 .donationTitle {
   align-content: flex-end;
-  color: black;
+  color: white;
   position: absolute;
-  top: 80px;
+  top: 69px;
+  /* left: -33px; */
 }
 
 h1 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 5.5em;
   color: black;
-  /* margin-top: -50px; */
+  /* margin-bottom: -50px; */
   letter-spacing: 5px;
 }
 
@@ -93,9 +98,11 @@ button img {
 
 .listTitle {
   color: #3d61b2;
-  font-family: "candida";
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   top: 0;
   align-content: "center";
+  letter-spacing: 2px;
+  font-weight: 550;
 }
 .totalDonationAnnouncement {
   color: #3d61b2;

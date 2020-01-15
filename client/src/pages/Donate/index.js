@@ -70,86 +70,89 @@ class Donate extends Component {
   };
   render() {
     return (
-      <div className="donate">
-        <div className="donationHeader">
-          <Row>
-            <Col size="md-3">
-              <img
-                className="headerBarLogo"
-                src={
-                  process.env.PUBLIC_URL +
-                  "/assets/images/icons/swaddles_for_waddles_logo.png"
-                }
-                alt="Swaddles for Waddles logo"
-              ></img>
-              <h3 className="donationGreet">Hello {this.state.name_local}!</h3>
-            </Col>
-            <Col size="md-8">
-              <h1 className="donationTitle">Support the Penguins</h1>
-            </Col>
-            <Col size="md-1">
-              <Navbar className="navBarBlue"></Navbar>
-            </Col>
-          </Row>
-        </div>
+      <div className="donate-container">
+        <div className="donate">
+          <div className="donationHeader">
+            <Row>
+              <Navbar />
+              <Col size="md-3">
+                <img
+                  className="headerBarLogo"
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/assets/images/icons/swaddles_for_waddles_logo.png"
+                  }
+                  alt="Swaddles for Waddles logo"
+                ></img>
+                <h3 className="donationGreet">
+                  HELLO {this.state.name_local}!
+                </h3>
+              </Col>
+              <Col size="md-8">
+                <h1 className="donationTitle">SUPPORT THE PENGUINS</h1>
+              </Col>
+              <Col size="md-1"></Col>
+            </Row>
+          </div>
 
-        <div className="containerDonationReq">
-          <Row>
-            <Col size="md-8" className="containerInfoForm">
-              <div className="whiteBoxContainerWithBorder">
-                <h4>
-                  The World Wildlife Fund is our favorite organization for
-                  saving animals. If you would like to help the penguins please
-                  pledge to donate.
-                </h4>
-                <h4 className="italics">
-                  Please note - no financial information will be requested at
-                  this time.
-                </h4>
-                <hr></hr>
-                <form>
-                  <Input
-                    value={this.state.value}
-                    changeHandler={this.handleInputChange}
-                    name="Donation"
-                    placeholder="$ 0.00"
-                  />
-                  <div className="text-center">
-                    <button
-                      // disabled={!(this.state.author && this.state.title)}
-                      onClick={this.handleFormSubmit}
-                    >
-                      Pledge
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </Col>
-            <Col size="md-4">
-              <div className="containerForTable">
-                <h3 className="listTitle">Your Donations</h3>
-                <List k={this.state.donations} />
-                {this.state.donations.map(donation => (
-                  <li className="list-group-item">
-                    {donation.transactionDate} | ${donation.amount}
-                  </li>
-                ))}
-                <div>
-                  {this.state.donations.length ? (
-                    <h3 classname="totalDonationAnnouncement">
-                      Total donations to date: $
-                      {this.state.donations.reduce(
-                        (total, object) => total + Number(object.amount),
-                        0
-                      )}
-                    </h3>
-                  ) : (
-                    <p>No donations-- Please give generously</p>
-                  )}
+          <div className="containerDonationReq">
+            <Row>
+              <Col size="md-8" className="containerInfoForm">
+                <div className="whiteBoxContainerWithBorder">
+                  <h4>
+                    The World Wildlife Fund is our favorite organization for
+                    saving animals. If you would like to help the penguins
+                    please pledge to donate.
+                  </h4>
+                  <h4 className="italics">
+                    Please note - no financial information will be requested at
+                    this time.
+                  </h4>
+                  <hr></hr>
+                  <form>
+                    <Input
+                      value={this.state.value}
+                      changeHandler={this.handleInputChange}
+                      name="Donation"
+                      placeholder="$ 0.00"
+                    />
+                    <div className="text-center">
+                      <button
+                        // disabled={!(this.state.author && this.state.title)}
+                        onClick={this.handleFormSubmit}
+                      >
+                        Pledge
+                      </button>
+                    </div>
+                  </form>
                 </div>
-              </div>
-            </Col>
-          </Row>
+              </Col>
+              <Col size="md-4">
+                <div className="containerForTable">
+                  <h3 className="listTitle">YOUR DONATIONS</h3>
+                  <List k={this.state.donations} />
+                  {this.state.donations.map(donation => (
+                    <li className="list-group-item">
+                      {donation.transactionDate} | ${donation.amount}
+                    </li>
+                  ))}
+                  <div>
+                    {this.state.donations.length ? (
+                      <h3 classname="totalDonationAnnouncement">
+                        Total donations to date: $
+                        {this.state.donations.reduce(
+                          (total, object) => total + Number(object.amount),
+                          0
+                        )}
+                      </h3>
+                    ) : (
+                      <p>No donations-- Please give generously</p>
+                    )}
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </div>
         </div>
       </div>
     );
