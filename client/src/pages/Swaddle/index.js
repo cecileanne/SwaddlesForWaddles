@@ -18,7 +18,7 @@ class Swaddle extends Component {
   };
   componentDidMount() {
     const userName = localStorage.getItem("email");
-    const name_local = localStorage.getItem("firstName")
+    const name_local = localStorage.getItem("firstName");
     if (!userName) {
       //redirect to login
       this.props.history.push("/login");
@@ -111,10 +111,22 @@ class Swaddle extends Component {
             </Col>
           </Row>
           <Row>
-            <p>
-              It's easy to make a meme! Click on a penguin and a sweater. Then
-              add your fun message and click "Add".
-            </p>
+            <div className="card">
+              <div className="card-header" id="headingOne">
+                <h5 className="mb-0">How to Meme</h5>
+              </div>
+
+              <div
+                id="collapseOne"
+                aria-labelledby="headingOne"
+                data-parent="#accordion"
+              >
+                <div className="card-body">
+                  It's easy! Click on a penguin and a sweater. Then add your fun
+                  message and click "Add".
+                </div>
+              </div>
+            </div>
           </Row>
 
           <Row>
@@ -148,7 +160,9 @@ class Swaddle extends Component {
                     userTextGrabbed={this.state.userTextGrabbed}
                     handleChange={this.handleText}
                   />
-                  <AddTextBtn onClick={this.handleTextAddClick}>Add</AddTextBtn>
+                  <AddTextBtn onClick={this.handleTextAddClick}>
+                    Add Text
+                  </AddTextBtn>
                 </form>
                 <div className="text-center"></div>
                 <DownloadBtn process={this.state.process} />
