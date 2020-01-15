@@ -9,17 +9,18 @@ import "./donate.css";
 class Donate extends Component {
   state = {
     userName: "",
+
     donations: [],
     amount: ""
   };
-
   componentDidMount() {
     const userName = localStorage.getItem("email");
+    const name_local = localStorage.getItem("firstName");
     if (!userName) {
       //redirect to login
       this.props.history.push("/login");
     } else {
-      this.setState({ userName });
+      this.setState({ userName, name_local });
       this.loadDonations();
     }
   }
@@ -56,6 +57,7 @@ class Donate extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+
     const userId = localStorage.getItem("userId");
     API.postDonation({
       amount: this.state.amount,
@@ -80,7 +82,7 @@ class Donate extends Component {
                 }
                 alt="Swaddles for Waddles logo"
               ></img>
-              <h3 className="donationGreet">Hello {this.state.userName}!</h3>
+              <h3 className="donationGreet">Hello {this.state.name_local}!</h3>
             </Col>
             <Col size="md-8">
               <h1 className="donationTitle">Support the Penguins</h1>
