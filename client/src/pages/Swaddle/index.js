@@ -106,8 +106,14 @@ class Swaddle extends Component {
               <h2 id="greeting"> Hi {this.state.userName}!</h2>
             </Col>
             <Col size="md-9">
-              <h1 id="title">SWADDLE A PENGUIN</h1>
+              <h1 id="title">Swaddle a Penguin</h1>
             </Col>
+          </Row>
+          <Row>
+            <p>
+              It's easy to make a meme! Click on a penguin and a sweater. Then
+              add your fun message and click "Add".
+            </p>
           </Row>
 
           <Row>

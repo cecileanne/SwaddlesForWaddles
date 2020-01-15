@@ -5,7 +5,7 @@ import "./style.css";
 function UserTextInput(props) {
   return (
     <div className="form-group">
-      <label htmlFor="textInput">Add Text</label>
+      <label htmlFor="textInput"></label>
 
       <textarea
         className="form-control"

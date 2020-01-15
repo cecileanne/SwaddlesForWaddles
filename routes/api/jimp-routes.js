@@ -60,13 +60,13 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
           // set jimp positioning based on what penguin is chosen
           if (imgPenguin == "/assets/images/penguins/penguin001.jpg") {
             sweaterX = 180;
-            sweaterY = 410;
+            sweaterY = 385;
           } else if (imgPenguin == "/assets/images/penguins/penguin002.jpg") {
             sweaterX = 325;
-            sweaterY = 355;
+            sweaterY = 325;
           } else if (imgPenguin == "/assets/images/penguins/penguin006.jpg") {
             sweaterX = 220;
-            sweaterY = 260;
+            sweaterY = 235;
           }
           sweaterTemplate.opacity(1);
           return mashUp.composite(sweaterTemplate, sweaterX, sweaterY, [
@@ -98,7 +98,7 @@ function jimp({ imgPenguin, imgSweater, userText }, cb) {
             {
               text: textData.text,
               alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
-              alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
+              alignmentY: Jimp.VERTICAL_ALIGN_BOTTOM
             },
             textData.maxWidth,
             textData.maxHeight
