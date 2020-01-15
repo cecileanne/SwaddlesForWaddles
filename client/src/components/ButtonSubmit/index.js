@@ -36,15 +36,8 @@ export function DonateBtn() {
 
 export function DownloadBtn({ process, dataName }) {
   return (
-    <button>
-      <a
-        class="btn btn-primary"
-        href={process}
-        download="penguin_meme.jpg"
-        role="button"
-      >
-        Download
-      </a>
-    </button>
+    <a class="btn" href={process} download="penguin_meme.jpg" role="button">
+      Download
+    </a>
   );
 }

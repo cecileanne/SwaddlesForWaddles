@@ -41,16 +41,27 @@
 label {
   color: white;
 }
-
-button {
-  background-color: #c66353;
-  padding: 0.3vw;
+a.btn {
+  background-color: #3d61b2;
+  padding: 0.5vw;
   border-radius: 10px;
   border: none;
   color: white;
   margin: 0.5vw;
 }
-
+button {
+  background-color: #3d61b2;
+  padding: 0.5vw;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  margin: 0.5vw;
+}
+.card {
+  color: white;
+  margin-bottom: 2em;
+}
+.btn,
 button:hover {
   background-color: #c66353;
   border: solid;
@@ -59,6 +70,7 @@ button:hover {
   text-decoration: none;
 }
 
+.btn,
 button:active {
   background-color: #c66353;
   border: solid;
@@ -66,15 +78,10 @@ button:active {
   color: white;
   text-decoration: none;
 }
-a:focus,
-a:hover {
-  color: white;
-  text-decoration: none;
-}
+
 .swaddle {
   background-color: #c66353;
   width: 100vw;
-  height: 100vh;
   margin-top: -24px;
   margin-left: -67px;
 }
