@@ -92,9 +92,9 @@ class Login extends Component {
             </button>
           </form>
 
-          <p className="suggestion">
+          <div className="suggestion">
             Don't have an account? Register <a href="/register">here</a>
-          </p>
+          </div>
         </div>
         <div className="swaddle-text">
           <h1 className="swaddleee">SWADDLES FOR WADDLES</h1>
