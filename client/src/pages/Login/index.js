@@ -84,6 +84,7 @@ class Login extends Component {
             />
 
             <button
+              id="formBtn"
               onClick={this.handleFormSubmit}
               // disabled={!(this.state.author && this.state.title)}
             >

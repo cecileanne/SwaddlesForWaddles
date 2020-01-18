@@ -49,11 +49,10 @@ class Register extends Component {
     event.preventDefault();
 
     axios.post("/auth/registerUser", this.state).then(res => {
-      
       localStorage.setItem("JWT", res.data.token);
       localStorage.setItem("email", res.data.username);
       localStorage.setItem("userId", res.data.userId);
-      localStorage.setItem("firstName", res.data.firstName)
+      localStorage.setItem("firstName", res.data.firstName);
       console.log(res.data);
       this.props.history.push("/Swaddle");
     });
@@ -108,6 +107,7 @@ class Register extends Component {
             />
 
             <button
+              id="formBtn"
               // disabled={!(this.state.author && this.state.title)}
               onClick={this.handleFormSubmit}
             >
