@@ -146,7 +146,10 @@ class Donate extends Component {
                         )}
                       </h3>
                     ) : (
-                      <p>No donations-- Please give generously</p>
+                      <p id="noDonation">
+                        No donations yet, <br />
+                        Please give generously
+                      </p>
                     )}
                   </div>
                 </div>

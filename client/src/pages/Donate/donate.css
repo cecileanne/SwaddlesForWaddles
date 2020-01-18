@@ -42,7 +42,11 @@ span {
   align-content: flex-end;
   /* top: 0; */
 }
-
+#noDonation {
+  color: black;
+  font-family: "candida";
+  font-size: medium;
+}
 .donationTitle {
   align-content: flex-end;
   color: white;
