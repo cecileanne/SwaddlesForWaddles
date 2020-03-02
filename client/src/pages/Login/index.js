@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { Input } from "../../components/Form";
 import Navbar from "../../components/Navbar";
 import "./style.css";
@@ -92,9 +93,9 @@ class Login extends Component {
             </button>
           </form>
 
-          <div className="suggestion">
-            Don't have an account? Register <a href="/register">here</a>
-          </div>
+          <p className="suggestion">
+            Don't have an account? Register <Link to="/register">here</Link>
+          </p>
         </div>
         <div className="swaddle-text">
           <h1 className="swaddleee">SWADDLES FOR WADDLES</h1>
