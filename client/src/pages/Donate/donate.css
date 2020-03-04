@@ -1,28 +1,28 @@
-.donate {
+/* .donate {
   width: 100vw;
   height: 100vh;
   margin-top: -24px;
   margin-left: -67px;
   background: #3d61b2;
-}
+} */
 
-span {
+/* span {
   float: right;
-}
-
+} */
+/* 
 .donationHeader {
   background: #c66353;
   width: 100%;
   overflow: clip;
   align-content: center;
   /* background-color: white; */
-  height: 150px;
+/* height: 150px;
   position: fixed;
   top: 0;
   margin: 0;
-  z-index: 10;
-  /* padding-bottom: 100px; */
-}
+  z-index: 10; */
+/* padding-bottom: 100px; */
+/* } */
 
 .headerBarLogo {
   max-height: 150px;
@@ -33,7 +33,7 @@ span {
   position: fixed;
 }
 
-.donationGreet {
+/* .donationGreet {
   color: black;
   font-family: "candida";
   position: absolute;
@@ -41,19 +41,19 @@ span {
   margin-left: 170px;
   align-content: flex-end;
   /* top: 0; */
-}
+/* } */
 #noDonation {
   color: black;
   font-family: "candida";
   font-size: medium;
 }
-.donationTitle {
+/* .donationTitle {
   align-content: flex-end;
-  color: white;
+
   position: absolute;
   top: 69px;
-  /* left: -33px; */
-}
+  
+} */
 
 h1 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -62,21 +62,21 @@ h1 {
   /* margin-bottom: -50px; */
   letter-spacing: 5px;
 }
-
+/* 
 .containerDonationReq {
   position: relative;
   padding-top: 200px;
-  /* background-color: #c66353; */
-}
+  background-color: #c66353;
+} */
 
-.whiteBoxContainerWithBorder {
+/* .whiteBoxContainerWithBorder {
   background: white;
   margin-left: 50px;
   padding: 20px;
   border: #c66353;
   border-style: dashed;
   border-width: 8px;
-}
+} */
 
 h4 {
   font-family: "candida";
@@ -91,24 +91,24 @@ button img {
   width: 50px;
 }
 
-.containerForTable {
+/* .containerForTable {
   background: white;
   margin-right: 50px;
   padding: 20px;
   border: #c66353;
   border-style: dashed;
   border-width: 8px;
-}
+} */
 
-.listTitle {
+/* .listTitle {
   color: #3d61b2;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   top: 0;
   align-content: "center";
   letter-spacing: 2px;
   font-weight: 550;
-}
-.totalDonationAnnouncement {
+} */
+/* .totalDonationAnnouncement {
   color: #3d61b2;
   font-family: "candida";
-}
+} */

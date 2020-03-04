@@ -6,7 +6,7 @@
 }
 #greeting {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  color: white;
+  /* color: white; */
   font-size: 2em;
   margin-top: 110px;
 }
@@ -16,7 +16,7 @@
   font-size: 5.5em;
   margin-bottom: 50px;
   letter-spacing: 5px;
-  color: white;
+  /* color: white; */
 }
 .clickalbeIMG:hover {
   border-color: white;
@@ -47,7 +47,7 @@ a.btn {
   padding: 0.5vw;
   border-radius: 10px;
   border: none;
-  color: white;
+  /* color: white; */
   margin: 0.5vw;
 }
 button {
@@ -55,11 +55,11 @@ button {
   padding: 0.5vw;
   border-radius: 10px;
   border: none;
-  color: white;
+  /* color: white; */
   margin: 0.5vw;
 }
 .card {
-  color: white;
+  /* color: white; */
   margin-bottom: 2em;
 }
 .btn,
