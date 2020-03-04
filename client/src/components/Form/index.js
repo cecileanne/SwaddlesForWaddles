@@ -1,9 +1,10 @@
 import React from "react";
+import TextField from "@material-ui/core/TextField";
 
 export function Input(props) {
   return (
     <div className="form-group">
-      <input
+      <TextField
         className="form-control"
         name={props.name}
         value={props.value}
