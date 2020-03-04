@@ -82,13 +82,21 @@ class Login extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.state);
-    axios.post("/auth/loginUser", this.state).then(res => {
-      localStorage.setItem("JWT", res.data.token);
-      localStorage.setItem("email", res.data.username);
-      localStorage.setItem("firstName", res.data.firstName);
-      localStorage.setItem("userId", res.data.userId);
-    });
-    this.props.history.push("/Swaddle");
+    axios
+      .post("/auth/loginUser", this.state)
+      .then(res => {
+        localStorage.setItem("JWT", res.data.token);
+        localStorage.setItem("email", res.data.username);
+        localStorage.setItem("firstName", res.data.firstName);
+        localStorage.setItem("userId", res.data.userId);
+      })
+      .then(() => {
+        const userName = localStorage.getItem("email");
+        const name_local = localStorage.getItem("firstName");
+
+        this.setState({ userName, name_local });
+      });
+    // this.props.history.push("/Swaddle");
   };
   render = () => {
     const { classes } = this.props;
@@ -102,6 +110,13 @@ class Login extends Component {
           <main className={classes.content}>
             {/* Hero unit */}
             <div className={classes.heroContent}>
+              <h3 className="donationGreet">
+                {this.state.name_local ? (
+                  <h3>Hello {this.state.name_local}!</h3>
+                ) : (
+                  <a href="/Login ">Please Login</a>
+                )}
+              </h3>
               <Container maxWidth="sm">
                 <div className="logo">
                   <img
@@ -121,7 +136,6 @@ class Login extends Component {
                 </Typography>
               </Container>
             </div>
-
             {/* End hero unit */}
             <Container>
               {/* <Container maxWidth="xs"> */}

@@ -65,8 +65,6 @@ class Donate extends Component {
           });
         })
         .catch(err => console.log(err));
-    } else {
-      this.props.history.push("/login");
     }
   };
 
@@ -107,7 +105,7 @@ class Donate extends Component {
             <div className={classes.heroContent}>
               <h3 className="donationGreet">
                 {this.state.name_local ? (
-                  <h3>HELLO {this.state.name_local}!</h3>
+                  <h3>Hello {this.state.name_local}!</h3>
                 ) : (
                   <a href="/Login ">Please Login</a>
                 )}
