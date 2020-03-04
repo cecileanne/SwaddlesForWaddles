@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./style.css";
+// import "./style.css";
 
 function Navbar() {
   const [isNavOpen, navIsOpen] = useState(false); // [value, fn]
@@ -15,9 +15,6 @@ function Navbar() {
         </li>
         <li className="nav-item-login">
           <Link to="/Login">LOGIN</Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/About"> ABOUT THIS APP</Link>
         </li>
         <li className="nav-item">
           <Link to="/Swaddle"> SWADDLE A PENGUIN</Link>
