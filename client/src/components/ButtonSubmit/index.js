@@ -33,7 +33,7 @@ export function DonateBtn() {
   );
 }
 
-export function DownloadBtn({ process, dataName }) {
+export function DownloadBtn({ process }) {
   return (
     <a class="btn" href={process} download="penguin_meme.jpg" role="button">
       Download

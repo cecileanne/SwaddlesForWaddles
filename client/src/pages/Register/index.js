@@ -100,10 +100,8 @@ class Register extends Component {
       <>
         <div className={classes.root}>
           <CssBaseline />
-          <header>
-            <Navbar />
-          </header>
           <main className={classes.content}>
+            <Navbar />
             {/* Hero unit */}
             <div className={classes.heroContent}>
               <Container maxWidth="sm">

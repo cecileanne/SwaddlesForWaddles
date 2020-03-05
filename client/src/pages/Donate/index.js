@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import API from "../../utils/API";
-import "./donate.css";
+import "./donate.scss";
 
 const styles = theme => ({
   root: {
@@ -97,10 +97,8 @@ class Donate extends Component {
       <>
         <div className={classes.root}>
           <CssBaseline />
-          <header>
-            <Navbar />
-          </header>
           <main className={classes.content}>
+            <Navbar />
             {/* Hero unit */}
             <div className={classes.heroContent}>
               <h3 className="donationGreet">

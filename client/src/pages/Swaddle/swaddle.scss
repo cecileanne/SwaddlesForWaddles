@@ -1,7 +1,12 @@
+$powderBlue: #4c6d9d;
+$cotton: #99ced4;
+$blush: #ee8687;
+$smoke: #6e7376;
+
 #preview {
-  border-color: #3d61b2;
-  border-style: dashed;
-  border-width: 1vh;
+  border-color: $powderBlue;
+  border-style: solid;
+  border-width: 0.5em;
   width: 40%;
 }
 #greeting {
@@ -18,20 +23,20 @@
   letter-spacing: 5px;
   /* color: white; */
 }
-.clickalbeIMG:hover {
-  border-color: white;
-  border-width: 0.3vh;
-  border-style: dashed;
-}
-.clickalbeIMG:active {
-  border-color: #3d61b2;
-  border-width: 0.3vh;
-  border-style: dashed;
-}
 
 .clickalbeIMG {
   width: 100px;
   border: none;
+  &:hover {
+    border-color: $smoke;
+    border-width: 0.3em;
+    border-style: solid;
+  }
+  &:active {
+    border-color: $blush;
+    border-width: 0.3em;
+    border-style: solid;
+  }
 }
 
 .form-group {
@@ -45,7 +50,7 @@ label {
 a.btn {
   background-color: #3d61b2;
   padding: 0.5vw;
-  border-radius: 10px;
+  // border-radius: 10px;
   border: none;
   /* color: white; */
   margin: 0.5vw;
@@ -53,7 +58,7 @@ a.btn {
 button {
   background-color: #3d61b2;
   padding: 0.5vw;
-  border-radius: 10px;
+  // border-radius: 10px;
   border: none;
   /* color: white; */
   margin: 0.5vw;

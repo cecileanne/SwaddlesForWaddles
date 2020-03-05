@@ -1,0 +1,60 @@
+$powderBlue: #4c6d9d;
+$cotton: #99ced4;
+$blush: #ee8687;
+$smoke: #6e7376;
+
+a {
+  color: $powderBlue;
+  &:hover {
+    color: $blush;
+    text-decoration: none;
+  }
+}
+h3 {
+  color: $powderBlue;
+}
+.logo {
+  width: 146px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.headerBarLogo {
+  max-height: 150px;
+  max-width: 150px;
+  margin-top: 0px;
+  margin-left: 20px;
+  padding: 5px;
+  position: fixed;
+}
+
+#noDonation {
+  color: black;
+  font-family: "candida";
+  font-size: medium;
+}
+
+h1 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 5.5em;
+  color: black;
+  /* margin-bottom: -50px; */
+  letter-spacing: 5px;
+}
+
+h4 {
+  font-family: "candida";
+}
+
+.italics {
+  font-family: "candida";
+  font-style: oblique;
+}
+
+button img {
+  width: 50px;
+}
+
+.swaddled {
+  padding-top: 3em;
+}

@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 
   content: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: "#99ced4",
     padding: theme.spacing(3)
   },
   expand: {
@@ -39,13 +39,10 @@ function Home() {
   const classes = useStyles();
   return (
     <>
-      {/* <PrivateRoutes /> */}
       <div className={classes.root}>
         <CssBaseline />
-        <header>
-          <Navbar />
-        </header>
         <main className={classes.content}>
+          <Navbar />
           {/* Hero unit */}
           <div className={classes.heroContent}>
             <Container maxWidth="sm">
@@ -58,6 +55,14 @@ function Home() {
               >
                 Swaddles 4 Waddles
               </Typography>
+              <div className="logo">
+                <img
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/assets/images/icons/swaddles_for_waddles_logo_sm.png"
+                  }
+                />
+              </div>
               <Typography
                 variant="h2"
                 align="center"
@@ -94,7 +99,7 @@ function Home() {
                   </Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                  <Typography>
+                  <Typography Typography variant="h5">
                     A group of penguins is called a waddle, and a sweater for a
                     penguin is like a swaddle. Here, on Swaddles for Waddles,
                     you can create your own images and memes of penguins in

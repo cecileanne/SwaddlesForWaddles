@@ -104,10 +104,8 @@ class Login extends Component {
       <>
         <div className={classes.root}>
           <CssBaseline />
-          <header>
-            <Navbar />
-          </header>
           <main className={classes.content}>
+            <Navbar />
             {/* Hero unit */}
             <div className={classes.heroContent}>
               <h3 className="donationGreet">

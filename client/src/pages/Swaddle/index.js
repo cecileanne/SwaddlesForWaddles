@@ -14,7 +14,7 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import API from "../../utils/API";
-import "./swaddle.css";
+import "./swaddle.scss";
 
 const styles = theme => ({
   root: {
@@ -137,10 +137,8 @@ class Swaddle extends Component {
       <>
         <div className={classes.root}>
           <CssBaseline />
-          <header>
-            <Navbar />
-          </header>
           <main className={classes.content}>
+            <Navbar />
             {/* Hero unit */}
             <div className={classes.heroContent}>
               <h3 className="donationGreet">
@@ -179,19 +177,19 @@ class Swaddle extends Component {
                   aria-controls="How-to-content"
                   id="How-to-header"
                 >
-                  <Typography variant="h5" noWrap>
+                  <Typography variant="h4" align="center">
                     How To Meme
                   </Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                  <Typography>
+                  <Typography variant="h5">
                     It's easy! Click on a penguin and a sweater. Then add your
                     fun message and click "Add Text".
                   </Typography>
                 </ExpansionPanelDetails>
               </ExpansionPanel>
               {/* </HowTo> */}
-              <Row>
+              <div className="swaddled">
                 <Col size="md-2">
                   <div id="penguins">
                     {this.state.imageTypes.penguins.map((image, index) => (
@@ -243,7 +241,7 @@ class Swaddle extends Component {
                     />
                   ))}
                 </Col>
-              </Row>
+              </div>
             </Container>
           </main>
         </div>
