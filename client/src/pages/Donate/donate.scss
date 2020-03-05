@@ -3,6 +3,12 @@ $cotton: #99ced4;
 $blush: #ee8687;
 $smoke: #6e7376;
 
+#background {
+  position: fixed;
+}
+span {
+  position: relative;
+}
 a {
   color: $powderBlue;
   &:hover {

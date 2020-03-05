@@ -28,8 +28,8 @@ const useStyles = makeStyles(theme => ({
 
   content: {
     flexGrow: 1,
-    backgroundColor: "#99ced4",
-    padding: theme.spacing(3)
+    backgroundColor: "#fff",
+    padding: theme.spacing(1)
   },
   expand: {
     padding: theme.spacing(8, 25, 6)

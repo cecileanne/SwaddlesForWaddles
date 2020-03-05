@@ -24,7 +24,7 @@ const styles = theme => ({
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(3)
+    padding: theme.spacing(0)
   },
   paper: {
     marginTop: theme.spacing(8),

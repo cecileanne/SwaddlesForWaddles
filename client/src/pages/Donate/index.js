@@ -95,7 +95,7 @@ class Donate extends Component {
     const { classes } = this.props;
     return (
       <>
-        <div className={classes.root}>
+        <div id="background" className={classes.root}>
           <CssBaseline />
           <main className={classes.content}>
             <Navbar />
