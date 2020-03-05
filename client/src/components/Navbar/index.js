@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import "./style.css";
+import "./style.scss";
 
 function Navbar() {
   const [isNavOpen, navIsOpen] = useState(false); // [value, fn]
@@ -29,7 +29,9 @@ function Navbar() {
       </ul>
     </nav>
   ) : (
-    <span onClick={() => navIsOpen(true)}>&#9776;</span>
+    <span className="hamburger" onClick={() => navIsOpen(true)}>
+      &#9776;
+    </span>
   );
 }
 
