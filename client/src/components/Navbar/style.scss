@@ -6,10 +6,10 @@ $smoke: #6e7376;
 .navbar {
   height: 60%;
   width: 13em;
-  /* position: fixed; */
-  z-index: 2;
+  position: fixed;
+  z-index: 1;
   top: 0;
-  right: 0;
+  left: 0;
   background-color: $blush;
   overflow-x: hidden;
   transition: 0.5s;
@@ -21,6 +21,7 @@ $smoke: #6e7376;
 }
 .hamburger {
   color: $powderBlue;
+  z-index: 1;
   font-size: 5em;
   &:hover {
     color: $blush;
