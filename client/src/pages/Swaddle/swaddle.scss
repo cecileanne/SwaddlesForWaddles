@@ -3,27 +3,22 @@ $cotton: #99ced4;
 $blush: #ee8687;
 $smoke: #6e7376;
 
+.MuiFormControl-root {
+  background: transparent;
+}
+body {
+  background: linear-gradient(180.56deg, $cotton 0.67%, white 99.32%);
+  background-repeat: no-repeat;
+}
 #preview {
   border-color: $powderBlue;
   border-style: solid;
   border-width: 0.5em;
   width: 40%;
 }
-#greeting {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  /* color: white; */
-  font-size: 2em;
-  margin-top: 110px;
+#expansion {
+  background: transparent;
 }
-#title {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  margin-top: 50px;
-  font-size: 5.5em;
-  margin-bottom: 50px;
-  letter-spacing: 5px;
-  /* color: white; */
-}
-
 .clickalbeIMG {
   width: 100px;
   border: none;
@@ -46,46 +41,4 @@ $smoke: #6e7376;
 }
 label {
   color: white;
-}
-a.btn {
-  background-color: #3d61b2;
-  padding: 0.5vw;
-  // border-radius: 10px;
-  border: none;
-  /* color: white; */
-  margin: 0.5vw;
-}
-button {
-  background-color: #3d61b2;
-  padding: 0.5vw;
-  // border-radius: 10px;
-  border: none;
-  /* color: white; */
-  margin: 0.5vw;
-}
-.card {
-  /* color: white; */
-  margin-bottom: 2em;
-}
-.btn,
-button:hover {
-  background-color: #c66353;
-  border: solid;
-  border-color: #3d61b2;
-  color: white;
-  text-decoration: none;
-}
-
-.btn,
-button:active {
-  background-color: #c66353;
-  border: solid;
-  border-color: #c66353;
-  color: white;
-  text-decoration: none;
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
 }

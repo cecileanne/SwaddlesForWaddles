@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row } from "../../components/Grid";
+import { Col } from "../../components/Grid";
 import UserTextInput from "../../components/UserTextInput";
 import { DownloadBtn, AddTextBtn } from "../../components/ButtonSubmit";
 import Navbar from "../../components/Navbar";
@@ -9,7 +9,6 @@ import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -23,7 +22,7 @@ const styles = theme => ({
 
   content: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
+
     padding: theme.spacing(0)
   },
   paper: {
@@ -32,9 +31,9 @@ const styles = theme => ({
     flexDirection: "column",
     alignItems: "center"
   },
+
   heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6)
+    padding: theme.spacing(3, 0, 6)
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -136,18 +135,19 @@ class Swaddle extends Component {
     return (
       <>
         <div className={classes.root}>
-          <CssBaseline />
-          <main className={classes.content}>
+          <header>
             <Navbar />
+            <h3 className="donationGreet">
+              {this.state.name_local ? (
+                <h3>Hello {this.state.name_local}!</h3>
+              ) : (
+                <a href="/Login ">Please Login</a>
+              )}
+            </h3>
+          </header>
+          <main className={classes.content}>
             {/* Hero unit */}
             <div className={classes.heroContent}>
-              <h3 className="donationGreet">
-                {this.state.name_local ? (
-                  <h3>Hello {this.state.name_local}!</h3>
-                ) : (
-                  <a href="/Login ">Please Login</a>
-                )}
-              </h3>
               <Container maxWidth="sm">
                 <div className="logo">
                   <img
@@ -171,7 +171,7 @@ class Swaddle extends Component {
             <Container maxWidth="md">
               {/**Instruction on function */}
               {/* <HowTo> */}
-              <ExpansionPanel width="50em">
+              <ExpansionPanel id="expansion" width="50em">
                 <ExpansionPanelSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="How-to-content"

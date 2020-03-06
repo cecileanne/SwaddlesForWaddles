@@ -1,18 +1,12 @@
 import React from "react";
+import Button from "@material-ui/core/Button";
 
 export function AddTextBtn(props) {
   return (
-    <button type="submit" {...props}>
+    <Button type="submit" {...props}>
       {props.children}
-    </button>
+    </Button>
   );
-}
-
-export function SaveBtn() {
-  return <button>Save</button>;
-}
-export function SubmitBtn() {
-  return <button>Submit</button>;
 }
 function handleClick(e) {
   e.preventDefault();
@@ -35,8 +29,15 @@ export function DonateBtn() {
 
 export function DownloadBtn({ process }) {
   return (
-    <a class="btn" href={process} download="penguin_meme.jpg" role="button">
-      Download
-    </a>
+    <Button>
+      <a
+        className="btn"
+        href={process}
+        download="penguin_meme.jpg"
+        role="button"
+      >
+        Download
+      </a>
+    </Button>
   );
 }

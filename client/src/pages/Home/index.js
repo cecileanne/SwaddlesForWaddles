@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { makeStyles, styled } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
@@ -22,13 +21,11 @@ const useStyles = makeStyles(theme => ({
     display: "flex"
   },
   heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6)
+    padding: theme.spacing(3, 0, 6)
   },
 
   content: {
     flexGrow: 1,
-    backgroundColor: "#fff",
     padding: theme.spacing(1)
   },
   expand: {
@@ -40,9 +37,10 @@ function Home() {
   return (
     <>
       <div className={classes.root}>
-        <CssBaseline />
-        <main className={classes.content}>
+        <header>
           <Navbar />
+        </header>
+        <main className={classes.content}>
           {/* Hero unit */}
           <div className={classes.heroContent}>
             <Container maxWidth="sm">
@@ -76,18 +74,17 @@ function Home() {
 
           {/* End hero unit */}
           <Container maxWidth="xl">
-            <CssBaseline />
             <Grid container direction="row" justify="center">
-              <Button variant="contained">
+              <Button>
                 <Link to="/Swaddle"> Swaddle a Penguin</Link>
               </Button>
 
-              <Button variant="contained">
+              <Button>
                 <Link to="/donate">Donate Now</Link>
               </Button>
             </Grid>
             <Grid item xs={12} className={classes.expand}>
-              <About>
+              <About id="expansion">
                 <ExpansionPanelSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="about-content"

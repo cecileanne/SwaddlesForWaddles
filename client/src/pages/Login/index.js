@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { Input } from "../../components/Form";
 import Navbar from "../../components/Navbar";
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -17,7 +15,6 @@ const styles = theme => ({
 
   content: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
     padding: theme.spacing(3)
   },
   paper: {
@@ -27,8 +24,7 @@ const styles = theme => ({
     alignItems: "center"
   },
   heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6)
+    padding: theme.spacing(3, 0, 6)
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -103,18 +99,19 @@ class Login extends Component {
     return (
       <>
         <div className={classes.root}>
-          <CssBaseline />
-          <main className={classes.content}>
+          <header>
             <Navbar />
+            <h3>
+              {this.state.name_local ? (
+                <h3>Hello {this.state.name_local}!</h3>
+              ) : (
+                <a href="/Login ">Please Login</a>
+              )}
+            </h3>
+          </header>
+          <main className={classes.content}>
             {/* Hero unit */}
             <div className={classes.heroContent}>
-              <h3 className="donationGreet">
-                {this.state.name_local ? (
-                  <h3>Hello {this.state.name_local}!</h3>
-                ) : (
-                  <a href="/Login ">Please Login</a>
-                )}
-              </h3>
               <Container maxWidth="sm">
                 <div className="logo">
                   <img
@@ -137,7 +134,6 @@ class Login extends Component {
             {/* End hero unit */}
             <Container>
               {/* <Container maxWidth="xs"> */}
-              <CssBaseline />
 
               <div className={classes.paper}>
                 <form className={classes.form} noValidate>
@@ -154,31 +150,20 @@ class Login extends Component {
                     placeholder="Password (required)"
                     type="password"
                   />
-
-                  <Button
-                    id="formBtn"
-                    onClick={this.handleFormSubmit}
-                    // disabled={!(this.state.author && this.state.title)}
-                  >
-                    Login
-                  </Button>
-                  <Grid container>
-                    {/* <Grid item xs>
-                      <Link href="#" variant="body2">
-                        Forgot password?
-                      </Link>
-                    </Grid> */}
-                    <Grid item>
-                      <Link to="/Register" variant="body2">
-                        {"Don't have an account? Sign Up"}
-                      </Link>
-                    </Grid>
-                  </Grid>
+                  <div className="text-center">
+                    <Button
+                      onClick={this.handleFormSubmit}
+                      // disabled={!(this.state.author && this.state.title)}
+                    >
+                      Login
+                    </Button>
+                    <br />
+                    <Link to="/Register" variant="body2">
+                      {"Don't have an account? Sign Up"}
+                    </Link>
+                  </div>
                 </form>
               </div>
-              {/* <Box mt={8}>
-              <Copyright />
-            </Box> */}
             </Container>
           </main>
         </div>

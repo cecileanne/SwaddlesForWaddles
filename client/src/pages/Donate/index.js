@@ -4,7 +4,6 @@ import { Input } from "../../components/Form";
 import Navbar from "../../components/Navbar";
 import { List, ListItem } from "../../components/List";
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -18,7 +17,7 @@ const styles = theme => ({
 
   content: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
+
     padding: theme.spacing(3)
   },
   paper: {
@@ -28,8 +27,7 @@ const styles = theme => ({
     alignItems: "center"
   },
   heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6)
+    padding: theme.spacing(3, 0, 6)
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -95,19 +93,20 @@ class Donate extends Component {
     const { classes } = this.props;
     return (
       <>
-        <div id="background" className={classes.root}>
-          <CssBaseline />
-          <main className={classes.content}>
+        <div className={classes.root}>
+          <header>
             <Navbar />
+            <h3 className="donationGreet">
+              {this.state.name_local ? (
+                <h3>Hello {this.state.name_local}!</h3>
+              ) : (
+                <a href="/Login ">Please Login</a>
+              )}
+            </h3>
+          </header>
+          <main className={classes.content}>
             {/* Hero unit */}
             <div className={classes.heroContent}>
-              <h3 className="donationGreet">
-                {this.state.name_local ? (
-                  <h3>Hello {this.state.name_local}!</h3>
-                ) : (
-                  <a href="/Login ">Please Login</a>
-                )}
-              </h3>
               <Container maxWidth="sm">
                 <div className="logo">
                   <img
@@ -129,15 +128,15 @@ class Donate extends Component {
             </div>
 
             {/* End hero unit */}
-            <Container maxWidth="md" className={classes.content}>
-              <Typography>
+            <Container size={6} maxWidth="md" className={classes.content}>
+              <Typography variant="h5">
                 The World Wildlife Fund is our favorite organization for saving
                 animals. If you would like to help the penguins please pledge to
                 donate. Please note - no financial information will be requested
                 at this time.
               </Typography>
-              <hr />
-              <form>
+
+              <form className="swaddled">
                 <Input
                   value={this.state.value}
                   changeHandler={this.handleInputChange}
@@ -153,8 +152,7 @@ class Donate extends Component {
                   </Button>
                 </div>
               </form>
-
-              <Col size="md-4">
+              <Container size={6} maxWidth="xs">
                 <div className="containerForTable">
                   <h3 className="listTitle">YOUR PLEDGES</h3>
                   <List k={this.state.donations} />
@@ -181,7 +179,7 @@ class Donate extends Component {
                     )}
                   </div>
                 </div>
-              </Col>
+              </Container>
             </Container>
           </main>
         </div>
@@ -190,5 +188,4 @@ class Donate extends Component {
   }
 }
 
-// export default Donate;
 export default withStyles(styles)(Donate);
