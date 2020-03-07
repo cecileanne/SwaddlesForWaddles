@@ -152,6 +152,9 @@ class Login extends Component {
                   />
                   <div className="text-center">
                     <Button
+                      variant="outlined"
+                      size="large"
+                      style={{ marginBottom: "2em" }}
                       onClick={this.handleFormSubmit}
                       // disabled={!(this.state.author && this.state.title)}
                     >

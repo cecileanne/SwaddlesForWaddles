@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Col } from "../../components/Grid";
 import { Input } from "../../components/Form";
 import Navbar from "../../components/Navbar";
 import { List, ListItem } from "../../components/List";
@@ -145,6 +144,9 @@ class Donate extends Component {
                 />
                 <div className="text-center">
                   <Button
+                    variant="outlined"
+                    size="large"
+                    style={{ marginBottom: "2em" }}
                     // disabled={!(this.state.author && this.state.title)}
                     onClick={this.handleFormSubmit}
                   >
@@ -172,8 +174,8 @@ class Donate extends Component {
                         )}
                       </h3>
                     ) : (
-                      <p id="noDonation">
-                        No pledges yet, <br />
+                      <p>
+                        No pledges yet <br />
                         Please give generously
                       </p>
                     )}

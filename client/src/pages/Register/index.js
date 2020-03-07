@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
 import { Input } from "../../components/Form";
 import Navbar from "../../components/Navbar";
 import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-
 import axios from "axios";
 
 const styles = theme => ({
@@ -163,13 +160,20 @@ class Register extends Component {
                   />
                   <div className="text-center">
                     <Button
+                      variant="outlined"
+                      size="large"
+                      style={{ marginBottom: "2em" }}
                       onClick={this.handleFormSubmit}
                       // disabled={!(this.state.author && this.state.title)}
                     >
                       Register
                     </Button>
                     <br />
-                    <Link to="/Register" variant="body2">
+                    <Link
+                      to="/Register"
+                      variant="body2"
+                      // style={{ margin: "2em" }}
+                    >
                       {"Don't have an account? Sign Up"}
                     </Link>
                   </div>

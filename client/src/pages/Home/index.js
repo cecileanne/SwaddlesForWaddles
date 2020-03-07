@@ -75,13 +75,25 @@ function Home() {
           {/* End hero unit */}
           <Container maxWidth="xl">
             <Grid container direction="row" justify="center">
-              <Button>
-                <Link to="/Swaddle"> Swaddle a Penguin</Link>
-              </Button>
+              <Link to="/Swaddle" className="bttn">
+                <Button
+                  variant="outlined"
+                  size="large"
+                  style={{ marginRight: "2em" }}
+                >
+                  Swaddle a Penguin
+                </Button>
+              </Link>
 
-              <Button>
-                <Link to="/donate">Donate Now</Link>
-              </Button>
+              <Link to="/donate" className="bttn">
+                <Button
+                  variant="outlined"
+                  size="large"
+                  style={{ marginLeft: "2em" }}
+                >
+                  Donate Now
+                </Button>
+              </Link>
             </Grid>
             <Grid item xs={12} className={classes.expand}>
               <About id="expansion">

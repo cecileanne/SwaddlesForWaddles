@@ -3,6 +3,13 @@ $cotton: #99ced4;
 $blush: #ee8687;
 $smoke: #6e7376;
 
+.bttn {
+  font-size: 1.25em;
+  color: $smoke;
+  &:hover {
+    color: $smoke;
+  }
+}
 #background {
   position: fixed;
 }
@@ -25,8 +32,8 @@ h3 {
   margin-right: auto;
 }
 
-button img {
-  width: 50px;
+button {
+  padding-bottom: 3em;
 }
 
 .swaddled {

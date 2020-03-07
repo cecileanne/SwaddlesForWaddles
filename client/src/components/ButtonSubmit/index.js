@@ -1,9 +1,16 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
+import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 
 export function AddTextBtn(props) {
   return (
-    <Button type="submit" {...props}>
+    <Button
+      type="submit"
+      {...props}
+      variant="outlined"
+      size="large"
+      style={{ marginBottom: "2em" }}
+    >
       {props.children}
     </Button>
   );
@@ -29,9 +36,14 @@ export function DonateBtn() {
 
 export function DownloadBtn({ process }) {
   return (
-    <Button>
+    <Button
+      size="medium"
+      variant="outlined"
+      // color="default"
+      startIcon={<CloudDownloadIcon />}
+    >
       <a
-        className="btn"
+        className="bttn"
         href={process}
         download="penguin_meme.jpg"
         role="button"
