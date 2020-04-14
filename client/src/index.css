@@ -3,11 +3,17 @@
   font-family: sans-serif;
 }
 
-html,
-body,
 #root,
 #root > div {
   height: 100%;
   margin: 1em;
   padding: 0;
+}
+
+@media (max-width: 414px) {
+  body {
+    height: 100vh;
+    background-repeat-y: no-repeat;
+    background-repeat: repeat-x;
+  }
 }
